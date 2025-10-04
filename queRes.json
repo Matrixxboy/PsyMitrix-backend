@@ -1,0 +1,82 @@
+{
+    "id": "resp_01k6q3bn8gfze9j2gt437yxvyv",
+    "created_at": 1759564387.0,
+    "error": null,
+    "incomplete_details": null,
+    "instructions": null,
+    "metadata": {},
+    "model": "openai/gpt-oss-20b",
+    "object": "response",
+    "output": [
+        {
+            "id": "resp_01k6q3bn8gfzerxcvaq4hny029",
+            "summary": [],
+            "type": "reasoning",
+            "content": [
+                {
+                    "text": "The user wants six questions, in JSON format, like {\"questions\": [...]}.\n\nRequirements: \n- The questions should be what a psychiatrist would ask a new patient.\n- No explanation, no personal info, no sensitive data, no assumptions, no jargon, no medical advice.\n\nSo we need six open-ended but simple questions.\n\nExamples:\n1. How have you been feeling lately?\n2. What brings you here today?\n3. Can you tell me about any recent changes in your life?\n4. Are there any worries or concerns that have been on your mind?\n5. How would you describe your sleep and appetite patterns?\n6. Do you have any support from friends or family?\n\nBut we should keep it simple and avoid jargon. Avoid medical terms. So \"sleep\" is okay, but maybe \"sleep patterns\" is fine.\n\nAlso avoid sensitive data; it's fine.\n\nNo personal info.\n\nSo final JSON with an array of 6 questions. Ensure JSON is valid.",
+                    "type": "reasoning_text"
+                }
+            ],
+            "encrypted_content": null,
+            "status": "completed"
+        },
+        {
+            "id": "msg_01k6q3bn8gfzfb0gvxserhhven",
+            "content": [
+                {
+                    "annotations": [],
+                    "text": "{\"questions\": [\"How have you been feeling lately?\", \"What brings you here today?\", \"Can you share any recent changes in your life?\", \"Is there anything that has been worrying you?\", \"How would you describe your sleep and eating habits?\", \"Do you have friends or family you talk to about things?\"]}",
+                    "type": "output_text",
+                    "logprobs": null
+                }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message"
+        }
+    ],
+    "parallel_tool_calls": true,
+    "temperature": 1.0,
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 1.0,
+    "background": false,
+    "conversation": null,
+    "max_output_tokens": null,
+    "max_tool_calls": null,
+    "previous_response_id": null,
+    "prompt": null,
+    "prompt_cache_key": null,
+    "reasoning": {
+        "effort": "medium",
+        "generate_summary": null,
+        "summary": null
+    },
+    "safety_identifier": null,
+    "service_tier": "default",
+    "status": "completed",
+    "text": {
+        "format": {
+            "type": "text"
+        },
+        "verbosity": null
+    },
+    "top_logprobs": 0,
+    "truncation": "disabled",
+    "usage": {
+        "input_tokens": 181,
+        "input_tokens_details": {
+            "cached_tokens": 0,
+            "reasoning_tokens": 0
+        },
+        "output_tokens": 271,
+        "output_tokens_details": {
+            "reasoning_tokens": 0,
+            "cached_tokens": 0
+        },
+        "total_tokens": 452
+    },
+    "user": null,
+    "store": false
+}
