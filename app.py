@@ -1,11 +1,11 @@
 import os
 from fastapi import FastAPI, Form, Depends
-from Models import Question , User
+from Models import Question , ReportRequest as Report
 from fastapi.middleware.cors import CORSMiddleware
-from aiModel import get_ai_response , generate_questions
-from dbHelper import save_question_to_db
-from db import mycursor, mydb
-from dbTabels import create_tables, create_user_details_table
+from aiModel import get_ai_response , generate_questions , generate_report
+from Database.db import mycursor, mydb
+from Database.dbHelper import save_question_to_db
+from Database.dbTabels import create_tables
 from typing import List
 import json
 
@@ -63,4 +63,20 @@ def read_questions(question: Question):
         "content": question.content,
         },
         "AI response": response
+    }
+
+
+@app.post("/report/")
+def create_report(user: Report):
+    report_raw = generate_report(user)
+
+    # Ensure it's parsed JSON (not a string)
+    try:
+        report_data = json.loads(report_raw) if isinstance(report_raw, str) else report_raw
+    except json.JSONDecodeError:
+        report_data = {"error": "Invalid JSON format returned by AI."}
+
+    return {
+        "message": "Report generated successfully",
+        "report": report_data
     }

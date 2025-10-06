@@ -2,12 +2,12 @@ import os
 import json
 import requests
 from openai import OpenAI   # fixed import
-from SystemPrompt import system_prompt , question_prompt
+from SystemPrompt import system_prompt , question_prompt ,report_prompt
 from dotenv import load_dotenv
-from Models import User, Question
+from Models import User, Question , ReportRequest as Report
 load_dotenv()
 
-from db import mycursor, mydb
+from Database.db import mycursor, mydb
 from typing import List
 
 
@@ -81,4 +81,35 @@ def generate_questions():
     except (IndexError, AttributeError, KeyError, json.JSONDecodeError):
         return {"error": "Unexpected response format"}
 
+
+def generate_report(user: Report):
+    prompt = report_prompt.format(
+        Name=user.name,
+        Gender=user.gender,
+        DOB=user.dob,
+        Blood_Group=user.blood_group,
+        Older_Siblings=user.older_siblings,
+        Younger_Siblings=user.younger_siblings
+    )
+
+    client = OpenAI(
+        api_key=os.getenv("GROQ_API"),
+        base_url="https://api.groq.com/openai/v1"
+    )
+
+    try:
+        ai_response = client.chat.completions.create(
+            model="openai/gpt-oss-20b",  # ✅ or another Groq-supported model
+            messages=[
+                {"role": "user", "content": prompt}
+            ]
+        )
+
+        # Extract the text safely
+        response_text = ai_response.choices[0].message.content.strip()
+        return response_text
+
+    except Exception as e:
+        print(f"⚠️ Error generating report: {e}")
+        return "Error: Unable to generate report due to unexpected response format."
 
