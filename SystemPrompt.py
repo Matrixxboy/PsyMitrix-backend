@@ -20,5 +20,7 @@ generate the like as the psychiatrist ask to the new patient
 - do not make assumptions about the user
 - do not use jargon or technical terms
 - do not provide medical advice
-- give me answer in json formate , like {"1": "question1", "2": "question2", "3": "question3", "4": "question4", "5": "question5", "6": "question6"}
+- give me answer in json formate , like {'1': {'question' :'question1', 'question_type': 'type1'}, '2': {'question' :'question2', 'question_type': 'type2'}, '3': {'question' :'question3', 'question_type': 'type3'}, '4': {'question' :'question4', 'question_type': 'type4'}, '5': {'question' :'question5', 'question_type': 'type5'}, '6': {'question' :'question6', 'question_type': 'type6'}}
+- question_type can be one of the following: "multiple_choice", "rating_scale", "open_ended", "yes_no", "demographic"
+- without any other text
 """

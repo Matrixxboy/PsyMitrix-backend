@@ -2,10 +2,12 @@ import os
 from fastapi import FastAPI, Form, Depends
 from Models import Question , User
 from fastapi.middleware.cors import CORSMiddleware
-from aiModel import get_ai_response , generate_questions , save_question_to_db , create_user_in_db
+from aiModel import get_ai_response , generate_questions
+from dbHelper import save_question_to_db
 from db import mycursor, mydb
 from dbTabels import create_tables, create_user_details_table
 from typing import List
+import json
 
 app = FastAPI()
 
@@ -23,8 +25,33 @@ def read_root():
 
 @app.get("/questions/")
 def read_question():
-    response = generate_questions()
-    return response
+    try:
+        # Step 1: Create tables (if not exist)
+        create_tables()
+
+        # Step 2: Generate questions
+        generated_questions = generate_questions()
+        generated_questions = json.loads(generated_questions)
+        print("Generated Questions:", generated_questions)
+       
+        # Step 3: Save generated questions to DB
+        for content, question_data in generated_questions.items():
+            print("Saving question:", question_data)  # Debugging line
+            save_question_to_db(content,question_data, mydb, mycursor)
+
+        # Step 4: Return combined response
+        return {
+            "message": "Questions generated and saved successfully",
+            "generated_questions": generated_questions,
+        }
+
+    except Exception as e:
+        return {"error": f"Failed to process questions: {str(e)}"}
+    finally:
+        if mydb.is_connected():
+            mycursor.close()
+            mydb.close()
+            print("MySQL connection is closed")
 
 @app.post("/analyze/")
 def read_questions(question: Question):
@@ -34,45 +61,6 @@ def read_questions(question: Question):
         "question": {
         "question_type": question.question_type,
         "content": question.content,
-        "answer": question.answer,
-        "answer_explanation": question.answer_explanation,
         },
         "AI response": response
     }
-
-@app.post("/save/")
-def save_question(question: List[Question]):
-    try:
-        create_tables()
-        response = save_question_to_db(question)
-        success_mg = "Question saved successfully"
-        if response.get("message") == success_mg:
-            mycursor.execute("SELECT * FROM questions")
-            all_questions = mycursor.fetchall()
-            response["all_questions"] = all_questions
-    except Exception as e:
-        return {"error": f"Failed to create tables: {str(e)}"}
-
-    return response
-
-
-@app.post("/user/create/")
-def create_user(
-    username: str = Form(...),
-    email: str = Form(...),
-    password: str = Form(...),
-    blood_group: str = Form(None),
-    birth_date: str = Form(None),
-    gender: str = Form(None),
-):
-    create_user_details_table()
-    user = User(
-        username=username,
-        email=email,
-        password=password,
-        blood_group=blood_group,
-        birth_date=birth_date,
-        gender=gender,
-    )
-    response = create_user_in_db(user=user, mydb=mydb, mycursor=mycursor)
-    return response

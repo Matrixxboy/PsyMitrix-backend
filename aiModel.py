@@ -4,7 +4,7 @@ import requests
 from openai import OpenAI   # fixed import
 from SystemPrompt import system_prompt , question_prompt
 from dotenv import load_dotenv
-from Models import User
+from Models import User, Question
 load_dotenv()
 
 from db import mycursor, mydb
@@ -64,85 +64,21 @@ def generate_questions():
         base_url="https://api.groq.com/openai/v1"
     )
 
-    ai_response = client.responses.create(
-        model="openai/gpt-oss-20b",
-        input=prompt
+    ai_response = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": prompt,
+        }
+    ],
+    model="openai/gpt-oss-20b",
     )
 
-    # Safely extract text
+    # Safely extract text openai/gpt-oss-20b
     try:
-        response_text = ai_response.output[1].content[0].text.strip()
-
-        # Try to parse JSON if it’s valid
-        try:
-            response_json = json.loads(response_text)
-            return response_json
-        except json.JSONDecodeError:
-            # If not JSON, just return text
-            return [response_text]
-
-    except (IndexError, AttributeError, KeyError):
+        response_text = ai_response.choices[0].message.content
+        return response_text
+    except (IndexError, AttributeError, KeyError, json.JSONDecodeError):
         return {"error": "Unexpected response format"}
 
 
-def save_question_to_db(questions):
-    try:
-        connection = mydb
-        cursor = mycursor
-
-        if connection.is_connected():
-            insert_query = """
-            INSERT INTO questions (content, question_type, answer, answer_explanation)
-            VALUES (%s, %s, %s, %s)
-            """
-            # Loop through each Question object
-            for question in questions:
-                record = (
-                    question.content,
-                    question.question_type,
-                    question.answer,
-                    question.answer_explanation
-                )
-                cursor.execute(insert_query, record)
-
-            connection.commit()
-            return {"message": f"{len(questions)} question(s) saved successfully!"}
-
-    except Exception as e:
-        return {"error": f"Error: {e}"}
-
-    finally:
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
-            print("MySQL connection is closed")
-
-
-def create_user_in_db(user: User, mydb, mycursor):
-    try:
-        if mydb.is_connected():
-            insert_query = """
-            INSERT INTO users (username, email, password_hash, blood_group, birth_date, gender)
-            VALUES (%s, %s, %s, %s, %s, %s)
-            """
-            # Use password as-is for now; consider hashing in production!
-            record = (
-                user.username,
-                user.email,
-                user.password,          # Replace with hashed password in production
-                user.blood_group,
-                user.birth_date,        # Ensure it's a string in 'YYYY-MM-DD' format
-                user.gender
-            )
-            mycursor.execute(insert_query, record)
-            mydb.commit()
-            return {"message": "User created successfully!"}
-
-    except Exception as e:
-        return {"error": str(e)}
-
-    finally:
-        if mydb.is_connected():
-            mycursor.close()
-            mydb.close()
-            print("MySQL connection is closed")
