@@ -1,12 +1,13 @@
 import os
 from fastapi import FastAPI, Form, Depends
-from Models import Question , ReportRequest as Report
+from Models import Question , ReportRequest as Report ,IntakeParameters
 from fastapi.middleware.cors import CORSMiddleware
 from aiModel import get_ai_response , generate_questions , generate_report
 from Database.db import mycursor, mydb
 from Database.dbHelper import save_question_to_db
 from Database.dbTabels import create_tables
-from typing import List
+from typing import List , Dict , Any
+from fastapi import HTTPException
 import json
 
 app = FastAPI()
@@ -23,35 +24,42 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/questions/")
-def read_question():
+@app.post("/questions/", response_model=Dict[str, Any])
+def read_question(params: IntakeParameters):
     try:
-        # Step 1: Create tables (if not exist)
-        create_tables()
+        generated_questions_str = generate_questions(params)
+        cleaned_str = generated_questions_str.strip()
 
-        # Step 2: Generate questions
-        generated_questions = generate_questions()
-        generated_questions = json.loads(generated_questions)
-        print("Generated Questions:", generated_questions)
-       
-        # Step 3: Save generated questions to DB
-        for content, question_data in generated_questions.items():
-            print("Saving question:", question_data)  # Debugging line
-            save_question_to_db(content,question_data, mydb, mycursor)
+        # 🧹 Clean up potential formatting (e.g., ```json ... ```)
+        if cleaned_str.startswith("```json"):
+            cleaned_str = cleaned_str.replace("```json", "").replace("```", "").strip()
 
-        # Step 4: Return combined response
+        # 🧩 Parse JSON
+        try:
+            questions_data = json.loads(cleaned_str)
+        except json.JSONDecodeError:
+            print("⚠️ Invalid JSON detected. Attempting to fix...")
+            # Attempt to auto-fix common JSON issues (like missing commas or quotes)
+            cleaned_str = cleaned_str.replace("'", '"').replace("\n", "")
+            try:
+                questions_data = json.loads(cleaned_str)
+            except json.JSONDecodeError:
+                raise HTTPException(status_code=500, detail="Malformed JSON returned by LLM.")
+
+        # ✅ Validate final output structure
+        if not isinstance(questions_data, dict) or len(questions_data) < 4:
+            raise HTTPException(status_code=400, detail="Invalid question structure from AI response.")
+
         return {
-            "message": "Questions generated and saved successfully",
-            "generated_questions": generated_questions,
+            "message": "Questions generated successfully",
+            "questions": questions_data
         }
 
+    except HTTPException as e:
+        raise e
     except Exception as e:
-        return {"error": f"Failed to process questions: {str(e)}"}
-    finally:
-        if mydb.is_connected():
-            mycursor.close()
-            mydb.close()
-            print("MySQL connection is closed")
+        print(f"🚨 Unexpected Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/analyze/")
 def read_questions(question: Question):
@@ -60,11 +68,10 @@ def read_questions(question: Question):
         "message": "Questions retrieved successfully",
         "question": {
         "question_type": question.question_type,
-        "content": question.content,
+        "content": question.question,
         },
         "AI response": response
     }
-
 
 @app.post("/report/")
 def create_report(user: Report):

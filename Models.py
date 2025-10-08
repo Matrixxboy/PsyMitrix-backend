@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Literal
+from typing import Literal , Optional
 
 class Question(BaseModel):
     question: str
@@ -21,3 +21,14 @@ class ReportRequest(BaseModel):
     blood_group: str
     older_siblings: int
     younger_siblings: int
+    
+class IntakeParameters(BaseModel):
+    Name: Optional[str] = None
+    Gender: Optional[str] = None
+    DOB: Optional[str] = None
+    Relationship_Status: Optional[str] = None
+    Children: Optional[str] = None
+    Occupation: Optional[str] = None
+    Younger_Siblings: Optional[str] = None
+    Older_Siblings: Optional[str] = None
+    Blood_Group: Optional[str] = None

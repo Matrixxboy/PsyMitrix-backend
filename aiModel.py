@@ -4,12 +4,12 @@ import requests
 from openai import OpenAI   # fixed import
 from SystemPrompt import system_prompt , question_prompt ,report_prompt
 from dotenv import load_dotenv
-from Models import User, Question , ReportRequest as Report
+from Models import User, Question , ReportRequest as Report , IntakeParameters
 load_dotenv()
-
+from collections import defaultdict
 from Database.db import mycursor, mydb
 from typing import List
-
+from fastapi import HTTPException
 
 def get_ai_response(question):
     """
@@ -17,7 +17,7 @@ def get_ai_response(question):
     """
     data = {
         "question_type": question.question_type,
-        "content": question.content,
+        "content": question.question,
         "answer": question.answer,
         "answer_explanation_type": question.answer_explanation,
     }
@@ -57,29 +57,55 @@ def get_ai_response(question):
     return response
 
 
-def generate_questions():
-    prompt = question_prompt
-    client = OpenAI(
-        api_key=os.getenv("GROQ_API"),
-        base_url="https://api.groq.com/openai/v1"
-    )
+def generate_questions(params: IntakeParameters) -> str:
+    groq_api_key = os.getenv("GROQ_API")
+    if not groq_api_key:
+        raise ValueError("❌ GROQ_API environment variable not found.")
 
-    ai_response = client.chat.completions.create(
-    messages=[
-        {
-            "role": "user",
-            "content": prompt,
-        }
-    ],
-    model="openai/gpt-oss-20b",
-    )
+    data = {
+        "Name": params.Name or "N/A",
+        "Gender": params.Gender or "N/A",
+        "DOB": params.DOB or "N/A",
+        "Relationship_Status": params.Relationship_Status or "N/A",
+        "Children": params.Children or "N/A",
+        "Occupation": params.Occupation or "N/A",
+        "Younger_Siblings": params.Younger_Siblings or "N/A",
+        "Older_Siblings": params.Older_Siblings or "N/A",
+        "Blood_Group": params.Blood_Group or "N/A",
+    }
 
-    # Safely extract text openai/gpt-oss-20b
+    # Escape all literal curly braces before formatting
+    escaped_prompt = question_prompt.replace("{", "{{").replace("}", "}}")
+
+    # Then reinsert only the placeholders we actually want to fill
+    for key in data.keys():
+        escaped_prompt = escaped_prompt.replace(f"{{{{{key}}}}}", f"{{{key}}}")
+
+    safe_data = defaultdict(lambda: "N/A", data)
+    dynamic_prompt = escaped_prompt.format_map(safe_data)
+
     try:
+        client = OpenAI(
+            api_key=groq_api_key,
+            base_url="https://api.groq.com/openai/v1"
+        )
+
+        ai_response = client.chat.completions.create(
+            model="openai/gpt-oss-20b",
+            response_format={"type": "json_object"},
+            messages=[
+                {"role": "system", "content": "You are an empathetic psychiatrist generating intake questions."},
+                {"role": "user", "content": dynamic_prompt}
+            ],
+        )
+
         response_text = ai_response.choices[0].message.content
+        print(f"✅ Raw LLM Response (first 200 chars): {response_text[:200]}...")
         return response_text
-    except (IndexError, AttributeError, KeyError, json.JSONDecodeError):
-        return {"error": "Unexpected response format"}
+
+    except Exception as e:
+        print(f"🚨 Error during LLM API call: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 def generate_report(user: Report):
