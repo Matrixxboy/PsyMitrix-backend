@@ -3,207 +3,699 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personality Report Generator</title>
+    <title>Patient Profile & AI Report</title>
+    <!-- Dependencies for styling and functionality -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <style>
+        /* Doctor/Clinic Theme Styling */
+        :root {
+            --primary-color: #007bff; /* Medical Blue */
+            --secondary-color: #28a745; /* Green for success/health */
+            --background-color: #e9ecef; 
+            --card-bg: #ffffff;
+            --font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            background-color: #f5f5f5;
+            background-color: var(--background-color);
             color: #333333;
+            font-family: var(--font-family);
         }
+
         .card {
-            background: #ffffff;
-            border: none;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: var(--card-bg);
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-radius: 10px;
         }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .btn-primary {
-            background-color: #4a90e2;
-            border-color: #4a90e2;
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
         }
-        .btn-primary:hover {
-            background-color: #357abd;
-            border-color: #357abd;
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
         }
+
         .text-primary {
-            color: #4a90e2 !important;
+            color: var(--primary-color) !important;
         }
-        h1, h2, h3, h4, h5, h6 {
-            color: #4a90e2;
+
+        h1, h2, h3, h4, h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Progress Bar Styling */
+        .progress {
+            height: 10px;
+            background-color: #dee2e6;
+        }
+
+        .progress-bar {
+            background-color: var(--secondary-color);
+        }
+        
+        /* PDF Design Styles */
+        .pdf-content {
+            background: #ffffff;
+            margin-top: 20px;
+        }
+
+        .pdf-page {
+            padding: 40px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            page-break-after: always;
+        }
+
+        .pdf-page:last-child {
+            page-break-after: avoid;
+        }
+        
+        /* Fix for ApexCharts canvas height issue in PDF generation */
+        .card .apexcharts-canvas {
+            min-height: 300px; /* Ensure charts take up space */
+        }
+        
+        /* **CRITICAL FIX FOR PDF PAGE BREAKS** */
+        #reportData .card {
+            page-break-inside: avoid !important;
+        }
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            .pdf-page {
+                border: none;
+                page-break-after: always;
+            }
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            .pdf-page h2 {
+                font-size: 18pt;
+                text-align: center;
+                border-bottom: 2px solid var(--primary-color);
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+            .two-column {
+                display: flex;
+                gap: 20px;
+            }
+            .two-column > div {
+                width: 50%;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container mt-5">
-    <div class="text-center mb-5">
-        <h1 class="display-4">AI Personality Report Generator</h1>
-        <p class="lead">Fill in your details to generate a comprehensive personality report.</p>
+<div class="container mt-5 mb-5">
+    <div class="text-center mb-4">
+        <h1 class="display-5 text-primary">🏥 **AI Patient Profile & Analysis**</h1>
+        <p class="lead">Complete the profile, step-by-step, to generate the detailed clinical report.</p>
     </div>
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-lg-8 offset-lg-2">
             <div class="card p-5">
+                <div class="progress mb-4">
+                    <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                
                 <form id="reportForm">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" required>
+                    <!-- Step 1: Basic Details -->
+                    <div class="form-step" id="step-1">
+                        <h4>Step 1: Patient Identification</h4>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required placeholder="e.g., Jane Doe">
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="mb-3">
                             <label for="dob" class="form-label">Date of Birth</label>
                             <input type="date" class="form-control" id="dob" required>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label d-block">Gender</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                                <label class="form-check-label" for="genderMale">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+                                <label class="form-check-label" for="genderFemale">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="genderOther" value="Other" required>
+                                <label class="form-check-label" for="genderOther">Other</label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary float-end" onclick="nextStep()">Next &rarr;</button>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
+
+                    <!-- Step 2: Biological & Family Info -->
+                    <div class="form-step" id="step-2">
+                        <h4>Step 2: Key Data & Background</h4>
+                        <div class="mb-3">
                             <label for="blood_group" class="form-label">Blood Group</label>
-                            <input type="text" class="form-control" id="blood_group" required>
+                            <input type="text" class="form-control" id="blood_group" required placeholder="e.g., A+">
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="older_siblings" class="form-label">Older Siblings</label>
-                            <input type="number" class="form-control" id="older_siblings" required>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="older_siblings" class="form-label">Older Siblings Count</label>
+                                <input type="number" class="form-control" id="older_siblings" value="0" min="0" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="younger_siblings" class="form-label">Younger Siblings Count</label>
+                                <input type="number" class="form-control" id="younger_siblings" value="0" min="0" required>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="younger_siblings" class="form-label">Younger Siblings</label>
-                            <input type="number" class="form-control" id="younger_siblings" required>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg mt-4">Generate Report</button>
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">&larr; Previous</button>
+                        <button type="submit" class="btn btn-primary float-end">Generate Analysis &rarr;</button>
                     </div>
                 </form>
+                
+                <div id="loadingIndicator" class="text-center mt-4" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Analyzing data and preparing AI report...</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="reportSection" class="mt-5"></div>
-    <div class="text-center mt-4 mb-5">
-        <button id="downloadPdf" class="btn btn-primary btn-lg" style="display: none;">Download Report as PDF</button>
+    <!-- Report Output Section -->
+    <div id="reportSection" class="pdf-content mx-auto" style="display: none; max-width: 800px; min-height: 400px;">
+        <h2 class="text-center display-6 mb-4">Patient Analysis Report</h2>
+        <div id="reportData">
+            <!-- Report content (text, charts) will be inserted here -->
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <button id="downloadPdf" class="btn btn-success btn-lg" style="display: none;">⬇️ Download Report (PDF)</button>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    document.getElementById('reportForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
+    // Global state variables
+    let currentStep = 1;
+    const totalSteps = 2;
+    const formSteps = document.querySelectorAll('.form-step');
+    const progressBar = document.getElementById('progressBar');
+    let lastChartData = null; // Store chart data to restore after PDF generation
+    const A4_WIDTH = 595.28; // A4 width in points
+    const MARGIN = 40;
+    const HEADER_HEIGHT = 60; // Space required for the custom header
 
-        const payload = {
-            name: document.getElementById('name').value,
-            gender: 'Male', // Can be extended later
-            dob: document.getElementById('dob').value,
-            blood_group: document.getElementById('blood_group').value,
-            older_siblings: parseInt(document.getElementById('older_siblings').value),
-            younger_siblings: parseInt(document.getElementById('younger_siblings').value)
-        };
+    // --- Form Progression Logic ---
 
-        const response = await fetch('http://127.0.0.1:8000/report/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+    function showStep(step) {
+        formSteps.forEach(s => s.style.display = 'none');
+        document.getElementById(`step-${step}`).style.display = 'block';
+        
+        const progress = (step / totalSteps) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+    }
+
+    function validateStep(step) {
+        const currentStepDiv = document.getElementById(`step-${step}`);
+        let allValid = true;
+        
+        // Check standard required inputs
+        const requiredInputs = currentStepDiv.querySelectorAll('input[required], select[required], textarea[required]');
+        requiredInputs.forEach(input => {
+            input.classList.remove('is-invalid');
+            if (!input.value) {
+                allValid = false;
+                input.classList.add('is-invalid');
+            }
         });
+        
+        // Check radio button group separately (gender)
+        if (step === 1) {
+            const genderChecked = document.querySelector('input[name="gender"]:checked');
+            if (!genderChecked) {
+                allValid = false;
+            }
+        }
+        
+        return allValid;
+    }
 
-        const data = await response.json();
-        displayReport(data.report);
-        document.getElementById('downloadPdf').style.display = 'inline-block';
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                alert('Please fill out all required fields.');
+            }
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showStep(currentStep); // Show the first step on load
     });
 
-    function displayReport(report) {
-        const reportSection = document.getElementById('reportSection');
-        reportSection.innerHTML = `<h2 class="text-center display-5 mb-4">Report Summary</h2>`;
 
-        report.sections.forEach(sec => {
-            const sectionDiv = document.createElement('div');
-            sectionDiv.className = 'card p-4 mb-4';
-            sectionDiv.innerHTML = `<h3>${sec.title}</h3><p>${sec.content}</p>`;
-            reportSection.appendChild(sectionDiv);
+    // --- API Call and Report Display ---
+
+        document.getElementById('reportForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!validateStep(currentStep)) {
+                 alert('Please fill out all required fields.');
+                 return;
+            }
+    
+            document.getElementById('step-2').style.display = 'none';
+            document.getElementById('loadingIndicator').style.display = 'block';
+            document.getElementById('downloadPdf').style.display = 'none';
+    
+            const payload = {
+                name: document.getElementById('name').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                dob: document.getElementById('dob').value,
+                blood_group: document.getElementById('blood_group').value,
+                older_siblings: parseInt(document.getElementById('older_siblings').value),
+                younger_siblings: parseInt(document.getElementById('younger_siblings').value)
+            };
+    
+            try {
+                // Use static data instead of fetching from the API
+                const staticData = {
+                    "message": "Report generated successfully",
+                    "report": {
+                        "sections": [
+                            {
+                                "title": "Openness",
+                                "content": "Utsav exhibits a pronounced curiosity for new concepts and experiences. He readily adapts his perspective when presented with unfamiliar information, demonstrating cognitive flexibility. This openness fuels his capacity to experiment, innovate, and integrate diverse viewpoints, positioning him as a creative thinker in dynamic environments."
+                            },
+                            {
+                                "title": "Individualization",
+                                "content": "Driven by intrinsic goals, Utsav seeks mastery and self‑determination in all pursuits. He sets clear objectives, monitors progress, and adapts strategies to achieve excellence. This proactive orientation supports sustained motivation, independent decision‑making, and a consistent pursuit of personal and professional growth."
+                            },
+                            {
+                                "title": "Introversion–Extraversion",
+                                "content": "He balances quiet reflection with purposeful interaction. Utsav prefers small, meaningful groups, yet remains approachable and responsive in larger settings. This moderate social style enables thoughtful engagement while avoiding overstimulation, fostering effective communication and collaboration when necessary."
+                            },
+                            {
+                                "title": "Self‑Esteem",
+                                "content": "Utsav holds a stable sense of self‑worth, reflected in balanced confidence and resilience. He acknowledges achievements without overinflating self‑importance, and he accepts constructive feedback. This grounded self‑valuation supports healthy risk‑taking and a positive self‑concept in both personal and academic contexts."
+                            },
+                            {
+                                "title": "Enneagram & DISC Summary",
+                                "content": "Utsav aligns with the driven, achievement‑oriented pattern characteristic of the achievement archetype, complemented by a dominant, results‑focused style. This combination fosters goal orientation, assertiveness, and a disciplined approach, while maintaining conscientious attention to detail, and a preference for structured outcomes."
+                            },
+                            {
+                                "title": "FIRO‑B Summary",
+                                "content": "He demonstrates a high need for inclusion, seeking collaborative engagement and belonging. His control requirement is moderate, preferring clear expectations while allowing flexibility. Affection needs are modest, suggesting comfort with professional boundaries and a focus on task‑oriented relationships."
+                            },
+                            {
+                                "title": "Career Fit",
+                                "content": "Utsav thrives in roles that blend analytical rigor with creative problem solving. Technology development, product management, consultancy, and entrepreneurial ventures suit his curiosity, goal orientation, and independent decision‑making. Leadership positions where he can mentor others will further leverage his high self‑confidence and structured planning."
+                            },
+                            {
+                                "title": "Neuro Map",
+                                "content": "Openness engages the dorsolateral prefrontal cortex and anterior cingulate, supporting flexible thinking. Individualization involves the ventromedial prefrontal area for value‑based decision making. Introversion–Extraversion is reflected in amygdala‑nucleus accumbens circuits governing social reward. Self‑esteem engages medial prefrontal and hippocampal regions, underpinning self‑concept and memory."
+                            }
+                        ],
+                        "charts_data": {
+                            "comparison_tables": [
+                                [
+                                    [
+                                        "Trait",
+                                        "Utsav Score",
+                                        "Peer Avg",
+                                        "Gap"
+                                    ],
+                                    [
+                                        "Openness",
+                                        "8.5",
+                                        "7.0",
+                                        "+1.5"
+                                    ],
+                                    [
+                                        "Individualization",
+                                        "7.8",
+                                        "6.5",
+                                        "+1.3"
+                                    ],
+                                    [
+                                        "Introversion",
+                                        "4.2",
+                                        "5.0",
+                                        "-0.8"
+                                    ],
+                                    [
+                                        "Self‑Esteem",
+                                        "7.0",
+                                        "6.8",
+                                        "+0.2"
+                                    ]
+                                ],
+                                [
+                                    [
+                                        "Brain Region",
+                                        "Activation Level",
+                                        "Peer Avg",
+                                        "Gap"
+                                    ],
+                                    [
+                                        "Dorsolateral PFC",
+                                        "High",
+                                        "Medium",
+                                        "+1"
+                                    ],
+                                    [
+                                        "Ventromedial PFC",
+                                        "High",
+                                        "Medium",
+                                        "+1"
+                                    ],
+                                    [
+                                        "Amygdala/Nucleus Accumbens",
+                                        "Moderate",
+                                        "High",
+                                        "-1"
+                                    ],
+                                    [
+                                        "Medial PFC",
+                                        "High",
+                                        "High",
+                                        "0"
+                                    ]
+                                ]
+                            ],
+                            "radar_chart": {
+                                "categories": [
+                                    "Openness",
+                                    "Individualization",
+                                    "Introversion",
+                                    "Self‑Esteem"
+                                ],
+                                "values": [
+                                    8.5,
+                                    7.8,
+                                    4.2,
+                                    7.0
+                                ]
+                            },
+                            "bar_chart": {
+                                "categories": [
+                                    "Openness",
+                                    "Individualization",
+                                    "Introversion",
+                                    "Self‑Esteem"
+                                ],
+                                "values": [
+                                    8.5,
+                                    7.8,
+                                    4.2,
+                                    7.0
+                                ]
+                            }
+                        }
+                    }
+                };
+    
+                document.getElementById('loadingIndicator').style.display = 'none';
+                displayReport(staticData.report, payload);
+                document.getElementById('reportSection').style.display = 'block';
+                document.getElementById('downloadPdf').style.display = 'inline-block';
+    
+            } catch (error) {
+                document.getElementById('loadingIndicator').style.display = 'none';
+                document.getElementById('reportSection').innerHTML = `<p class="text-danger text-center">Error processing report: ${error.message}.</p>`;
+                document.getElementById('reportSection').style.display = 'block';
+            }
         });
+    function displayReport(report, patientInfo) {
+        // Robustness check for 'report'
+        if (!report) {
+            console.error("Report object is null or undefined.");
+            return;
+        }
 
-        // Create charts
-        createCharts(report.charts_data);
+        lastChartData = report.charts_data;
+        const reportDataDiv = document.getElementById('reportData');
+        reportDataDiv.innerHTML = ''; 
+
+        // Create the 3 pages
+        const page1 = document.createElement('div');
+        page1.className = 'pdf-page';
+        page1.innerHTML = '<h2 class="text-primary">Patient Profile & Key Insights</h2>';
+        reportDataDiv.appendChild(page1);
+
+        const page2 = document.createElement('div');
+        page2.className = 'pdf-page';
+        page2.innerHTML = '<h2 class="text-primary">Detailed Analysis & Charts</h2>';
+        reportDataDiv.appendChild(page2);
+
+        const page3 = document.createElement('div');
+        page3.className = 'pdf-page';
+        page3.innerHTML = '<h2 class="text-primary">Comparison Tables & Neuro Map</h2>';
+        reportDataDiv.appendChild(page3);
+
+        // Page 1: Patient Info & First 2 Sections
+        const infoHtml = `
+            <div class="card mb-4 p-3 bg-light border-primary">
+                <h4 class="text-primary border-bottom pb-2">Patient Details</h4>
+                <div class="row">
+                    <div class="col-md-6"><strong>Name:</strong> ${patientInfo.name}</div>
+                    <div class="col-md-6"><strong>Date of Birth:</strong> ${patientInfo.dob}</div>
+                    <div class="col-md-6"><strong>Gender:</strong> ${patientInfo.gender}</div>
+                    <div class="col-md-6"><strong>Blood Group:</strong> ${patientInfo.blood_group}</div>
+                    <div class="col-md-12"><strong>Siblings:</strong> ${patientInfo.older_siblings} Older, ${patientInfo.younger_siblings} Younger</div>
+                </div>
+            </div>`;
+        page1.innerHTML += infoHtml;
+
+        if (report.sections && Array.isArray(report.sections)) {
+            report.sections.slice(0, 2).forEach(sec => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'card p-4 mb-4';
+                sectionDiv.innerHTML = `<h3 class="text-primary">${sec.title}</h3><p>${sec.content}</p>`;
+                page1.appendChild(sectionDiv);
+            });
+        }
+
+        // Page 2: Next 4 Sections and Charts (two-column layout)
+        const page2Content = document.createElement('div');
+        page2Content.className = 'two-column';
+        page2.appendChild(page2Content);
+
+        const analysisDiv = document.createElement('div');
+        page2Content.appendChild(analysisDiv);
+
+        if (report.sections && Array.isArray(report.sections)) {
+            report.sections.slice(2, 6).forEach(sec => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'card p-4 mb-4';
+                sectionDiv.innerHTML = `<h3 class="text-primary">${sec.title}</h3><p>${sec.content}</p>`;
+                analysisDiv.appendChild(sectionDiv);
+            });
+        }
+
+        const chartsDiv = document.createElement('div');
+        page2Content.appendChild(chartsDiv);
+
+        if (report.charts_data) {
+             createCharts(report.charts_data, chartsDiv);
+        }
+
+        // Page 3: Last 2 Sections and Comparison Tables
+        if (report.sections && Array.isArray(report.sections)) {
+            report.sections.slice(6, 8).forEach(sec => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'card p-4 mb-4';
+                sectionDiv.innerHTML = `<h3 class="text-primary">${sec.title}</h3><p>${sec.content}</p>`;
+                page3.appendChild(sectionDiv);
+            });
+        }
+        if (report.charts_data && report.charts_data.comparison_tables && Array.isArray(report.charts_data.comparison_tables)) {
+            report.charts_data.comparison_tables.forEach(tableData => {
+                if (Array.isArray(tableData)) {
+                    const tableDiv = document.createElement('div');
+                    tableDiv.className = 'card p-4 mb-4';
+                    let tableHtml = '<table class="table table-striped">';
+                    tableData.forEach((row, rowIndex) => {
+                        if (Array.isArray(row)) {
+                            tableHtml += '<tr>';
+                            row.forEach(cell => {
+                                tableHtml += rowIndex === 0 ? `<th>${cell}</th>` : `<td>${cell}</td>`;
+                            });
+                            tableHtml += '</tr>';
+                        }
+                    });
+                    tableHtml += '</table>';
+                    tableDiv.innerHTML = tableHtml;
+                    page3.appendChild(tableDiv);
+                }
+            });
+        }
     }
 
-    function createCharts(charts_data) {
-        const reportSection = document.getElementById('reportSection');
-
-        // Radar chart
-        const radarChartDiv = document.createElement('div');
-        radarChartDiv.className = 'card p-3 mb-3';
-        reportSection.appendChild(radarChartDiv);
-
-        const radarOptions = {
-            chart: {
-                type: 'radar',
-                height: 350,
-                toolbar: {
-                    show: false
+    /**
+     * Helper function to dynamically map an array of objects into separate
+     * label and value arrays, based on provided key names.
+     */
+    function mapChartData(dataArray, labelKey, valueKey) {
+        let labels = [];
+        let values = [];
+        if (dataArray && Array.isArray(dataArray)) {
+            dataArray.forEach(item => {
+                if (item[labelKey] && item[valueKey] !== undefined) {
+                    labels.push(item[labelKey]);
+                    values.push(item[valueKey]);
                 }
-            },
-            series: [{
-                name: 'Personality Traits',
-                data: charts_data.radar_chart.values,
-            }],
-            xaxis: {
-                categories: charts_data.radar_chart.labels
-            },
-            yaxis: {
-                show: false
-            },
-            theme: {
-                mode: 'light',
-                palette: 'palette1'
-            }
-        };
-
-        const radarChart = new ApexCharts(radarChartDiv, radarOptions);
-        radarChart.render();
-
-        // Bar chart
-        const barChartDiv = document.createElement('div');
-        barChartDiv.className = 'card p-3 mb-3';
-        reportSection.appendChild(barChartDiv);
-
-        const barOptions = {
-            chart: {
-                type: 'bar',
-                height: 350,
-                toolbar: {
-                    show: false
-                }
-            },
-            series: [{
-                name: 'Scores',
-                data: charts_data.bar_chart.values,
-            }],
-            xaxis: {
-                categories: charts_data.bar_chart.labels
-            },
-            yaxis: {
-                max: 10
-            },
-            theme: {
-                mode: 'light',
-                palette: 'palette1'
-            }
-        };
-
-        const barChart = new ApexCharts(barChartDiv, barOptions);
-        barChart.render();
+            });
+        }
+        return { labels, values };
     }
 
-    document.getElementById('downloadPdf').addEventListener('click', () => {
-        const { jsPDF } = window.jspdf;
-        const reportSection = document.getElementById('reportSection');
+
+    function createCharts(charts_data, page) {
+        if (!charts_data) return;
+
+        Object.keys(charts_data).forEach(chartKey => {
+            if (chartKey === 'comparison_tables') return;
+
+            const chartData = charts_data[chartKey];
+            const chartType = chartKey.includes('radar') ? 'radar' : 'bar';
+            const chartTitle = chartKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+
+            const chartId = `${chartKey}Chart`;
+            let chartDiv = document.getElementById(chartId);
+            if (!chartDiv) {
+                chartDiv = document.createElement('div');
+                chartDiv.id = chartId;
+                chartDiv.className = 'card p-3 mb-4';
+                page.appendChild(chartDiv);
+            }
+
+            const existingChart = ApexCharts.getChartByID(chartId);
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            chartDiv.innerHTML = `<h4 class="text-center text-primary">${chartTitle}</h4><div id="${chartId}-container"></div>`;
+            const chartContainer = document.getElementById(`${chartId}-container`);
+
+            const options = {
+                chart: { type: chartType, height: 300, toolbar: { show: false } },
+                series: [{ name: 'Score', data: chartData.values }],
+                xaxis: { categories: chartData.categories },
+                theme: { palette: 'palette1' }
+            };
+
+            if (chartType === 'bar') {
+                options.yaxis = { max: 10, title: { text: 'Score' } };
+                options.plotOptions = { bar: { horizontal: false, columnWidth: '55%' } };
+                options.dataLabels = { enabled: false };
+            }
+
+            const chart = new ApexCharts(chartContainer, options);
+            chart.render();
+        });
+    }
+
+
+    // --- Advanced PDF Generation (Using HTML2Canvas Slicing for Layout Fix) ---
+
+    // Function to add the static header and footer to each PDF page
+    const addHeaderAndFooter = (doc, pageNum, pageCount) => {
+        const A4_HEIGHT = 841.89; // A4 height in points
         
-        html2canvas(reportSection, { scale: 2 }).then(canvas => {
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save("personality-report.pdf");
-        });
+        // Header (Company Details)
+        doc.setFontSize(10);
+        doc.setTextColor(50, 50, 50); // Darker gray for text
+        doc.text("Dr. Health AI Consulting Clinic", MARGIN, 30);
+        doc.text("123 Med-Tech Lane, Wellness City | Phone: (555) 123-4567", MARGIN, 45);
+        doc.setDrawColor(0, 123, 255); // Blue line
+        doc.setLineWidth(1);
+        doc.line(MARGIN, 55, A4_WIDTH - MARGIN, 55);
+
+        // Footer (Page Number)
+        doc.text(`Page ${pageNum} of ${pageCount}`, A4_WIDTH - MARGIN - 70, A4_HEIGHT - 30);
+    };
+
+    document.getElementById('downloadPdf').addEventListener('click', async () => {
+        const { jsPDF } = window.jspdf;
+        const reportPages = document.querySelectorAll('.pdf-page');
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        const A4_WIDTH = 595.28;
+        const A4_HEIGHT = 841.89;
+        const MARGIN = 40;
+
+        for (let i = 0; i < reportPages.length; i++) {
+            const page = reportPages[i];
+            if (i > 0) {
+                pdf.addPage();
+            }
+
+            await html2canvas(page, { 
+                scale: 2, // Higher scale for better resolution
+                logging: false
+            }).then(canvas => {
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                const contentHeight = canvas.height;
+                const contentWidth = canvas.width;
+                
+                const scaleFactor = (A4_WIDTH - MARGIN * 2) / contentWidth;
+                const scaledHeight = contentHeight * scaleFactor;
+
+                addHeaderAndFooter(pdf, i + 1, reportPages.length);
+
+                pdf.addImage(
+                    imgData, 
+                    'JPEG', 
+                    MARGIN, 
+                    HEADER_HEIGHT, 
+                    A4_WIDTH - MARGIN * 2, 
+                    scaledHeight, 
+                    null, 
+                    'FAST'
+                );
+            });
+        }
+
+        pdf.save('AI_Clinical_Report.pdf');
     });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

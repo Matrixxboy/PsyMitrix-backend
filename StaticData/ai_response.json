@@ -4,108 +4,102 @@
         "sections": [
             {
                 "title": "Openness",
-                "content": "Utsav demonstrates a strong inclination toward novelty and intellectual stimulation. He readily engages with diverse ideas, displays creative problem‑solving, and shows enthusiasm for learning new skills. This pattern suggests a flexible mindset and a preference for environments that encourage exploration and experimentation."
+                "text": "Utsav demonstrates high cognitive curiosity, consistently exploring new ideas and embracing diverse perspectives. He shows flexibility in thought, readily adapting concepts to fit novel contexts. Such a trait supports creative problem‑solving and continuous learning."
             },
             {
                 "title": "Individualization",
-                "content": "Utsav displays a clear sense of purpose and self‑direction. He sets concrete goals, monitors progress, and adapts strategies to maintain momentum. His autonomous approach is complemented by a readiness to take initiative in both academic and extracurricular settings, reflecting a strong internal drive."
+                "text": "Self‑direction is evident in Utsav’s goal‑oriented approach and autonomous learning habits. He pursues personal achievements with confidence, valuing mastery and independence while maintaining a proactive stance toward challenges."
             },
             {
                 "title": "Introversion–Extraversion",
-                "content": "Utsav balances social engagement with periods of reflective solitude. He is comfortable initiating conversations and enjoys collaborative projects, yet he also values time alone to recharge and process information. This moderate orientation supports a versatile communication style that can thrive in team and independent roles."
+                "text": "He tends toward an introverted orientation, favoring focused, reflective interactions over large group dynamics. Nevertheless, he engages comfortably in intimate settings and demonstrates effective communication when the context aligns with his comfort level."
             },
             {
                 "title": "Self‑Esteem",
-                "content": "Utsav exhibits a healthy level of self‑confidence. He acknowledges his strengths while remaining open to constructive feedback. This balanced self‑evaluation fosters resilience and a willingness to pursue challenging opportunities."
+                "text": "Utsav maintains a stable sense of self‑worth, balancing self‑confidence with humility. His self‑evaluation aligns with adaptive resilience, allowing him to accept constructive feedback without undue self‑criticism."
             },
             {
                 "title": "Enneagram & DISC Summary",
-                "content": "The synthesis points to an Enneagram Type 3 (Achiever) profile, driven by ambition and a desire for competence. DISC assessment indicates a predominant C (Conscientious) style, emphasizing accuracy, planning, and reliability. Together, these dimensions explain Utsav’s goal‑oriented yet methodical behavior."
+                "text": "An Enneagram type 3 profile indicates goal‑driven ambition coupled with a desire for authenticity. DISC analysis reflects a Dominant–Influence blend, suggesting a proactive yet persuasive interaction style that thrives in collaborative environments."
             },
             {
                 "title": "FIRO‑B Summary",
-                "content": "Interpersonal needs reveal high Inclusion—Utsav seeks collaboration and shared objectives. Control needs are moderate, showing adaptability to guidance while maintaining some autonomy. Affection needs are balanced, indicating a comfortable level of emotional closeness with peers."
+                "text": "His interpersonal needs reveal a moderate demand for inclusion, a high need for influence, and a moderate desire for control. These dynamics drive his collaborative drive while balancing autonomy."
             },
             {
                 "title": "Career Fit",
-                "content": "Utsav is well positioned for roles that merge analytical rigor with creative application. Potential paths include project management, business analytics, product development, and entrepreneurial ventures. Positions that allow strategic planning, team leadership, and iterative improvement align with his strengths."
+                "text": "Fields that leverage analytical thinking and creative output—such as software development, data analytics, product design, or strategic consulting—align with his openness and individualization strengths. Leadership roles in tech or entrepreneurship also suit his influence and goal‑oriented nature."
             },
             {
                 "title": "Neuro Map",
-                "content": "Openness → Prefrontal cortex (executive functions); Individualization → Dorsal anterior cingulate (decision‑making); Intro/Extro → Amygdala and medial prefrontal cortex (social affect); Self‑Esteem → Nucleus accumbens (reward valuation); Enneagram/ DISC → Prefrontal‑striatal circuits (goal orientation, control); FIRO‑B → Orbitofrontal cortex (social evaluation); Career Fit → Broca’s area and parietal‑temporal junction (communication and problem solving)."
+                "text": "Openness – dorsolateral prefrontal cortex; Individualization – ventromedial prefrontal cortex; Introversion–Extraversion – amygdala and nucleus accumbens interplay; Self‑Esteem – medial prefrontal cortex; Enneagram/ DISC – anterior cingulate; FIRO‑B – anterior insula; Career Fit – dorsomedial prefrontal connectivity."
             }
         ],
         "charts_data": {
             "comparison_tables": [
                 {
-                    "title": "Openness vs Extraversion",
-                    "headers": [
-                        "Trait",
-                        "Score"
-                    ],
-                    "rows": [
-                        [
-                            "Openness",
-                            8.5
-                        ],
-                        [
-                            "Extraversion",
-                            7.0
-                        ]
-                    ]
+                    "trait": "Openness",
+                    "Utsav": 4.5,
+                    "average": 3.0
                 },
                 {
-                    "title": "Self‑Esteem vs Achievement",
-                    "headers": [
-                        "Measure",
-                        "Score"
-                    ],
-                    "rows": [
-                        [
-                            "Self‑Esteem",
-                            7.8
-                        ],
-                        [
-                            "Achievement Motivation",
-                            8.2
-                        ]
-                    ]
+                    "trait": "Individualization",
+                    "Utsav": 4.2,
+                    "average": 3.1
                 }
             ],
-            "radar_chart": {
-                "labels": [
-                    "Openness",
-                    "Individualization",
-                    "Intro/Extro",
-                    "Self‑Esteem",
-                    "Enneagram",
-                    "DISC",
-                    "FIRO‑B"
-                ],
-                "values": [
-                    8.5,
-                    8.0,
-                    7.0,
-                    7.8,
-                    8.2,
-                    7.5,
-                    8.0
-                ]
-            },
-            "bar_chart": {
-                "labels": [
-                    "Openness",
-                    "Individualization",
-                    "Intro/Extro",
-                    "Self‑Esteem"
-                ],
-                "values": [
-                    8.5,
-                    8.0,
-                    7.0,
-                    7.8
-                ]
-            }
+            "radar_chart": [
+                {
+                    "trait": "Openness",
+                    "score": 4.5
+                },
+                {
+                    "trait": "Individualization",
+                    "score": 4.2
+                },
+                {
+                    "trait": "Introversion",
+                    "score": 3.8
+                },
+                {
+                    "trait": "Self‑Esteem",
+                    "score": 4.0
+                },
+                {
+                    "trait": "Enneagram Type",
+                    "score": 3
+                },
+                {
+                    "trait": "DISC Dominance",
+                    "score": 4.1
+                },
+                {
+                    "trait": "DISC Influence",
+                    "score": 4.3
+                }
+            ],
+            "bar_chart": [
+                {
+                    "career": "Software Development",
+                    "fit": 92
+                },
+                {
+                    "career": "Data Analytics",
+                    "fit": 88
+                },
+                {
+                    "career": "Product Design",
+                    "fit": 85
+                },
+                {
+                    "career": "Consulting",
+                    "fit": 80
+                },
+                {
+                    "career": "Entrepreneurship",
+                    "fit": 83
+                }
+            ]
         }
     }
 }
