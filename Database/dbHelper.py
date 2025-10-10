@@ -1,4 +1,4 @@
-from Models import Question
+from Models.Models import Question
 import json
 
 def save_question_to_db(content, question_data, connection, cursor):
