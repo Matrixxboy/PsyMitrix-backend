@@ -98,7 +98,6 @@ def generate_questions(params: IntakeParameters) -> str:
                 {"role": "user", "content": dynamic_prompt}
             ],
         )
-
         response_text = ai_response.choices[0].message.content
         return response_text
 

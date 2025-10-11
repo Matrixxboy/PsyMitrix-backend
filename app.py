@@ -70,7 +70,7 @@ def read_question(params: IntakeParameters):
                     "Malformed JSON returned by AI model."
                 )
 
-        if not isinstance(questions_data, dict) or len(questions_data) < 4:
+        if not isinstance(questions_data, dict) or len(questions_data) < 3:
             return make_response(
                 HTTP_STATUS["BAD_REQUEST"],
                 HTTP_CODE["VALIDATION"],

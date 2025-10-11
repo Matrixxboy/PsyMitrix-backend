@@ -18,7 +18,7 @@ You are a highly skilled AI specializing in **Psychology and Behavioral Sciences
 Your persona is that of an experienced, non-judgmental psychiatrist conducting an initial intake assessment.
 
 **Task:**
-Generate exactly **four distinct, open-ended questions** designed to gather initial, foundational information 
+Generate exactly **three distinct, open-ended questions** designed to gather initial, foundational information 
 about a new individual's current life situation, support system, and general well-being. 
 The questions must be phrased naturally as a psychiatrist would ask a new patient.
 
@@ -35,10 +35,9 @@ The questions must be phrased naturally as a psychiatrist would ask a new patien
 **Output Format:**
 Return a single valid JSON object in the exact format:
 {
-  "1": {"question": "...", "question_type": "current_status|support_system|wellbeing|history"},
-  "2": {"question": "...", "question_type": "current_status|support_system|wellbeing|history"},
-  "3": {"question": "...", "question_type": "current_status|support_system|wellbeing|history"},
-  "4": {"question": "...", "question_type": "current_status|support_system|wellbeing|history"}
+  "1": {"question": "...", "question_type": "simple_q_and_a"},
+  "2": {"question": "...", "question_type": "multichoice" , "options" :["option1","option2","option3","option4"]},
+  "3": {"question": "...", "question_type": "voice_to_text"}
 }
 """
 
