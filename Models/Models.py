@@ -14,14 +14,6 @@ class User(BaseModel):
     birth_date: str = None  # Format: 'YYYY-MM-DD'
     gender: str = None
 
-class ReportRequest(BaseModel):
-    name: str
-    gender: Literal['Male', 'Female', 'Other']
-    dob: str
-    blood_group: str
-    older_siblings: int
-    younger_siblings: int
-    
 class IntakeParameters(BaseModel):
     Name: Optional[str] = None
     Gender: Optional[str] = None

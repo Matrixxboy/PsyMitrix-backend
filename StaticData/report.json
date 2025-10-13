@@ -1,0 +1,112 @@
+{
+    "http_status": 200,
+    "http_code": "OK",
+    "message": "Report generated successfully",
+    "data": {
+        "sections": {
+            "report": {
+                "Openness": "Parth exhibits a balanced openness, showing curiosity about new experiences while maintaining a preference for familiar routines. He often engages in creative projects and enjoys exploring different music genres, but he also values stability in his daily schedule. This blend supports his adaptability without overwhelming him.",
+                "Individualization": "Parth has a keen eye for individual differences, which he applies in social settings to tailor his interactions. He notices subtle cues in others’ moods and adapts his communication style accordingly. This sensitivity helps him build rapport with peers and mentors, fostering collaborative learning environments.",
+                "Introversion–Extraversion": "Parth tends toward a quiet, introspective disposition, especially in unfamiliar groups. Yet he is capable of engaging energetically when addressing topics he is passionate about, such as technology or science. This flexible energy management allows him to contribute effectively in both small study groups and larger presentations.",
+                "Self-Esteem": "Parth’s self‑esteem is stable, rooted in a sense of competence in academic tasks. He acknowledges his strengths in analytical thinking but remains open to constructive feedback. This balanced self-view motivates him to pursue challenges while maintaining a realistic understanding of his growth areas.",
+                "Enneagram & DISC Summary": "Enneagram 5w6 and DISC profile: Dominant (D) moderate, Influential (I) low, Steady (S) moderate, Conscientious (C) high. Parth values knowledge, is detail‑oriented, and prefers structured environments. He collaborates efficiently but may hesitate to initiate new projects unless the objectives are clearly defined.",
+                "FIRO-B Summary": "Parth’s FIRO‑B results indicate moderate levels of inclusion (INCL), high control (CONT), and low affiliation (AFF). He seeks clear responsibilities and enjoys contributing to well‑structured tasks. He may feel less motivated in roles requiring frequent social interaction without defined objectives.",
+                "Career Fit": "Given his analytical strengths, preference for structured settings, and ability to adapt his communication style, careers in data analysis, engineering, or research align well with Parth’s profile. Roles that blend independent work with collaborative problem‑solving will support his continued growth and satisfaction.",
+                "Neuro Map": "Parth’s neuro‑profile highlights strong cognitive processing, moderate emotional regulation, and high attentional focus. These traits support learning in complex subjects, yet he benefits from strategies that reduce information overload, such as spaced repetition and visual organization tools."
+            },
+            "charts": {
+                "radarChart": {
+                    "data": [
+                        {
+                            "field": "Openness",
+                            "value": "70"
+                        },
+                        {
+                            "field": "Individualization",
+                            "value": "80"
+                        },
+                        {
+                            "field": "Introversion",
+                            "value": "40"
+                        },
+                        {
+                            "field": "Self‑Esteem",
+                            "value": "75"
+                        },
+                        {
+                            "field": "Enneagram",
+                            "value": "65"
+                        },
+                        {
+                            "field": "FIRO‑B",
+                            "value": "60"
+                        },
+                        {
+                            "field": "Career Fit",
+                            "value": "85"
+                        }
+                    ],
+                    "explanation": "The radar chart displays Parth’s profile across seven key domains. Higher values (closer to the outer edge) indicate stronger traits. Parth shows notable strengths in Individualization, Self‑Esteem, and Career Fit, while Introversion and FIRO‑B are comparatively moderate, reflecting a balanced yet focused skill set."
+                },
+                "barChart": {
+                    "data": [
+                        {
+                            "field": "Analytical Skills",
+                            "value": "90"
+                        },
+                        {
+                            "field": "Creativity",
+                            "value": "70"
+                        },
+                        {
+                            "field": "Social Comfort",
+                            "value": "55"
+                        },
+                        {
+                            "field": "Goal‑Setting",
+                            "value": "80"
+                        },
+                        {
+                            "field": "Adaptability",
+                            "value": "65"
+                        }
+                    ],
+                    "explanation": "The bar chart compares Parth’s skill levels on five important dimensions. Analytical Skills and Goal‑Setting are exceptionally high, underscoring his academic drive. Creativity is strong but slightly lower than his analytical prowess. Social Comfort and Adaptability are moderate, suggesting areas where structured practice could enhance confidence."
+                },
+                "comparisonTable": {
+                    "data": [
+                        {
+                            "field": "Openness",
+                            "value": "70"
+                        },
+                        {
+                            "field": "Individualization",
+                            "value": "80"
+                        },
+                        {
+                            "field": "Introversion",
+                            "value": "40"
+                        },
+                        {
+                            "field": "Self‑Esteem",
+                            "value": "75"
+                        },
+                        {
+                            "field": "Enneagram",
+                            "value": "65"
+                        },
+                        {
+                            "field": "FIRO‑B",
+                            "value": "60"
+                        },
+                        {
+                            "field": "Career Fit",
+                            "value": "85"
+                        }
+                    ],
+                    "explanation": "The comparison table contrasts Parth’s scores against the typical profile for his age group (18‑22 years). Parth consistently outperforms the average in Individualization, Self‑Esteem, Enneagram, FIRO‑B, and Career Fit, while his Introversion level is slightly lower, indicating a more balanced social engagement."
+                }
+            }
+        }
+    }
+}

@@ -4,8 +4,8 @@ from fastapi import FastAPI , Request
 # from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
-from Models.Models import Question, ReportRequest as Report, IntakeParameters
-from AI.aiModel import get_ai_response, generate_questions, generate_report
+from Models.Models import IntakeParameters
+from AI.aiModel import  generate_questions, generate_report
 # from Database.db import mycursor, mydb
 # from Database.dbHelper import save_question_to_db
 # from Database.dbTabels import create_tables
@@ -92,47 +92,35 @@ def read_question(params: IntakeParameters):
             str(e)
         )
 
-@app.post("/analyze/")
-def read_questions(question: Question):
-    try:
-        response = get_ai_response(question)
-        data = {
-            "question": {
-                "question_type": question.question_type,
-                "content": question.question,
-            },
-            "ai_response": response
-        }
-        return make_response(
-            HTTP_STATUS["OK"],
-            HTTP_CODE["OK"],
-            "Question analyzed successfully",
-            data
-        )
-    except Exception as e:
-        return make_response(
-            HTTP_STATUS["INTERNAL_SERVER_ERROR"],
-            HTTP_CODE["ERROR"],
-            str(e)
-        )
-
 @app.post("/report/")
-def create_report(user: Report):
+def create_report(user: IntakeParameters):
     try:
-        report_raw = generate_report(user)
-        report_data = json.loads(report_raw) if isinstance(report_raw, str) else report_raw
+        report_data = generate_report(user)
+
+        # If the model returned an error structure, bubble it up
+        if isinstance(report_data, dict) and "error" in report_data:
+            return make_response(
+                HTTP_STATUS["INTERNAL_SERVER_ERROR"],
+                HTTP_CODE["ERROR"],
+                report_data["error"]
+            )
+
+        # Ensure we return JSON-serializable data.
+        # If the model returned a dict/list already, use it as-is;
+        # if it returned a JSON string, try to parse it; otherwise wrap it.
+        if isinstance(report_data, (dict, list)):
+            report_cleaned = report_data
+        else:
+            try:
+                report_cleaned = json.loads(report_data)
+            except Exception:
+                report_cleaned = {"report": str(report_data)}
 
         return make_response(
             HTTP_STATUS["OK"],
             HTTP_CODE["OK"],
             "Report generated successfully",
-            report_data
-        )
-    except json.JSONDecodeError:
-        return make_response(
-            HTTP_STATUS["INTERNAL_SERVER_ERROR"],
-            HTTP_CODE["ERROR"],
-            "Invalid JSON format returned by AI."
+            data=report_cleaned
         )
     except Exception as e:
         return make_response(

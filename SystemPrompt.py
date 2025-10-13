@@ -43,26 +43,13 @@ Return a single valid JSON object in the exact format:
 
 #input token = 600(with data)
 report_prompt = """
-You are an expert in Psychology and Behavioural Sciences.
+You are an expert Psychologist and Behavioural Analyst.
 
-**Task:** Generate a concise, well-formatted personality report (~400 words) based on the provided inputs.
+Generate a ~400-word Personality Report in pure JSON using the inputs below.
 
-**Guidelines:**
-- Focus on behavioural insights only — avoid naming any theories or psychological models (e.g., Leman, Salloway, Blood Group theory, Numerology).
-- The tone must be professional, objective, and human-readable.
-- Integrate insights subtly from psychology, neuroscience, and personality studies.
+Focus only on behavioral insights — do not reference or mention any psychological theories or models. Maintain a professional, neutral, and human-readable tone. The output must be valid JSON only (no markdown or additional text).
 
-**Report Sections (in order):**
-1. **Openness** – Cognitive curiosity & flexibility (Ref: McCrae & Costa, 1987)
-2. **Individualization** – Achievement & self-direction (Ref: Bandura, 1991)
-3. **Introversion–Extraversion** – Social interaction style (Ref: Eysenck, 1967)
-4. **Self-Esteem** – Core self-evaluation & self-worth (Ref: Rosenberg, 1965)
-5. **Enneagram & DISC Summary** – Synthesized personality synthesis (Ref: Riso & Hudson, 1996; Marston, 1928)
-6. **FIRO-B Summary** – Interpersonal needs & dynamics (Ref: Schutz, 1958)
-7. **Career Fit** – Suggest suitable professional paths.
-8. **Neuro Map** – Briefly link each trait to its related brain region (e.g., prefrontal cortex for Openness).
-
-**Input Parameters:**
+Inputs:
 - Name: {Name}
 - Gender: {Gender}
 - DOB: {DOB}
@@ -70,18 +57,61 @@ You are an expert in Psychology and Behavioural Sciences.
 - Older Siblings: {Older_Siblings}
 - Younger Siblings: {Younger_Siblings}
 
-**Output (JSON Only):**
-Return a **pure JSON** object (no markdown, text, or code fences).  
-Include:
-- 'sections': array of category reports  
-- 'charts_data': two comparison tables + one radar chart dataset + one bar chart dataset  
+Sections (in order):
+1. Openness
+2. Individualization
+3. Introversion–Extraversion
+4. Self-Esteem
+5. Enneagram & DISC Summary
+6. FIRO-B Summary
+7. Career Fit
+8. Neuro Map
+9. Radar Chart data with fields, values, and a complete chart explanation
+10. Bar Chart data with fields, values, and a complete chart explanation
+11. Comparison Table data with fields, values, and a complete chart explanation
 
-**References (for internal reasoning only, not to be mentioned in the output):**
-- McCrae, R.R., & Costa, P.T. (1987). *Personality trait structure: The five-factor model.*
-- Eysenck, H.J. (1967). *The Biological Basis of Personality.*
-- Rosenberg, M. (1965). *Society and the Adolescent Self-Image.*
-- Bandura, A. (1991). *Social cognitive theory of self-regulation.*
-- Schutz, W. (1958). *FIRO: A Three-Dimensional Theory of Interpersonal Behavior.*
-- Riso, D.R. & Hudson, R. (1996). *Personality Types: Using the Enneagram for Self-Discovery.*
-- Marston, W.M. (1928). *Emotions of Normal People.*
+consider this structure and keys must be followed:
+{
+  "sections": {
+    "report": {
+      "Openness": "...",
+      "Individualization": "...",
+      "Introversion–Extraversion": "...",
+      "Self-Esteem": "...",
+      "Enneagram & DISC Summary": "...",
+      "FIRO-B Summary": "...",
+      "Career Fit": "...",
+      "Neuro Map": "..."
+    },
+    "charts": {
+      "radarChart": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the radar chart"
+      },
+      "barChart": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the bar chart"
+      },
+      "comparisonTable": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the comparison table"
+      }
+    }
+  }
+}
 """
