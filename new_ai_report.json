@@ -1,0 +1,87 @@
+{
+    "sections": {
+        "report": {
+            "Openness": "Parth demonstrates a keen curiosity and appreciates new ideas, often seeking fresh experiences while valuing structure. He balances imaginative thinking with a practical approach, enabling him to explore innovative solutions without losing focus on execution.",
+            "Individualization": "He exhibits a nuanced sensitivity towards others, recognizing unique traits and tailoring interactions accordingly. This attentiveness fosters rapport and collaboration, especially within his peer group, and allows him to navigate social dynamics with ease.",
+            "Introversion–Extraversion": "Parth shows a preference for quiet reflection, yet he engages confidently in group settings when needed. His energy is best replenished through solitary activities, though he maintains an approachable demeanor in collaborative environments.",
+            "Self-Esteem": "He possesses a steady sense of self-worth, grounded in consistent personal achievements. Confidence arises from his reliable performance rather than external validation, encouraging autonomy in decision-making.",
+            "Enneagram & DISC Summary": "Parth aligns with a thoughtful, conscientious profile, emphasizing diligence and precision. His communication style reflects a calm, methodical tone, preferring clarity and thoroughness in exchanges.",
+            "FIRO-B Summary": "He balances inclusion with independence, valuing close connections yet maintaining personal space. His focus on contribution encourages supportive teamwork while safeguarding personal boundaries.",
+            "Career Fit": "His strengths point toward roles that demand analytical rigor and collaborative problem-solving, such as data analysis, quality assurance, or project coordination. Positions offering clear goals and structured environments will support his growth.",
+            "Neuro Map": "Parth’s cognitive profile highlights strong logical processing and a preference for methodical planning. Emotional regulation is achieved through routine and clear expectations, ensuring stability in dynamic situations."
+        },
+        "charts": {
+            "radarChart": {
+                "data": [
+                    {
+                        "field": "Openness",
+                        "value": 8
+                    },
+                    {
+                        "field": "Individualization",
+                        "value": 7
+                    },
+                    {
+                        "field": "Introversion–Extraversion",
+                        "value": 4
+                    },
+                    {
+                        "field": "Self-Esteem",
+                        "value": 6
+                    },
+                    {
+                        "field": "Enneagram&DISC",
+                        "value": 5
+                    }
+                ],
+                "explanation": "The radar chart illustrates Parth’s balanced orientation, showing high openness, strong individualization, moderate self-esteem, and a preference for introspection, with consistent conscientious traits."
+            },
+            "barChart": {
+                "data": [
+                    {
+                        "field": "Strengths",
+                        "value": 9
+                    },
+                    {
+                        "field": "Weaknesses",
+                        "value": 4
+                    },
+                    {
+                        "field": "GrowthAreas",
+                        "value": 7
+                    },
+                    {
+                        "field": "Motivation",
+                        "value": 8
+                    },
+                    {
+                        "field": "Interaction",
+                        "value": 6
+                    }
+                ],
+                "explanation": "The bar chart displays Parth’s key attributes: top strengths in logical analysis, moderate weaknesses in spontaneous engagement, solid growth potential, high motivation, and solid interaction skills."
+            },
+            "comparisonTable": {
+                "data": [
+                    {
+                        "field": "Openness",
+                        "value": 8
+                    },
+                    {
+                        "field": "Introversion",
+                        "value": 4
+                    },
+                    {
+                        "field": "SelfEsteem",
+                        "value": 6
+                    },
+                    {
+                        "field": "EnneagramScore",
+                        "value": 5
+                    }
+                ],
+                "explanation": "The comparison table contrasts Parth’s scores with typical benchmarks, indicating above-average openness, lower introversion, solid self-esteem, and a moderate conscientious profile."
+            }
+        }
+    }
+}

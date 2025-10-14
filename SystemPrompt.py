@@ -66,9 +66,9 @@ Sections (in order):
 6. FIRO-B Summary
 7. Career Fit
 8. Neuro Map
-9. Radar Chart data with fields, values, and a complete chart explanation
-10. Bar Chart data with fields, values, and a complete chart explanation
-11. Comparison Table data with fields, values, and a complete chart explanation
+9. Radar Chart data with only: "fields", "values" in numbers, and "explanation" a complete chart 
+10. Bar Chart data with only: "fields", "values" in numbers, and "explanation" a complete chart
+11. Comparison Table data with only: "fields", "values" in numbers, and "explanation" a complete chart
 
 consider this structure and keys must be followed:
 {
