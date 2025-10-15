@@ -1,9 +1,9 @@
 import os
 from datetime import datetime
-import tempfile
+import io # Import for in-memory operations
 
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 import matplotlib.pyplot as plt
 
 from reportlab.lib.pagesizes import A4
@@ -16,7 +16,6 @@ from reportlab.platypus import (
 from reportlab.lib.units import cm, inch
 
 # --- FANCY STYLING CONSTANTS ---
-# Using a richer, multi-hued palette
 PRIMARY_COLOR = "#00473E" # Deep Teal (Primary Text/Headers)
 SECONDARY_COLOR = "#78A083" # Dusty Green (Chart Fills/Backgrounds)
 ACCENT_COLOR = "#E6EED6" # Light Beige (Background/Striping)
@@ -25,12 +24,12 @@ CONTRAST_COLOR = "#C65300" # Burnt Orange (Accent lines/highlights)
 REPORT_TITLE = "PsyMitrix Individual Profile Report"
 
 # ---------------------------
-# Utility: create placeholder logo
+# Utility: create placeholder logo (Returns buffer)
 # ---------------------------
-def make_placeholder_logo(path, size=(240, 240), bg=PRIMARY_COLOR, circle=ACCENT_COLOR):
+def make_placeholder_logo(size=(240, 240), bg=PRIMARY_COLOR, circle=ACCENT_COLOR):
     img = Image.new("RGBA", size, bg)
     draw = ImageDraw.Draw(img)
-    # Draw a simple structured logo
+    
     cx, cy = size[0]//2, size[1]//2
     r_outer = min(size)//2 - 10
     r_inner = int(r_outer * 0.6)
@@ -48,13 +47,17 @@ def make_placeholder_logo(path, size=(240, 240), bg=PRIMARY_COLOR, circle=ACCENT
     draw.ellipse([cx-r_inner, cy-r_inner, cx+r_inner, cy+r_inner], fill=circle)
     # small inner dot
     draw.ellipse([cx-12, cy-12, cx+12, cy+12], fill=bg)
-    img.save(path, format="PNG")
-    return path
+    
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    img.save(buffer, format="PNG")
+    buffer.seek(0)
+    return buffer
 
 # ---------------------------
-# Charts: radar and bar using matplotlib
+# Charts: radar and bar using matplotlib (Returns buffer)
 # ---------------------------
-def create_radar_chart(radar_entries, out_path):
+def create_radar_chart(radar_entries):
     labels = [e['field'] for e in radar_entries]
     values = [e['value'] for e in radar_entries]
     values = [v * 10 for v in values]
@@ -70,7 +73,6 @@ def create_radar_chart(radar_entries, out_path):
     ax.set_theta_offset(np.pi / 2)
     ax.set_theta_direction(-1)
 
-    # Multi-color plot: Line in primary, fill in secondary with opacity
     ax.plot(angles, values, linewidth=2.5, linestyle='solid', color=PRIMARY_COLOR)
     ax.fill(angles, values, alpha=0.55, facecolor=SECONDARY_COLOR, edgecolor=PRIMARY_COLOR, linewidth=1)
 
@@ -85,12 +87,16 @@ def create_radar_chart(radar_entries, out_path):
     fig.patch.set_alpha(0.0) 
     
     plt.tight_layout()
-    fig.savefig(out_path, transparent=True)
+    
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png", transparent=True)
     plt.close(fig)
-    return out_path
+    buffer.seek(0)
+    return buffer
 
 # Modified to accept a title for clarity since it's used for two different sections
-def create_bar_chart(bar_entries, out_path, title="Score Summary"):
+def create_bar_chart(bar_entries, title="Score Summary"):
     labels = [e['field'] for e in bar_entries]
     values = [e['value'] for e in bar_entries]
     values = [v * 10 for v in values] # scale 1-10 to 0-100
@@ -129,60 +135,15 @@ def create_bar_chart(bar_entries, out_path, title="Score Summary"):
     fig.patch.set_alpha(0.0)
 
     plt.tight_layout()
-    fig.savefig(out_path, transparent=True)
+    
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png", transparent=True)
     plt.close(fig)
-    return out_path
+    buffer.seek(0)
+    return buffer
 
-# ---------------------------
-# PDF: header/footer
-# ---------------------------
-PAGE_WIDTH, PAGE_HEIGHT = A4
-COMPANY_NAME = "PsyMitrix"
-SIDE_BAR_COLOR = "#003A33" # Darker version of primary
-
-def header_footer(canvas, doc):
-    canvas.saveState()
-    
-    # Dark Vertical Sidebar
-    canvas.setFillColor(colors.HexColor(SIDE_BAR_COLOR))
-    canvas.rect(0, 0, 1.5*cm, PAGE_HEIGHT, fill=1, stroke=0)
-
-    # Vertical Company Name
-    canvas.translate(1.0*cm, 8*cm)
-    canvas.rotate(90)
-    canvas.setFont("Helvetica-Bold", 12)
-    canvas.setFillColor(colors.white) # White text for contrast
-    canvas.drawString(0, 0, COMPANY_NAME)
-    canvas.restoreState()
-    
-    canvas.saveState()
-    # Header
-    canvas.setFillColor(colors.HexColor(PRIMARY_COLOR))
-    canvas.setFont("Helvetica-Bold", 10)
-    canvas.drawString(3*cm, PAGE_HEIGHT - 2*cm, REPORT_TITLE)
-    
-    # Separator line (Header) - now Burnt Orange
-    canvas.setStrokeColor(colors.HexColor(CONTRAST_COLOR))
-    canvas.setLineWidth(1.5) # Thicker line
-    canvas.line(2*cm, PAGE_HEIGHT - 2.2*cm, PAGE_WIDTH - 2*cm, PAGE_HEIGHT - 2.2*cm)
-
-    # Footer - page number & small note
-    canvas.setFont("Helvetica-Bold", 8)
-    canvas.setFillColor(colors.HexColor(PRIMARY_COLOR))
-    page_num_text = f"Page {canvas.getPageNumber()}"
-    canvas.drawRightString(PAGE_WIDTH - 2*cm, 1.4*cm, page_num_text)
-
-    # Separator line (Footer - slightly above text) - now Burnt Orange
-    canvas.setStrokeColor(colors.HexColor(CONTRAST_COLOR))
-    canvas.setLineWidth(1.5) # Thicker line
-    canvas.line(2*cm, 1.8*cm, PAGE_WIDTH - 2*cm, 1.8*cm)
-
-    canvas.setFont("Helvetica-Oblique", 8)
-    canvas.setFillColor(colors.HexColor("#666666"))
-    canvas.drawString(2*cm, 1.4*cm, "Generated by PsyMitrix AI Engine | Confidential Profile")
-    canvas.restoreState()
-
-def create_comparison_bar_chart(entries, out_path, title="Trait Comparison"):
+def create_comparison_bar_chart(entries, title="Trait Comparison"):
     labels = [e['field'] for e in entries]
     user_values = [e['value'] for e in entries]
     benchmark_values = [5 for _ in entries] # Benchmark is 5
@@ -218,16 +179,71 @@ def create_comparison_bar_chart(entries, out_path, title="Trait Comparison"):
 
     fig.patch.set_alpha(0.0)
     plt.tight_layout()
-    fig.savefig(out_path, transparent=True)
+    
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png", transparent=True)
     plt.close(fig)
-    return out_path
+    buffer.seek(0)
+    return buffer
 
 # ---------------------------
-# Main PDF builder
+# PDF: header/footer
 # ---------------------------
+PAGE_WIDTH, PAGE_HEIGHT = A4
+COMPANY_NAME = "PsyMitrix"
+SIDE_BAR_COLOR = "#003A33" # Darker version of primary
+
+def header_footer(canvas, doc):
+    canvas.saveState()
+    
+    # Dark Vertical Sidebar
+    canvas.setFillColor(colors.HexColor(SIDE_BAR_COLOR))
+    canvas.rect(0, 0, 1.5*cm, PAGE_HEIGHT, fill=1, stroke=0)
+
+    # Vertical Company Name
+    canvas.translate(1.0*cm, 8*cm)
+    canvas.rotate(90)
+    canvas.setFont("Helvetica-Bold", 12)
+    canvas.setFillColor(colors.white) # White text for contrast
+    canvas.drawString(0, 0, COMPANY_NAME)
+    canvas.restoreState()
+    
+    canvas.saveState()
+    # Header
+    canvas.setFillColor(colors.HexColor(PRIMARY_COLOR))
+    canvas.setFont("Helvetica-Bold", 10)
+    # Adjusted position due to sidebar
+    canvas.drawString(2.5*cm, PAGE_HEIGHT - 2*cm, REPORT_TITLE) 
+    
+    # Separator line (Header) - now Burnt Orange
+    canvas.setStrokeColor(colors.HexColor(CONTRAST_COLOR))
+    canvas.setLineWidth(1.5) # Thicker line
+    canvas.line(2.5*cm, PAGE_HEIGHT - 2.2*cm, PAGE_WIDTH - 2*cm, PAGE_HEIGHT - 2.2*cm)
+
+    # Footer - page number & small note
+    canvas.setFont("Helvetica-Bold", 8)
+    canvas.setFillColor(colors.HexColor(PRIMARY_COLOR))
+    page_num_text = f"Page {canvas.getPageNumber()}"
+    canvas.drawRightString(PAGE_WIDTH - 2*cm, 1.4*cm, page_num_text)
+
+    # Separator line (Footer - slightly above text) - now Burnt Orange
+    canvas.setStrokeColor(colors.HexColor(CONTRAST_COLOR))
+    canvas.setLineWidth(1.5) # Thicker line
+    canvas.line(2.5*cm, 1.8*cm, PAGE_WIDTH - 2*cm, 1.8*cm)
+
+    canvas.setFont("Helvetica-Oblique", 8)
+    canvas.setFillColor(colors.HexColor("#666666"))
+    canvas.drawString(2.5*cm, 1.4*cm, "Generated by PsyMitrix AI Engine | Confidential Profile")
+    canvas.restoreState()
+
 def _create_chart_guide_table(data):
     styles = getSampleStyleSheet()
-    # Wrap content in Paragraphs for auto line-breaks
+    # Ensure a basic style is available for wrapping
+    if "BodyText" not in styles:
+        styles.add(ParagraphStyle(name="BodyText", fontName='Helvetica', fontSize=10, leading=12))
+
+    # Wrap content in Paragraphs for auto line-breaks and bolding
     wrapped_data = [
         [Paragraph(str(cell), styles["BodyText"]) for cell in row]
         for row in data
@@ -241,10 +257,12 @@ def _create_chart_guide_table(data):
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
         ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor(PRIMARY_COLOR)),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor(ACCENT_COLOR)]),
+        ('FONTSIZE', (0, 0), (-1, -1), 10),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
     ])
 
-    # No fixed colWidths: table will expand based on content
-    table = Table(wrapped_data, hAlign='LEFT')
+    # Adjusted colWidths to handle wrapping
+    table = Table(wrapped_data, colWidths=[100, 350], hAlign='LEFT')
     table.setStyle(style)
     return table
 
@@ -252,25 +270,17 @@ def _create_chart_guide_table(data):
 # Main PDF builder
 # ---------------------------
 def generate_personality_pdf(filename, data, person_name="Parth"):
-    # Prepare temporary files (logo + charts)
-    tmpdir = "temp_charts"
-    if not os.path.exists(tmpdir):
-        os.makedirs(tmpdir)
-    logo_path = os.path.join(tmpdir, "logo.png")
-    radar_path = os.path.join(tmpdir, "radar.png")
-    bar_path = os.path.join(tmpdir, "bar.png")
-    cognitive_bar_path = os.path.join(tmpdir, "cognitive_bar.png")
-    comparison_bar_path = os.path.join(tmpdir, "comparison_bar.png") # New chart path
-
-    make_placeholder_logo(logo_path)
-    create_radar_chart(data["sections"]["charts"]["radarChart"]["data"], radar_path)
-    create_bar_chart(data["sections"]["charts"]["barChart"]["data"], bar_path, title="Core Attribute Summary")
-    create_bar_chart(
+    
+    # 1. Generate all charts and logo into in-memory buffers
+    # logo_buffer = make_placeholder_logo()
+    logo_buffer = './psy.png'
+    radar_buffer = create_radar_chart(data["sections"]["charts"]["radarChart"]["data"])
+    bar_buffer = create_bar_chart(data["sections"]["charts"]["barChart"]["data"], title="Core Attribute Summary")
+    cognitive_bar_buffer = create_bar_chart(
         data["sections"]["cognitive_scores"]["barChart"]["data"], 
-        cognitive_bar_path,
-        title="Cognitive Score Summary"
+        title="Cognitive Score Summary" 
     )
-    create_comparison_bar_chart(data["sections"]["charts"]["comparisonTable"]["data"], comparison_bar_path)
+    comparison_bar_buffer = create_comparison_bar_chart(data["sections"]["charts"]["comparisonTable"]["data"])
 
 
     # Document setup
@@ -299,7 +309,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
 
     # ----- COVER (Page 1) -----
     story.append(Spacer(1, 6*cm))
-    story.append(RLImage(logo_path, width=4.5*cm, height=4.5*cm, hAlign='CENTER'))
+    story.append(RLImage(logo_buffer, width=4.5*cm, height=4.5*cm, hAlign='CENTER')) # Use buffer
     story.append(Spacer(1, 0.8*cm))
     story.append(Paragraph(f"The Individual Profile of", styles["ReportSubtitle"]))
     story.append(Paragraph(f"<b>{person_name}</b>", styles["ReportTitle"]))
@@ -313,7 +323,6 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     story.append(Paragraph("Table of Contents", styles["ReportTitle"]))
     story.append(Spacer(1, 0.5*cm))
     
-    # TOC reflects the new, extended structure and estimated page numbers (11 sections)
     toc_data = [
         ["1.", "Report Overview", 3],
         ["2.", "How to Read This Report", 4],
@@ -345,7 +354,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     # ----- 1. Report Overview (Page 3) -----
     story.append(Paragraph("1. Report Overview", styles["SectionHeader"]))
     overview_text = (
-        "This **confidential report** summarizes your core personality, cognitive style, and motivational drivers. "
+        "This <b>confidential report</b> summarizes your core personality, cognitive style, and motivational drivers. "
         "It is structured to provide an easy-to-digest profile for both personal growth and professional development. "
         "The subsequent sections will detail your traits, compare them against a general population benchmark, "
         "and provide actionable insights based on your unique profile."
@@ -360,7 +369,6 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         "Recommendations: Practical advice for leveraging strengths and managing growth areas."
     ]
     for p in key_components:
-        # Use the renamed style
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
     story.append(PageBreak())
 
@@ -375,7 +383,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
 
     story.append(Paragraph("Score Interpretation (1–10 Scale)", styles["TraitTitle"]))
 
-    # Define data with Paragraphs (to enable text wrapping)
+    # FIX: Use Paragraphs inside table for text wrapping (Resolves table overflow)
     score_table_data = [
         [
             Paragraph("<b>Score Range</b>", styles["Body"]),
@@ -408,11 +416,11 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         ],
     ]
 
-    # Improved table with text wrapping and responsive layout
-    score_table = Table(score_table_data, colWidths=[70, 100, 300], repeatRows=1)
+    # FIX: Adjusted colWidths to fit within A4 margins (approx 480 points usable width)
+    score_table = Table(score_table_data, colWidths=[70, 100, 300], repeatRows=1) 
     score_table.setStyle(TableStyle([
         # Header row
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor("#6C63FF")),
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(PRIMARY_COLOR)),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
         ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
         ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
@@ -426,11 +434,11 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
 
         # Alternate row background
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.whitesmoke, colors.HexColor("#F8F5FF")]),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor(ACCENT_COLOR), colors.white]),
 
         # Borders & grid
-        ('BOX', (0, 0), (-1, -1), 0.7, colors.HexColor("#6C63FF")),
-        ('GRID', (0, 0), (-1, -1), 0.4, colors.HexColor("#B39DDB")),
+        ('BOX', (0, 0), (-1, -1), 0.7, colors.HexColor(PRIMARY_COLOR)),
+        ('GRID', (0, 0), (-1, -1), 0.4, colors.HexColor(SECONDARY_COLOR)),
 
         # Padding
         ('LEFTPADDING', (0, 0), (-1, -1), 6),
@@ -443,11 +451,11 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     story.append(Spacer(1, 0.4*cm))
 
     story.append(Paragraph(
-        "<font color='#6C63FF'><b>Tip:</b></font> Higher scores indicate stronger expression of that trait, "
+        f"<font color='{PRIMARY_COLOR}'><b>Tip:</b></font> Higher scores indicate stronger expression of that trait, "
         "but balance across dimensions is ideal for emotional and behavioral adaptability.",
         styles["Body"]
     ))
-    story.append(Paragraph("• " + p, styles["CustomBullet"]))
+    # Removed redundant bullet point insertion here
     story.append(PageBreak())
 
     # ----- 3. Understanding Your Results (Page 5) -----
@@ -459,14 +467,16 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     ))
     story.append(Spacer(1, 0.5*cm))
     story.append(Paragraph("Making the Most of Your Profile:", styles["TraitTitle"]))
+    
+    # FIX: Corrected escaped HTML tags to proper reportlab-compatible tags (<b>)
     reflection_points = [
-        "Identify your &lt;b&gt;Core Strengths&lt;/b&gt;: Which high-scoring traits align with your proudest accomplishments? Plan how to use them more intentionally.",
-        "Acknowledge &lt;b&gt;Growth Areas&lt;/b&gt;: Scores below 5 often suggest opportunities. Instead of viewing them as flaws, treat them as skills to be developed when needed.",
-        "Reflect on &lt;b&gt;Context&lt;/b&gt;: Does your report resonate with how you act at work, or at home? Understanding context is key to applying these insights.",
+        "Identify your <b>Core Strengths</b>: Which high-scoring traits align with your proudest accomplishments? Plan how to use them more intentionally.",
+        "Acknowledge <b>Growth Areas</b>: Scores below 5 often suggest opportunities. Instead of viewing them as flaws, treat them as skills to be developed when needed.",
+        "Reflect on <b>Context</b>: Does your report resonate with how you act at work, or at home? Understanding context is key to applying these insights.",
     ]
     for p in reflection_points:
-        # Use the renamed style
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
+    story.append(PageBreak())
 
 
     # --- CORE REPORT CONTENT ---
@@ -474,7 +484,6 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     # ----- 4. Personality Breakdown (Page 6) -----
     story.append(Paragraph("4. Personality Breakdown", styles["SectionHeader"]))
     report_section = data["sections"]["report"]
-    # iterate each trait & description
     for trait, desc in report_section.items():
         story.append(KeepTogether([
             Paragraph(trait, styles["TraitTitle"]),
@@ -505,7 +514,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         Paragraph("6. Radar Chart of Traits", styles["SectionHeader"]),
         Paragraph(data["sections"]["charts"]["radarChart"]["explanation"], styles["Body"]),
         Spacer(1, 0.5*cm),
-        RLImage(radar_path, width=12*cm, height=12*cm, hAlign='CENTER'),
+        RLImage(radar_buffer, width=12*cm, height=12*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
         _create_chart_guide_table(radar_guide_data)
@@ -522,7 +531,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         Paragraph("7. Bar Chart Summary (Core Attributes)", styles["SectionHeader"]),
         Paragraph(data["sections"]["charts"]["barChart"]["explanation"], styles["Body"]),
         Spacer(1, 0.5*cm),
-        RLImage(bar_path, width=14*cm, height=7*cm, hAlign='CENTER'),
+        RLImage(bar_buffer, width=14*cm, height=7*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
         _create_chart_guide_table(bar_guide_data)
@@ -539,7 +548,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         Paragraph("8. Cognitive Score Chart", styles["SectionHeader"]),
         Paragraph(data["sections"]["cognitive_scores"]["barChart"]["explanation"], styles["Body"]),
         Spacer(1, 0.5*cm),
-        RLImage(cognitive_bar_path, width=14*cm, height=7*cm, hAlign='CENTER'),
+        RLImage(cognitive_bar_buffer, width=14*cm, height=7*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
         _create_chart_guide_table(cognitive_guide_data)
@@ -556,7 +565,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         Paragraph("9. Trait Comparison Chart", styles["SectionHeader"]),
         Paragraph("The following chart benchmarks your core trait scores against the average population benchmark (Score of 5).", styles["Body"]),
         Spacer(1, 0.3*cm),
-        RLImage(comparison_bar_path, width=16*cm, height=8*cm, hAlign='CENTER'),
+        RLImage(comparison_bar_buffer, width=16*cm, height=8*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.4*cm),
         Paragraph(data["sections"]["charts"]["comparisonTable"].get("explanation", ""), styles["Body"]),
         Spacer(1, 0.5*cm),
@@ -564,6 +573,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         _create_chart_guide_table(comparison_guide_data)
     ]))
     story.append(PageBreak())
+    
     # ----- 10. Career Fit Recommendations (Page 12) -----
     story.append(Paragraph("10. Career Fit Recommendations", styles["SectionHeader"]))
     story.append(Paragraph("These recommendations synthesize your strongest traits (Personality) and aptitudes (Cognitive) to suggest environments and roles where you are likely to thrive and find maximum engagement.", styles["Body"]))
@@ -576,7 +586,6 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         "<b>Ideal Environment:</b> Seek environments that provide clear goals, autonomy in execution, and value the delivery of high-quality, precise work over rapid, high-volume output."
     ]
     for p in insights:
-        # Use the renamed style
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
         story.append(Spacer(1, 0.15*cm))
     story.append(PageBreak())
@@ -596,7 +605,6 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         "<b>Revisit in Six Months</b>: Personal development is cyclical. Look back at this report to measure how your self-perception has evolved and to recalibrate your focus."
     ]
     for p in next_steps_list:
-        # Use the renamed style
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
         story.append(Spacer(1, 0.15*cm))
 
@@ -606,13 +614,13 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
 
 
 # ---------------------------
-# Example data (from your JSON) - UPDATED with new cognitive section
+# Example data (from your JSON) - unchanged
 # ---------------------------
 if __name__ == "__main__":
     data = {
       "sections": {
         "report": {
-          "Openness": "Parth demonstrates a keen curiosity and appreciates new ideas, often seeking fresh experiences while valuing structure. He balances imaginative thinking with a practical approach, enabling him to explore innovative solutions without losing focus on execution.",
+            "Openness": "Parth demonstrates a keen curiosity and appreciates new ideas, often seeking fresh experiences while valuing structure. He balances imaginative thinking with a practical approach, enabling him to explore innovative solutions without losing focus on execution.",
             "Individualization": "He exhibits a nuanced sensitivity towards others, recognizing unique traits and tailoring interactions accordingly. This attentiveness fosters rapport and collaboration, especially within his peer group, and allows him to navigate social dynamics with ease.",
             "Introversion–Extraversion": "Parth shows a preference for quiet reflection, yet he engages confidently in group settings when needed. His energy is best replenished through solitary activities, though he maintains an approachable demeanor in collaborative environments.",
             "Self-Esteem": "He possesses a steady sense of self-worth, grounded in consistent personal achievements. Confidence arises from his reliable performance rather than external validation, encouraging autonomy in decision-making.",
@@ -666,4 +674,4 @@ if __name__ == "__main__":
         }
     }
 
-    generate_personality_pdf("Parth_Personality_Report_Fancier_V3.pdf", data, person_name="Parth")
+    generate_personality_pdf("Parth_Personality_Report_Fancier_V4.pdf", data, person_name="Parth")
