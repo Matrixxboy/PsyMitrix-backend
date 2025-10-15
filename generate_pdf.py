@@ -4,8 +4,6 @@ import tempfile
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 from reportlab.lib.pagesizes import A4
@@ -224,19 +222,9 @@ def create_comparison_bar_chart(entries, out_path, title="Trait Comparison"):
     plt.close(fig)
     return out_path
 
-def _create_chart_guide_table(data):
-    style = TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(SECONDARY_COLOR)),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor(PRIMARY_COLOR)),
-        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor(ACCENT_COLOR)]),
-    ])
-    table = Table(data, colWidths=[100, 300])
-    table.setStyle(style)
-    return table
+# ---------------------------
+# Main PDF builder
+# ---------------------------
 
 def _create_chart_guide_table(data):
     style = TableStyle([
@@ -257,24 +245,23 @@ def _create_chart_guide_table(data):
 # ---------------------------
 def generate_personality_pdf(filename, data, person_name="Parth"):
     # Prepare temporary files (logo + charts)
-    tmpdir = tempfile.mkdtemp(prefix="psym_")
+    tmpdir = "temp_charts"
+    if not os.path.exists(tmpdir):
+        os.makedirs(tmpdir)
     logo_path = os.path.join(tmpdir, "logo.png")
     radar_path = os.path.join(tmpdir, "radar.png")
     bar_path = os.path.join(tmpdir, "bar.png")
-    cognitive_bar_path = os.path.join(tmpdir, "cognitive_bar.png") # New chart path
+    cognitive_bar_path = os.path.join(tmpdir, "cognitive_bar.png")
     comparison_bar_path = os.path.join(tmpdir, "comparison_bar.png") # New chart path
 
     make_placeholder_logo(logo_path)
     create_radar_chart(data["sections"]["charts"]["radarChart"]["data"], radar_path)
-    # Pass title argument to distinguish charts
     create_bar_chart(data["sections"]["charts"]["barChart"]["data"], bar_path, title="Core Attribute Summary")
     create_bar_chart(
         data["sections"]["cognitive_scores"]["barChart"]["data"], 
         cognitive_bar_path,
-        title="Cognitive Score Summary" # New chart generation
+        title="Cognitive Score Summary"
     )
-
-
     create_comparison_bar_chart(data["sections"]["charts"]["comparisonTable"]["data"], comparison_bar_path)
 
 
@@ -452,9 +439,8 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         "but balance across dimensions is ideal for emotional and behavioral adaptability.",
         styles["Body"]
     ))
+    story.append(Paragraph("• " + p, styles["CustomBullet"]))
     story.append(PageBreak())
-
-
 
     # ----- 3. Understanding Your Results (Page 5) -----
     story.append(Paragraph("3. Understanding Your Results", styles["SectionHeader"]))
@@ -466,14 +452,14 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     story.append(Spacer(1, 0.5*cm))
     story.append(Paragraph("Making the Most of Your Profile:", styles["TraitTitle"]))
     reflection_points = [
-        "Identify your <b>Core Strengths</b>: Which high-scoring traits align with your proudest accomplishments? Plan how to use them more intentionally.",
-        "Acknowledge <b>Growth Areas</b>: Scores below 5 often suggest opportunities. Instead of viewing them as flaws, treat them as skills to be developed when needed.",
-        "Reflect on <b>Context</b>: Does your report resonate with how you act at work, or at home? Understanding context is key to applying these insights.",
+        "Identify your &lt;b&gt;Core Strengths&lt;/b&gt;: Which high-scoring traits align with your proudest accomplishments? Plan how to use them more intentionally.",
+        "Acknowledge &lt;b&gt;Growth Areas&lt;/b&gt;: Scores below 5 often suggest opportunities. Instead of viewing them as flaws, treat them as skills to be developed when needed.",
+        "Reflect on &lt;b&gt;Context&lt;/b&gt;: Does your report resonate with how you act at work, or at home? Understanding context is key to applying these insights.",
     ]
     for p in reflection_points:
         # Use the renamed style
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
-    story.append(PageBreak())
+
 
     # --- CORE REPORT CONTENT ---
 
@@ -488,7 +474,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
             Spacer(1, 0.3*cm)
         ]))
     story.append(PageBreak())
-    
+
     # ----- 5. Cognitive Profile Overview (Page 7) -----
     story.append(Paragraph("5. Cognitive Profile Overview", styles["SectionHeader"]))
     cognitive_intro = (
@@ -552,7 +538,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     ]))
     story.append(PageBreak())
 
-    # ----- 9. Trait Comparison Chart (Page 11) -----
+    # ----- 9. Comparison of Traits (Chart Page 11) -----
     comparison_guide_data = [
         ['Element', 'Description'],
         ['Your Score', 'The dark bar representing your score in a specific trait.'],
@@ -570,7 +556,6 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         _create_chart_guide_table(comparison_guide_data)
     ]))
     story.append(PageBreak())
-
     # ----- 10. Career Fit Recommendations (Page 12) -----
     story.append(Paragraph("10. Career Fit Recommendations", styles["SectionHeader"]))
     story.append(Paragraph("These recommendations synthesize your strongest traits (Personality) and aptitudes (Cognitive) to suggest environments and roles where you are likely to thrive and find maximum engagement.", styles["Body"]))
@@ -610,7 +595,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
 
     # Build PDF with header/footer callbacks
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
-    print(f"PDF generated: {filename}")
+
 
 # ---------------------------
 # Example data (from your JSON) - UPDATED with new cognitive section
@@ -673,4 +658,4 @@ if __name__ == "__main__":
         }
     }
 
-    generate_personality_pdf("PsyMitrix_Report_V8.pdf", data, person_name="Parth")
+    generate_personality_pdf("Parth_Personality_Report_Fancier_V7.pdf", data, person_name="Parth")
