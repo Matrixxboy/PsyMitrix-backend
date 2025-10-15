@@ -225,8 +225,14 @@ def create_comparison_bar_chart(entries, out_path, title="Trait Comparison"):
 # ---------------------------
 # Main PDF builder
 # ---------------------------
-
 def _create_chart_guide_table(data):
+    styles = getSampleStyleSheet()
+    # Wrap content in Paragraphs for auto line-breaks
+    wrapped_data = [
+        [Paragraph(str(cell), styles["BodyText"]) for cell in row]
+        for row in data
+    ]
+
     style = TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(SECONDARY_COLOR)),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
@@ -236,7 +242,9 @@ def _create_chart_guide_table(data):
         ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor(PRIMARY_COLOR)),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor(ACCENT_COLOR)]),
     ])
-    table = Table(data, colWidths=[100, 300])
+
+    # No fixed colWidths: table will expand based on content
+    table = Table(wrapped_data, hAlign='LEFT')
     table.setStyle(style)
     return table
 
@@ -644,18 +652,18 @@ if __name__ == "__main__":
               "explanation": "The comparison table contrasts Parth’s scores with typical benchmarks, indicating above-average openness, lower introversion, solid self-esteem, and a moderate conscientious profile."
             }
           },
-                "cognitive_scores": {
-                    "barChart": {
-                        "data": [
-                            {"field": "Logical Reasoning", "value": 9},
-                            {"field": "Verbal Comprehension", "value": 7},
-                            {"field": "Working Memory", "value": 6},
-                            {"field": "Processing Speed", "value": 5}
-                        ],
-                        "explanation": "This chart summarizes Parth’s cognitive abilities, highlighting strong Logical Reasoning and solid Verbal Comprehension, supporting an analytical profile. Working Memory is efficient, while Processing Speed is within the typical range."
-                    }
+            "cognitive_scores": {
+                "barChart": {
+                    "data": [
+                        {"field": "Logical Reasoning", "value": 9},
+                        {"field": "Verbal Comprehension", "value": 7},
+                        {"field": "Working Memory", "value": 6},
+                        {"field": "Processing Speed", "value": 5}
+                    ],
+                    "explanation": "This chart summarizes Parth’s cognitive abilities, highlighting strong Logical Reasoning and solid Verbal Comprehension, supporting an analytical profile. Working Memory is efficient, while Processing Speed is within the typical range."
                 }
+            }
         }
     }
 
-    generate_personality_pdf("Parth_Personality_Report_Fancier_V7.pdf", data, person_name="Parth")
+    generate_personality_pdf("Parth_Personality_Report_Fancier_V3.pdf", data, person_name="Parth")
