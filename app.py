@@ -1,11 +1,16 @@
 import os
 import json
-from fastapi import FastAPI , Request
+from fastapi import FastAPI , Request, FastAPI, File, UploadFile, HTTPException
 # from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from Models.Models import IntakeParameters
 from AI.aiModel import  generate_questions, generate_report
+# from Helper.helperFunctions import audio_to_text_online
+from pydub import AudioSegment
+import speech_recognition as sr
+import io
+
 # from Database.db import mycursor, mydb
 # from Database.dbHelper import save_question_to_db
 # from Database.dbTabels import create_tables
@@ -127,4 +132,70 @@ def create_report(user: IntakeParameters):
             HTTP_STATUS["INTERNAL_SERVER_ERROR"],
             HTTP_CODE["ERROR"],
             str(e)
+        )
+
+@app.post("/transcribe")
+async def transcribe_audio(file: UploadFile = File(...)):
+    try:
+        # --- Validate file type ---
+        SUPPORTED_FORMATS = {"mp3", "m4a", "wav", "flac","webm"}
+        ext = os.path.splitext(file.filename)[1][1:].lower()
+        if ext not in SUPPORTED_FORMATS:
+            return make_response(
+                HTTP_STATUS["BAD_REQUEST"],
+                HTTP_CODE["VALIDATION"],
+                "Unsupported file format",
+                data={"supported_formats": SUPPORTED_FORMATS}
+            )
+        # --- Read file contents ---
+        contents = await file.read()
+        if not contents:
+            return make_response(
+                HTTP_STATUS["BAD_REQUEST"],
+                HTTP_CODE["VALIDATION"],    
+                "Uploaded file is empty",
+                data={"supported_formats": SUPPORTED_FORMATS}
+            )
+        # --- Load and convert to WAV in memory ---
+        audio_segment = AudioSegment.from_file(io.BytesIO(contents), format=ext)
+        wav_buffer = io.BytesIO()
+        audio_segment.export(wav_buffer, format="wav")
+        wav_buffer.seek(0)
+
+        # --- Speech recognition in chunks ---
+        recognizer = sr.Recognizer()
+        full_text = ""
+
+        with sr.AudioFile(wav_buffer) as source:
+            while True:
+                try:
+                    audio_data = recognizer.record(source, duration=30)
+                    if not audio_data.frame_data:
+                        break
+                    text = recognizer.recognize_google(audio_data)
+                    full_text += " " + text
+                except Exception as e:
+                    return make_response(
+                        HTTP_STATUS["INTERNAL_SERVER_ERROR"],
+                        HTTP_CODE["ERROR"],
+                        message="Error during transcription",
+                        data={"error": str(e)}
+                    )
+
+        # --- Return successful response ---
+        return make_response(
+            HTTP_STATUS["OK"],
+            HTTP_CODE["OK"],
+            message="Transcription successful",
+            data={"text": full_text.strip()}
+        )
+
+    except HTTPException as http_err:
+        return make_response("ERROR", http_err.status_code, http_err.detail)
+    except Exception as e:
+        return make_response(
+            HTTP_STATUS["INTERNAL_SERVER_ERROR"],
+            HTTP_CODE["ERROR"],
+            message="An unexpected error occurred",
+            data={"error": str(e)},
         )
