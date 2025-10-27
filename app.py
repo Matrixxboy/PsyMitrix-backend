@@ -8,6 +8,8 @@ from Models.Models import IntakeParameters
 from AI.aiModel import  generate_questions, generate_report
 # from Helper.helperFunctions import audio_to_text_online
 from pydub import AudioSegment
+AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
+AudioSegment.ffprobe   = "E:\\ffmpeg\\bin\\ffprobe.exe"
 import speech_recognition as sr
 import io
 

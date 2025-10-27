@@ -5,6 +5,7 @@ import io # Import for in-memory operations
 import numpy as np
 from PIL import Image, ImageDraw
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
@@ -19,7 +20,7 @@ from reportlab.lib.units import cm, inch
 PRIMARY_COLOR = "#00473E" # Deep Teal (Primary Text/Headers)
 SECONDARY_COLOR = "#78A083" # Dusty Green (Chart Fills/Backgrounds)
 ACCENT_COLOR = "#E6EED6" # Light Beige (Background/Striping)
-TITLE_COLOR = "#121C14" # Very dark (High contrast text)
+TITLE_COLOR = "#1A1A1A" # Very dark (High contrast text)
 CONTRAST_COLOR = "#C65300" # Burnt Orange (Accent lines/highlights)
 REPORT_TITLE = "PsyMitrix Individual Profile Report"
 
@@ -96,7 +97,7 @@ def create_radar_chart(radar_entries):
     return buffer
 
 # Modified to accept a title for clarity since it's used for two different sections
-def create_bar_chart(bar_entries, title="Score Summary"):
+def create_horizontal_bar_chart(bar_entries, title="Score Summary"):
     labels = [e['field'] for e in bar_entries]
     values = [e['value'] for e in bar_entries]
     values = [v * 10 for v in values] # scale 1-10 to 0-100
@@ -146,40 +147,157 @@ def create_bar_chart(bar_entries, title="Score Summary"):
 def create_comparison_bar_chart(entries, title="Trait Comparison"):
     labels = [e['field'] for e in entries]
     user_values = [e['value'] for e in entries]
-    benchmark_values = [5 for _ in entries] # Benchmark is 5
+    values = [v * 10 for v in user_values] # scale 1-10 to 0-100
     N = len(labels)
+    
+    # Use a sequential colormap for multi-color bars (Teal/Green palette)
+    cmap = plt.cm.get_cmap('viridis', N)
+    colors = cmap(np.linspace(0.1, 0.9, N))
 
     plt.style.use('default')
-    fig, ax = plt.subplots(figsize=(8, 4), dpi=200, facecolor='none')
-    y_pos = np.arange(N)
-    height = 0.35
+    fig, ax = plt.subplots(figsize=(7, 3.5), dpi=200, facecolor='none')
+    x_pos = np.arange(N)
+    
+    bars = ax.bar(x_pos, values, align='center', color=colors, linewidth=0)
+    
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(labels, fontsize=9, color=TITLE_COLOR)
+    ax.set_ylim(0, 100)
+    ax.set_ylabel("Profile Score (0-100)", color=PRIMARY_COLOR, fontsize=10)
+    ax.tick_params(axis='y', colors='#666666')
+    ax.grid(axis='y', linestyle='--', linewidth=0.5, color='#DDDDDD')
+    
+    ax.set_title(title, fontsize=12, color=PRIMARY_COLOR, fontweight='bold', pad=10)
+    
+    for i, b in enumerate(bars):
+        # Annotate score text
+        ax.text(b.get_x() + b.get_width()/2, b.get_height() + 1, 
+                f"{int(values[i])}", ha='center', fontsize=9, color=PRIMARY_COLOR, fontweight='bold')
 
-    rects1 = ax.barh(y_pos - height/2, user_values, height, label='Your Score', color=PRIMARY_COLOR)
-    rects2 = ax.barh(y_pos + height/2, benchmark_values, height, label='Benchmark', color=SECONDARY_COLOR)
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_linewidth(0.5)
+    ax.spines['bottom'].set_linewidth(0.5)
 
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(labels, fontsize=10, color=TITLE_COLOR)
-    ax.invert_yaxis()
-    ax.set_xlim(0, 10)
-    ax.set_xlabel("Score (1-10)", color=PRIMARY_COLOR, fontsize=10)
-    ax.tick_params(axis='x', colors='#666666')
-    ax.grid(axis='x', linestyle='--', linewidth=0.5, color='#DDDDDD')
+    fig.patch.set_alpha(0.0)
 
-    ax.set_title(title, fontsize=14, color=PRIMARY_COLOR, fontweight='bold', pad=15)
-    ax.legend()
+    plt.tight_layout()
+    
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png", transparent=True)
+    plt.close(fig)
+    buffer.seek(0)
+    return buffer
 
-    # Add value labels
-    for rect in rects1:
-        width = rect.get_width()
-        ax.text(width + 0.1, rect.get_y() + rect.get_height() / 2.0, f'{width}', ha='left', va='center', fontsize=8, color=PRIMARY_COLOR)
+def create_vertical_bar_chart(bar_entries, title="Score Summary"):
+    labels = [e['field'] for e in bar_entries]
+    values = [e['value'] for e in bar_entries]
+    values = [v * 10 for v in values] # scale 1-10 to 0-100
+    N = len(labels)
+    
+    # Use a sequential colormap for multi-color bars (Teal/Green palette)
+    cmap = plt.cm.get_cmap('viridis', N)
+    colors = cmap(np.linspace(0.1, 0.9, N))
 
-    for rect in rects2:
-        width = rect.get_width()
-        ax.text(width + 0.1, rect.get_y() + rect.get_height() / 2.0, f'{width}', ha='left', va='center', fontsize=8, color=SECONDARY_COLOR)
+    plt.style.use('default')
+    fig, ax = plt.subplots(figsize=(7, 3.5), dpi=200, facecolor='none')
+    x_pos = np.arange(N)
+    
+    bars = ax.bar(x_pos, values, align='center', color=colors, linewidth=0)
+    
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(labels, fontsize=9, color=TITLE_COLOR)
+    ax.set_ylim(0, 100)
+    ax.set_ylabel("Profile Score (0-100)", color=PRIMARY_COLOR, fontsize=10)
+    ax.tick_params(axis='y', colors='#666666')
+    ax.grid(axis='y', linestyle='--', linewidth=0.5, color='#DDDDDD')
+    
+    ax.set_title(title, fontsize=12, color=PRIMARY_COLOR, fontweight='bold', pad=10)
+    
+    for i, b in enumerate(bars):
+        # Annotate score text
+        ax.text(b.get_x() + b.get_width()/2, b.get_height() + 1, 
+                f"{int(values[i])}", ha='center', fontsize=9, color=PRIMARY_COLOR, fontweight='bold')
+
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_linewidth(0.5)
+    ax.spines['bottom'].set_linewidth(0.5)
+
+    fig.patch.set_alpha(0.0)
+
+    plt.tight_layout()
+    
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png", transparent=True)
+    plt.close(fig)
+    buffer.seek(0)
+    return buffer
+def create_donut_chart(entries, title="Strengths Distribution"):
+    labels = [e['field'] for e in entries]
+    values = [e['value'] for e in entries]
+    N = len(labels)
+
+    cmap = plt.cm.get_cmap('viridis', N)
+    colors = cmap(np.linspace(0.1, 0.9, N))
+
+    plt.style.use('default')
+    fig, ax = plt.subplots(figsize=(6, 6), dpi=200, facecolor='none')
+
+    # Create the donut chart
+    wedges, texts, autotexts = ax.pie(values, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90, pctdistance=0.85)
+    for autotext in autotexts:
+        autotext.set_color('white')
+        autotext.set_fontweight('bold')
+
+    # Draw a circle at the center to create a donut chart
+    centre_circle = plt.Circle((0,0),0.70,fc='white')
+    fig.gca().add_artist(centre_circle)
+
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax.set_title(title, fontsize=12, color=PRIMARY_COLOR, fontweight='bold', pad=10)
+
+    fig.patch.set_alpha(0.0)
+
+    plt.tight_layout()
+
+    # Save to in-memory buffer
+    buffer = io.BytesIO()
+    fig.savefig(buffer, format="png", transparent=True)
+    plt.close(fig)
+    buffer.seek(0)
+    return buffer
+
+import matplotlib.patches as patches
+
+def create_gauge_chart(score, title="Risk Profile"):
+    # score is 1-10, convert to 0-100 for gauge
+    score = score * 10
+
+    fig, ax = plt.subplots(figsize=(6, 3.5), dpi=200, facecolor='none')
+
+    # Create the gauge background arc
+    ax.add_patch(patches.Circle((0.5, 0.4), 0.4, color='#E0E0E0', fill=True, zorder=1))
+    ax.add_patch(patches.Circle((0.5, 0.4), 0.3, color='#FFFFFF', fill=True, zorder=1))
+
+    # Create the filled arc
+    theta = np.deg2rad(180 - score * 1.8)
+    ax.add_patch(patches.Wedge((0.5, 0.4), 0.4, 180, 180 - score * 1.8, color=PRIMARY_COLOR, zorder=2))
+    ax.add_patch(patches.Circle((0.5, 0.4), 0.3, color='#FFFFFF', fill=True, zorder=3))
+
+    # Add the score text
+    ax.text(0.5, 0.4, f'{int(score)}', horizontalalignment='center', verticalalignment='center', fontsize=40, fontweight='bold', color=PRIMARY_COLOR, zorder=4)
+    ax.text(0.5, 0.25, title, horizontalalignment='center', verticalalignment='center', fontsize=12, color=PRIMARY_COLOR, zorder=4)
+
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis('off')
 
     fig.patch.set_alpha(0.0)
     plt.tight_layout()
-    
+
     # Save to in-memory buffer
     buffer = io.BytesIO()
     fig.savefig(buffer, format="png", transparent=True)
@@ -234,7 +352,7 @@ def header_footer(canvas, doc):
 
     canvas.setFont("Helvetica-Oblique", 8)
     canvas.setFillColor(colors.HexColor("#666666"))
-    canvas.drawString(2.5*cm, 1.4*cm, "Generated by PsyMitrix AI Engine | Confidential Profile")
+    canvas.drawString(2.5*cm, 1.4*cm, "Company information")
     canvas.restoreState()
 
 def _create_chart_guide_table(data):
@@ -250,8 +368,66 @@ def _create_chart_guide_table(data):
     ]
 
     style = TableStyle([
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(SECONDARY_COLOR)),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(ACCENT_COLOR)),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.HexColor(PRIMARY_COLOR)),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor(PRIMARY_COLOR)),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor(ACCENT_COLOR)]),
+        ('FONTSIZE', (0, 0), (-1, -1), 10),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
+    ])
+
+    # Adjusted colWidths to handle wrapping
+    table = Table(wrapped_data, colWidths=[100, 350], hAlign='LEFT')
+    table.setStyle(style)
+    return table
+
+def _create_three_column_data_table(data):
+    styles = getSampleStyleSheet()
+    # Ensure a basic style is available for wrapping
+    if "BodyText" not in styles:
+        styles.add(ParagraphStyle(name="BodyText", fontName='Helvetica', fontSize=10, leading=12))
+
+    # Wrap content in Paragraphs for auto line-breaks and bolding
+    wrapped_data = [
+        [Paragraph(str(cell), styles["BodyText"]) for cell in row]
+        for row in data
+    ]
+
+    style = TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(ACCENT_COLOR)),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.HexColor(PRIMARY_COLOR)),
+        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor(PRIMARY_COLOR)),
+        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.HexColor(ACCENT_COLOR)]),
+        ('FONTSIZE', (0, 0), (-1, -1), 10),
+        ('LEFTPADDING', (0, 0), (-1, -1), 8),
+    ])
+
+    # Adjusted colWidths to handle wrapping
+    table = Table(wrapped_data, colWidths=[200, 125, 125], hAlign='LEFT')
+    table.setStyle(style)
+    return table
+
+def _create_data_table(data):
+    styles = getSampleStyleSheet()
+    # Ensure a basic style is available for wrapping
+    if "BodyText" not in styles:
+        styles.add(ParagraphStyle(name="BodyText", fontName='Helvetica', fontSize=10, leading=12))
+
+    # Wrap content in Paragraphs for auto line-breaks and bolding
+    wrapped_data = [
+        [Paragraph(str(cell), styles["BodyText"]) for cell in row]
+        for row in data
+    ]
+
+    style = TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(ACCENT_COLOR)),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.HexColor(PRIMARY_COLOR)),
         ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
         ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
@@ -275,12 +451,14 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     # logo_buffer = make_placeholder_logo()
     logo_buffer = './psy.png'
     radar_buffer = create_radar_chart(data["sections"]["charts"]["radarChart"]["data"])
-    bar_buffer = create_bar_chart(data["sections"]["charts"]["barChart"]["data"], title="Core Attribute Summary")
-    cognitive_bar_buffer = create_bar_chart(
+    bar_buffer = create_horizontal_bar_chart(data["sections"]["charts"]["barChart"]["data"], title="Core Attribute Summary")
+    cognitive_bar_buffer = create_vertical_bar_chart(
         data["sections"]["cognitive_scores"]["barChart"]["data"], 
         title="Cognitive Score Summary" 
     )
     comparison_bar_buffer = create_comparison_bar_chart(data["sections"]["charts"]["comparisonTable"]["data"])
+    donut_buffer = create_donut_chart(data["sections"]["charts"]["donutChart"]["data"])
+    gauge_buffer = create_gauge_chart(data["sections"]["charts"]["gaugeChart"]["value"], title="Risk Profile")
 
 
     # Document setup
@@ -315,7 +493,10 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     story.append(Paragraph(f"<b>{person_name}</b>", styles["ReportTitle"]))
     story.append(Paragraph("Comprehensive Personality & Cognitive Profile", styles["ReportSubtitle"]))
     story.append(Paragraph(f"Generated on: <b>{datetime.now().strftime('%B %d, %Y')}</b>", styles["Body"]))
-    story.append(Spacer(1, 3*cm))
+    story.append(Spacer(1, 1*cm))
+    story.append(Paragraph("PsyMitrix Inc.", styles["Body"]))
+    story.append(Paragraph("info@psymitrix.com | www.psymitrix.com", styles["Body"]))
+    story.append(Spacer(1, 2*cm))
     story.append(Paragraph("Confidential — For recipient only.", styles["Body"]))
     story.append(PageBreak())
 
@@ -333,8 +514,10 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         ["7.", "Bar Chart Summary (Core Attributes)", 9],
         ["8.", "Cognitive Score Chart", 10],
         ["9.", "Trait Comparison Chart", 11],
-        ["10.", "Career Fit Recommendations", 12],
-        ["11.", "Next Steps", 13],
+        ["10.", "Donut Chart of Strengths", 12],
+        ["11.", "Gauge Chart: Risk Profile", 13],
+        ["12.", "Career Fit Recommendations", 14],
+        ["13.", "Next Steps", 15],
     ]
     
     toc_table_data = [[f"{row[0]}", row[1], f".... {row[2]}"] for row in toc_data]
@@ -364,7 +547,7 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     story.append(Paragraph("Key Components:", styles["TraitTitle"]))
     key_components = [
         "Trait Breakdown: In-depth descriptions of how your major personality traits manifest.",
-        "Graphical Summaries: Visual comparisons (Radar and Bar charts) for quick comprehension.",
+        "Graphical Summaries: Visual comparisons (Radar, Bar, Donut, and Gauge charts) for quick comprehension.",
         "Comparison Matrix: Benchmarking your scores against population averages.",
         "Recommendations: Practical advice for leveraging strengths and managing growth areas."
     ]
@@ -420,8 +603,8 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     score_table = Table(score_table_data, colWidths=[70, 100, 300], repeatRows=1) 
     score_table.setStyle(TableStyle([
         # Header row
-        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(PRIMARY_COLOR)),
-        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(ACCENT_COLOR)),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.HexColor(PRIMARY_COLOR)),
         ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
         ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
         ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
@@ -516,51 +699,57 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         Spacer(1, 0.5*cm),
         RLImage(radar_buffer, width=12*cm, height=12*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.5*cm),
+        Paragraph("Chart Data", styles["TraitTitle"]),
+        _create_data_table([["Field", "Value"]] + [[e['field'], e['value']] for e in data["sections"]["charts"]["radarChart"]["data"]]),
+        Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
-        _create_chart_guide_table(radar_guide_data)
+        _create_chart_guide_table([
+            ['Element', 'Description'],
+            ['Axes', 'Each axis represents a different personality trait.'],
+            ['Value', 'The further the point is from the center, the higher the score in that trait.'],
+        ])
     ]))
     story.append(PageBreak())
 
     # ----- 7. Bar Chart Summary (Core Attributes) (Page 9) -----
-    bar_guide_data = [
-        ['Element', 'Description'],
-        ['Bars', 'Each horizontal bar represents a core attribute.'],
-        ['Length', 'The length of the bar corresponds to your score (0-100) in that area.'],
-    ]
     story.append(KeepTogether([
         Paragraph("7. Bar Chart Summary (Core Attributes)", styles["SectionHeader"]),
         Paragraph(data["sections"]["charts"]["barChart"]["explanation"], styles["Body"]),
         Spacer(1, 0.5*cm),
         RLImage(bar_buffer, width=14*cm, height=7*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.5*cm),
+        Paragraph("Chart Data", styles["TraitTitle"]),
+        _create_data_table([["Field", "Value"]] + [[e['field'], e['value']] for e in data["sections"]["charts"]["barChart"]["data"]]),
+        Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
-        _create_chart_guide_table(bar_guide_data)
+        _create_chart_guide_table([
+            ['Element', 'Description'],
+            ['Bars', 'Each horizontal bar represents a core attribute.'],
+            ['Length', 'The length of the bar corresponds to your score (0-100) in that area.'],
+        ])
     ]))
     story.append(PageBreak())
 
     # ----- 8. Cognitive Score Chart (New Chart Page 10) -----
-    cognitive_guide_data = [
-        ['Element', 'Description'],
-        ['Bars', 'Each horizontal bar represents a cognitive ability.'],
-        ['Length', 'The length of the bar shows your score in that cognitive domain.'],
-    ]
     story.append(KeepTogether([
         Paragraph("8. Cognitive Score Chart", styles["SectionHeader"]),
         Paragraph(data["sections"]["cognitive_scores"]["barChart"]["explanation"], styles["Body"]),
         Spacer(1, 0.5*cm),
         RLImage(cognitive_bar_buffer, width=14*cm, height=7*cm, hAlign='CENTER'), # Use buffer
         Spacer(1, 0.5*cm),
+        Paragraph("Chart Data", styles["TraitTitle"]),
+        _create_data_table([["Field", "Value"]] + [[e['field'], e['value']] for e in data["sections"]["cognitive_scores"]["barChart"]["data"]]),
+        Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
-        _create_chart_guide_table(cognitive_guide_data)
+        _create_chart_guide_table([
+            ['Element', 'Description'],
+            ['Bars', 'Each vertical bar represents a cognitive ability.'],
+            ['Height', 'The height of the bar shows your score in that cognitive domain.'],
+        ])
     ]))
     story.append(PageBreak())
 
     # ----- 9. Comparison of Traits (Chart Page 11) -----
-    comparison_guide_data = [
-        ['Element', 'Description'],
-        ['Your Score', 'The dark bar representing your score in a specific trait.'],
-        ['Benchmark', 'The lighter bar representing the population average (5.0).'],
-    ]
     story.append(KeepTogether([
         Paragraph("9. Trait Comparison Chart", styles["SectionHeader"]),
         Paragraph("The following chart benchmarks your core trait scores against the average population benchmark (Score of 5).", styles["Body"]),
@@ -569,29 +758,74 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
         Spacer(1, 0.4*cm),
         Paragraph(data["sections"]["charts"]["comparisonTable"].get("explanation", ""), styles["Body"]),
         Spacer(1, 0.5*cm),
+        Paragraph("Chart Data", styles["TraitTitle"]),
+        _create_three_column_data_table([["Field", "Your Score", "Benchmark"]] + [[e['field'], e['value'], 5] for e in data["sections"]["charts"]["comparisonTable"]["data"]]),
+        Spacer(1, 0.5*cm),
         Paragraph("How to Read This Chart", styles["TraitTitle"]),
-        _create_chart_guide_table(comparison_guide_data)
+        _create_chart_guide_table([
+            ['Element', 'Description'],
+            ['Your Score', 'The dark bar representing your score in a specific trait.'],
+            ['Benchmark', 'The lighter bar representing the population average (5.0).'],
+        ])
     ]))
     story.append(PageBreak())
     
-    # ----- 10. Career Fit Recommendations (Page 12) -----
-    story.append(Paragraph("10. Career Fit Recommendations", styles["SectionHeader"]))
+    # ----- 10. Donut Chart of Strengths (Page 12) -----
+    story.append(KeepTogether([
+        Paragraph("10. Donut Chart of Strengths", styles["SectionHeader"]),
+        Paragraph(data["sections"]["charts"]["donutChart"]["explanation"], styles["Body"]),
+        Spacer(1, 0.5*cm),
+        RLImage(donut_buffer, width=12*cm, height=12*cm, hAlign='CENTER'), # Use buffer
+        Spacer(1, 0.5*cm),
+        Paragraph("Chart Data", styles["TraitTitle"]),
+        _create_data_table([["Field", "Value"]] + [[e['field'], e['value']] for e in data["sections"]["charts"]["donutChart"]["data"]]),
+        Spacer(1, 0.5*cm),
+        Paragraph("How to Read This Chart", styles["TraitTitle"]),
+        _create_chart_guide_table([
+            ['Element', 'Description'],
+            ['Slices', 'Each slice represents a different strength.'],
+            ['Size', 'The size of the slice corresponds to the score of that strength.'],
+        ])
+    ]))
+    story.append(PageBreak())
+
+    # ----- 11. Gauge Chart: Risk Profile (Page 13) -----
+    story.append(KeepTogether([
+        Paragraph("11. Gauge Chart: Risk Profile", styles["SectionHeader"]),
+        Paragraph(data["sections"]["charts"]["gaugeChart"]["explanation"], styles["Body"]),
+        Spacer(1, 0.5*cm),
+        RLImage(gauge_buffer, width=12*cm, height=7*cm, hAlign='CENTER'), # Use buffer
+        Spacer(1, 0.5*cm),
+        Paragraph("Chart Data", styles["TraitTitle"]),
+        _create_data_table([["Field", "Value"], ["Risk Profile", data["sections"]["charts"]["gaugeChart"]["value"]]]),
+        Spacer(1, 0.5*cm),
+        Paragraph("How to Read This Chart", styles["TraitTitle"]),
+        _create_chart_guide_table([
+            ['Element', 'Description'],
+            ['Value', 'The value represents the risk profile score.'],
+            ['Color', 'The color of the gauge indicates the level of risk.'],
+        ])
+    ]))
+    story.append(PageBreak())
+
+    # ----- 12. Career Fit Recommendations (Page 14) -----
+    story.append(Paragraph("12. Career Fit Recommendations", styles["SectionHeader"]))
     story.append(Paragraph("These recommendations synthesize your strongest traits (Personality) and aptitudes (Cognitive) to suggest environments and roles where you are likely to thrive and find maximum engagement.", styles["Body"]))
     story.append(Spacer(1, 0.3*cm))
     
     insights = [
-        "<b>Strengths Leverage:</b> Utilize high openness and strong logical reasoning by engaging in roles that require creativity and analytical problem-solving.",
-        "<b>Growth Areas Focus:</b> Target spontaneous engagement and social energy development through varied networking opportunities to enhance broader team leadership capabilities.",
-        "<b>Optimal Career Fit:</b> Analytical and structured roles (e.g., data analysis, QA engineering, project coordination) are best suited, leveraging the preference for methodical planning and clear objectives.",
-        "<b>Ideal Environment:</b> Seek environments that provide clear goals, autonomy in execution, and value the delivery of high-quality, precise work over rapid, high-volume output."
+        "<b>Strengths Leverage:</b> Utilize high openness and strong logical reasoning by engaging in roles that require creativity and analytical problem-solving, such as a software developer, data scientist, or research analyst.",
+        "<b>Growth Areas Focus:</b> Target spontaneous engagement and social energy development through varied networking opportunities to enhance broader team leadership capabilities. Consider joining a public speaking club or taking on a mentorship role.",
+        "<b>Optimal Career Fit:</b> Analytical and structured roles (e.g., data analysis, QA engineering, project coordination) are best suited, leveraging the preference for methodical planning and clear objectives. Roles in finance or engineering would also be a good fit.",
+        "<b>Ideal Environment:</b> Seek environments that provide clear goals, autonomy in execution, and value the delivery of high-quality, precise work over rapid, high-volume output. A research and development department or a small, focused team would be ideal."
     ]
     for p in insights:
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
         story.append(Spacer(1, 0.15*cm))
     story.append(PageBreak())
 
-    # ----- 11. Next Steps (Page 13) -----
-    story.append(Paragraph("11. Next Steps", styles["SectionHeader"]))
+    # ----- 13. Next Steps (Page 15) -----
+    story.append(Paragraph("13. Next Steps", styles["SectionHeader"]))
     story.append(Paragraph(
         "Turning insight into action requires a concrete plan. Use these steps to integrate your profile results into your personal and professional development goals.",
         styles["Body"]
@@ -599,10 +833,10 @@ def generate_personality_pdf(filename, data, person_name="Parth"):
     story.append(Spacer(1, 0.5*cm))
     
     next_steps_list = [
-        "<b>Discuss & Validate</b>: Share this report with a trusted mentor, coach, or manager to gain external perspective on how your traits align with observed behavior.",
-        "<b>Set a SMART Goal</b>: Choose one of the identified 'Growth Areas' (e.g., Introversion–Extraversion) and set a specific, measurable goal for the next 90 days related to that area.",
-        "<b>Track Success</b>: Document instances where your strengths helped you succeed and where your growth areas presented challenges. This reinforces self-awareness.",
-        "<b>Revisit in Six Months</b>: Personal development is cyclical. Look back at this report to measure how your self-perception has evolved and to recalibrate your focus."
+        "<b>Discuss & Validate</b>: Share this report with a trusted mentor, coach, or manager to gain external perspective on how your traits align with observed behavior. Ask for specific examples of when they have seen you exhibit your strengths and growth areas.",
+        "<b>Set a SMART Goal</b>: Choose one of the identified 'Growth Areas' (e.g., Introversion–Extraversion) and set a specific, measurable, achievable, relevant, and time-bound goal for the next 90 days related to that area. For example, 'I will initiate a conversation with a colleague I don\'t know well at least once a week.'",
+        "<b>Track Success</b>: Document instances where your strengths helped you succeed and where your growth areas presented challenges. This reinforces self-awareness. Use a journal or a simple spreadsheet to track your progress.",
+        "<b>Revisit in Six Months</b>: Personal development is cyclical. Look back at this report to measure how your self-perception has evolved and to recalibrate your focus. Consider taking the assessment again to see how your scores have changed."
     ]
     for p in next_steps_list:
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
@@ -627,14 +861,12 @@ if __name__ == "__main__":
             "Enneagram & DISC Summary": "Parth aligns with a thoughtful, conscientious profile, emphasizing diligence and precision. His communication style reflects a calm, methodical tone, preferring clarity and thoroughness in exchanges.",
             "FIRO-B Summary": "He balances inclusion with independence, valuing close connections yet maintaining personal space. His focus on contribution encourages supportive teamwork while safeguarding personal boundaries.",
             "Career Fit": "His strengths point toward roles that demand analytical rigor and collaborative problem-solving, such as data analysis, quality assurance, or project coordination. Positions offering clear goals and structured environments will support his growth.",
-            "Neuro Map": "Parth’s cognitive profile highlights strong logical processing and a preference for methodical planning. Emotional regulation is achieved through routine and clear expectations, ensuring stability in dynamic situations."
           },
           "charts": {
             "radarChart": {
               "data": [
                 {"field": "Openness", "value": 8},
                 {"field": "Individualization", "value": 7},
-                {"field": "Introversion–Extraversion", "value": 4},
                 {"field": "Self-Esteem", "value": 6},
                 {"field": "Enneagram&DISC", "value": 5}
               ],
@@ -658,6 +890,19 @@ if __name__ == "__main__":
                 {"field": "EnneagramScore", "value": 5}
               ],
               "explanation": "The comparison table contrasts Parth’s scores with typical benchmarks, indicating above-average openness, lower introversion, solid self-esteem, and a moderate conscientious profile."
+            },
+            "donutChart": {
+                "data": [
+                    {"field": "Analytical", "value": 9},
+                    {"field": "Creative", "value": 8},
+                    {"field": "Organized", "value": 7},
+                    {"field": "Social", "value": 6}
+                ],
+                "explanation": "The donut chart shows the distribution of Parth’s strengths, highlighting a strong analytical and creative orientation."
+            },
+            "gaugeChart": {
+                "value": 3,
+                "explanation": "The gauge chart indicates Parth’s risk profile. A lower score suggests a more cautious and risk-averse nature."
             }
           },
             "cognitive_scores": {
