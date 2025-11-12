@@ -1,0 +1,2 @@
+main color : #273C66
+accent color :#FC7C56
