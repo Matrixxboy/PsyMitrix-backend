@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "report": {
+      "Openness": "The individual demonstrates a strong curiosity and comfort with new experiences. Their willingness to explore unfamiliar situations, paired with an appreciation for diverse perspectives, signals a balanced readiness for change and growth. There is a noticeable interest in learning from novel circumstances, which often leads to a broadened worldview.",
+      "Individualization": "There is a marked awareness of the unique qualities of people around them. They tend to appreciate differences rather than seeking conformity, showing an ability to recognize and respect individual strengths and preferences. This approach is evident in both personal and professional interactions, facilitating strong, respectful relationships.",
+      "Introversion-Extraversion": "Behavioral cues indicate a preference for environments that balance both sociability and periods of solitude. While this individual values meaningful social connections and participates actively in group settings, they also make time for reflection and independent work, suggesting versatility in adapting to various social contexts.",
+      "Self-Esteem": "Self-perception appears stable and positive. The individual tends to assess their abilities realistically and maintains a healthy sense of self-worth. This confidence supports their willingness to engage in challenging tasks and persist through setbacks. Constructive feedback is typically received without substantial impact on their self-image.",
+      "Enneagram & DISC Summary": "Behavioral analysis suggests a tendency to approach situations with logical analysis and decisive action, combined with adaptability. Interpersonal style is direct yet considerate, enabling positive influence in group settings. There is also an undercurrent of conscientiousness, seen in reliable follow-through and clear communication.",
+      "FIRO-B Summary": "Socially, the individual demonstrates a comfortable level of expressed and wanted inclusion, maintaining productive relationships without feeling overly dependent. They show a healthy balance between seeking out connection and respecting personal boundaries, promoting functional teamwork and interpersonal trust.",
+      "Career Fit": "Strengths in communication, adaptability, and balancing group and individual work point toward success in roles requiring flexible thinking and interpersonal skill. Fields such as project management, consultancy, education, or customer relations may especially suit their behavioral profile. They are likely to thrive in environments valuing initiative and collaborative problem-solving.",
+      "Neuro Map": "Behavioral patterns align with high cognitive flexibility, emotional resilience, and an ability to process information both analytically and empathetically. These attributes support adaptable problem-solving, consistent emotional regulation, and constructive engagement with diverse tasks and people."
+    },
+    "charts": {
+      "radarChart": {
+        "data": [
+          { "field": "Openness", "value": 8 },
+          { "field": "Adaptability", "value": 7 },
+          { "field": "Sociability", "value": 6 },
+          { "field": "Self-Reliance", "value": 8 },
+          { "field": "Conscientiousness", "value": 7 }
+        ],
+        "explanation": "The radar chart highlights high openness and self-reliance as dominant features, supported by strong adaptability and conscientiousness. Sociability is present at a healthy, moderate level, indicating comfort in social settings without overdependence on external validation."
+      },
+      "barChart": {
+        "data": [
+          { "field": "Learning Agility", "value": 85 },
+          { "field": "Relationship Management", "value": 80 },
+          { "field": "Initiative", "value": 75 },
+          { "field": "Resilience", "value": 80 },
+          { "field": "Empathy", "value": 78 }
+        ],
+        "explanation": "The bar chart shows a consistently high range across learning agility, relationship management, resilience, and empathy, with initiative slightly lower but still robust. This distribution represents a well-rounded behavioral profile, supporting both task and people-oriented goals."
+      },
+      "comparisonTable": {
+        "data": [
+          { "field": "Preference for Structure", "value": 7 },
+          { "field": "Tolerance for Ambiguity", "value": 8 },
+          { "field": "Group Orientation", "value": 6 },
+          { "field": "Autonomy Orientation", "value": 8 }
+        ],
+        "explanation": "Comparison table data illustrate the individual's strong tolerance for ambiguity and inclination toward autonomy, balanced with a healthy preference for structure and moderate group orientation. This dynamic enables the individual to navigate change while maintaining clear goals."
+      },
+      "donutChart": {
+        "data": [
+          { "field": "Analytical Engagement", "value": 30 },
+          { "field": "Interpersonal Focus", "value": 25 },
+          { "field": "Innovation Drive", "value": 25 },
+          { "field": "Routine Maintenance", "value": 20 }
+        ],
+        "explanation": "Donut chart segments capture how time and attention are distributed among analytical engagement, interpersonal focus, innovation, and routine. Analytical and innovation efforts constitute the largest shares, reflecting proactive problem-solving and creative thinking."
+      },
+      "gaugeChart": {
+        "value": 82,
+        "explanation": "The gauge chart provides an overall behavioral balance score of 82 out of 100, denoting above-average consistency, adaptability, and resilience in various personal and professional settings. This reflects a stable foundation for successful engagement in diverse environments."
+      }
+    }
+  }
+}

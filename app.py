@@ -1,24 +1,23 @@
+import io
 import os
 import json
+from toon import encode
+from pydub import AudioSegment
+import speech_recognition as sr
 from fastapi import FastAPI , Request, FastAPI, File, UploadFile, HTTPException
-# from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
-from Models.Models import IntakeParameters
-from AI.aiModel import  generate_questions, generate_report
-# from Helper.helperFunctions import audio_to_text_online
-from pydub import AudioSegment
-AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
+from fastapi.responses import FileResponse
+from Models.Models import IntakeParameters ,userQustions
+from AI.aiModel import  generate_questions, generate_report , generate_report_from_questions
 AudioSegment.ffprobe   = "E:\\ffmpeg\\bin\\ffprobe.exe"
-import speech_recognition as sr
-import io
-
-# from Database.db import mycursor, mydb
-# from Database.dbHelper import save_question_to_db
-# from Database.dbTabels import create_tables
-
+AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
 from utils.http_constants import HTTP_STATUS, HTTP_CODE
 from utils.response_helper import make_response
+from generate_pdf import generate_personality_pdf
+
+# from fastapi.responses import JSONResponse
+# from Helper.helperFunctions import audio_to_text_online
 
 app = FastAPI()
 
@@ -136,6 +135,73 @@ def create_report(user: IntakeParameters):
             str(e)
         )
 
+@app.post("/questions_report")
+async def question_report(params: userQustions):
+    try:
+        if params is None:
+            return make_response(
+                status_code=HTTP_STATUS["BAD_REQUEST"],
+                code=HTTP_CODE["BAD_REQUEST"],
+                message="No questions are embedded",
+                data={}
+            )
+
+        questions = f"{encode(params.questions)}"
+        report_data_string = ""
+
+        if params.take and params.take == "0":
+            report_data_string, _, _, _ = generate_report_from_questions(questions=questions)
+        else:
+            return make_response(
+                status_code=HTTP_STATUS["BAD_REQUEST"],
+                code=HTTP_CODE["BAD_REQUEST"],
+                message="Cant Generate report now",
+                data={}
+            )
+
+        # STEP 2: Clean and parse the JSON data from the AI model
+        if report_data_string.startswith("```json"):
+            report_data_string = (
+                report_data_string
+                .replace("```json", "")
+                .replace("```", "")
+                .strip()
+            )
+
+        try:
+            report_data_dict = json.loads(report_data_string)
+        except json.JSONDecodeError:
+            return make_response(
+                HTTP_STATUS["INTERNAL_SERVER_ERROR"],
+                HTTP_CODE["ERROR"],
+                "Malformed JSON data received from AI model, cannot generate PDF."
+            )
+
+        # STEP 3: Generate the PDF
+        pdf_filename = f"{params.name.replace(' ', '_')}_Personality_Report.pdf"
+        generate_personality_pdf(
+            filename=pdf_filename,
+            data=report_data_dict,
+            person_name=params.name,
+            generated_by=params.generated_by
+        )
+
+        # STEP 4: Return the generated file
+        return FileResponse(
+            path=pdf_filename,
+            filename=pdf_filename,
+            media_type="application/pdf"
+        )
+
+    except Exception as e:
+        print(f"ERROR in /questions_report: {e}")  # Added for debugging
+        return make_response(
+            status_code=HTTP_STATUS["INTERNAL_SERVER_ERROR"],
+            code=HTTP_CODE["INTERNAL_SERVER_ERROR"],
+            message=f"An unexpected error occurred: {str(e)}",
+            data={}
+        )
+    
 @app.post("/transcribe")
 async def transcribe_audio(file: UploadFile = File(...)):
     try:

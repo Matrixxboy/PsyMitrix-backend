@@ -30,3 +30,10 @@ class ApiRespons(BaseModel):
     code: str
     message: str
     data: Optional[Any] = None
+
+class userQustions(BaseModel):
+    take:str
+    questions:dict
+    name:str
+    generated_by:str
+

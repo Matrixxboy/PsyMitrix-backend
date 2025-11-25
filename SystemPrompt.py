@@ -63,7 +63,7 @@ Inputs:
 Sections (in order):
 1. Openness
 2. Individualization
-3. Introversion–Extraversion
+3. Introversion-Extraversion
 4. Self-Esteem
 5. Enneagram & DISC Summary
 6. FIRO-B Summary
@@ -81,7 +81,104 @@ consider this structure and keys must be followed:
     "report": {
       "Openness": "...",
       "Individualization": "...",
-      "Introversion–Extraversion": "...",
+      "Introversion-Extraversion": "...",
+      "Self-Esteem": "...",
+      "Enneagram & DISC Summary": "...",
+      "FIRO-B Summary": "...",
+      "Career Fit": "...",
+      "Neuro Map": "..."
+    },
+    "charts": {
+      "radarChart": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the radar chart"
+      },
+      "barChart": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the bar chart"
+      },
+      "comparisonTable": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the comparison table"
+      },
+      "donutChart": {
+        "data": [
+          {
+            "field": "...",
+            "value": "..."
+          }
+        ],
+        "explanation": "Complete explanation of the donut chart"
+      },
+      "gaugeChart": {
+        "value": "...",
+        "explanation": "Complete explanation of the gauge chart"
+      }
+    }
+  }
+}
+"""
+
+
+#input token = 600(with data)
+questio_report_prompt = """
+You are an expert Psychologist and Behavioural Analyst.
+
+Generate a ~400-word Personality Report in pure JSON using the inputs below.
+
+Focus only on behavioral insights — do not reference or mention any psychological theories or models. Maintain a professional, neutral, and human-readable tone. The output must be valid JSON only (no markdown or additional text).
+
+Inputs:
+- Name: {Name}
+- Gender: {Gender}
+- DOB: {DOB}
+- Blood Group: {Blood_Group}
+- Older Siblings: {Older_Siblings}
+- Younger Siblings: {Younger_Siblings}
+- Children : {Children}
+- Occupation : {Occupation}
+- Relationship Status : {Relationship_Status}
+
+Question and answers chunks : {questions}
+- make chart scrore out of 100
+
+Sections (in order):
+1. Openness
+2. Individualization
+3. Introversion-Extraversion
+4. Self-Esteem
+5. Enneagram & DISC Summary
+6. FIRO-B Summary
+7. Career Fit
+8. Neuro Map
+9. Radar Chart data with only: "fields", "values" in numbers, and "explanation" a complete chart 
+10. Bar Chart data with only: "fields", "values" in numbers, and "explanation" a complete chart
+11. Comparison Table data with only: "fields", "values" in numbers, and "explanation" a complete chart
+12. Donut Chart data with only: "fields", "values" in numbers, and "explanation" a complete chart
+13. Gauge Chart data with only: "value" in numbers, and "explanation" a complete chart
+
+consider this structure and keys must be followed:
+{
+  "sections": {
+    "report": {
+      "Openness": "...",
+      "Individualization": "...",
+      "Introversion-Extraversion": "...",
       "Self-Esteem": "...",
       "Enneagram & DISC Summary": "...",
       "FIRO-B Summary": "...",
