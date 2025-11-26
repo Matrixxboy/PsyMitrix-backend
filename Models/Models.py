@@ -1,10 +1,11 @@
 from pydantic import BaseModel
-from typing import Literal , Optional , Any
+from typing import Optional , Any
 
 class Question(BaseModel):
     question: str
     question_type: str
-
+    answer:str
+    options: list[str] = None
 
 class User(BaseModel):
     username: str
@@ -24,6 +25,12 @@ class IntakeParameters(BaseModel):
     Younger_Siblings: Optional[str] = None
     Older_Siblings: Optional[str] = None
     Blood_Group: Optional[str] = None
+
+class questions(BaseModel):
+    questions: list[Question] = []
+    take:str = None
+    name:str = None
+    generated_by:str = None
 
 class ApiRespons(BaseModel):
     status_code: int

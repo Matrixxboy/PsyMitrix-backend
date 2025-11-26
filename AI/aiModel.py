@@ -3,11 +3,12 @@ import json
 from openai import OpenAI   # fixed import
 from SystemPrompt import question_prompt ,report_prompt , questio_report_prompt
 from dotenv import load_dotenv
-from Models.Models import IntakeParameters
+from Models.Models import IntakeParameters , questions
 load_dotenv()
 from collections import defaultdict
 from fastapi import HTTPException
-from utils.response_helper import remove_backslashes 
+from utils.response_helper import remove_backslashes
+from toon import encode
 
 
 OPEN_AI_API_KEY = os.getenv("OPEN_AI_API")
@@ -29,7 +30,7 @@ def chunk_text(text, chunk_size=1000, overlap=200):
     return chunks
 
 
-def generate_questions(params: IntakeParameters) -> str:
+def generate_questions(params: IntakeParameters , questioList : questions) -> str:
     data = {
         "Name": params.Name or "N/A",
         "Gender": params.Gender or "N/A",
@@ -42,18 +43,29 @@ def generate_questions(params: IntakeParameters) -> str:
         "Blood_Group": params.Blood_Group or "N/A",
     }
 
+    # Format previous questions and answers
+    formatted_questions = []
+    if questioList.questions:
+        for idx, q in enumerate(questioList.questions, 1):
+            formatted_questions.append(f"Q{idx}: {q.question}\nA{idx}: {q.answer}")
+    
+    questions_str = "\n".join(formatted_questions)
+
     # Escape all literal curly braces before formatting
     escaped_prompt = question_prompt.replace("{", "{{").replace("}", "}}")
 
     # Then reinsert only the placeholders we actually want to fill
     for key in data.keys():
         escaped_prompt = escaped_prompt.replace(f"{{{{{key}}}}}", f"{{{key}}}")
+    
+    # Prepare {questions} for format_map
+    escaped_prompt = escaped_prompt.replace("{{questions}}", "{questions}")
 
     safe_data = defaultdict(lambda: "N/A", data)
+    safe_data["questions"] = questions_str
     dynamic_prompt = escaped_prompt.format_map(safe_data)
 
     try:
-        
         client = OpenAI(api_key=OPEN_AI_API_KEY)
 
         ai_response = client.chat.completions.create(
@@ -96,7 +108,7 @@ def generate_report(params: IntakeParameters) -> str:
     safe_data = defaultdict(lambda: "N/A", data)
     dynamic_prompt = escaped_prompt.format_map(safe_data)
 
-    try:        
+    try:
         client = OpenAI(api_key=OPEN_AI_API_KEY)
 
         ai_response = client.chat.completions.create(
@@ -121,7 +133,6 @@ def generate_report_from_questions(questions: str) -> str:
         # Prepare prompt template safely
         base_prompt = remove_backslashes(questio_report_prompt)
         base_prompt = base_prompt.replace("{", "{{").replace("}", "}}")
-        
         # Chunk the prompt (NOT questions)
         chunks = chunk_text(questions, chunk_size=200, overlap=20)
 

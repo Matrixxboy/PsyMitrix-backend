@@ -35,6 +35,8 @@ The questions must be phrased naturally as a psychiatrist would ask a new patien
 - Younger Siblings : {Younger_Siblings}
 - Older Siblings : {Older_Siblings}
 - Blood Group : {Blood_Group}
+
+**Prvious asked questions and answers :{questions}
 **Output Format:**
 Return a single valid JSON object in the exact format:
 {

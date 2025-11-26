@@ -4,11 +4,11 @@ import json
 from toon import encode
 from pydub import AudioSegment
 import speech_recognition as sr
-from fastapi import FastAPI , Request, FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI , Request, FastAPI, File, UploadFile, HTTPException , Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse
-from Models.Models import IntakeParameters ,userQustions
+from Models.Models import IntakeParameters ,userQustions ,questions
 from AI.aiModel import  generate_questions, generate_report , generate_report_from_questions
 AudioSegment.ffprobe   = "E:\\ffmpeg\\bin\\ffprobe.exe"
 AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
@@ -28,6 +28,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+def get_file(file: UploadFile = File(...)):
+    return file
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
@@ -56,9 +59,9 @@ def read_root():
     )
 
 @app.post("/questions/")
-def read_question(params: IntakeParameters):
+def read_question(params: IntakeParameters , questioList : questions):
     try:
-        generated_questions_str = generate_questions(params).strip()
+        generated_questions_str = generate_questions(params, questioList).strip()
 
         if generated_questions_str.startswith("```json"):
             generated_questions_str = generated_questions_str.replace("```json", "").replace("```", "").strip()
@@ -201,9 +204,9 @@ async def question_report(params: userQustions):
             message=f"An unexpected error occurred: {str(e)}",
             data={}
         )
-    
+
 @app.post("/transcribe")
-async def transcribe_audio(file: UploadFile = File(...)):
+async def transcribe_audio(file: UploadFile = Depends(get_file)):
     try:
         # --- Validate file type ---
         SUPPORTED_FORMATS = {"mp3", "m4a", "wav", "flac","webm"}
@@ -220,7 +223,7 @@ async def transcribe_audio(file: UploadFile = File(...)):
         if not contents:
             return make_response(
                 HTTP_STATUS["BAD_REQUEST"],
-                HTTP_CODE["VALIDATION"],    
+                HTTP_CODE["VALIDATION"],
                 "Uploaded file is empty",
                 data={"supported_formats": SUPPORTED_FORMATS}
             )
