@@ -25,7 +25,7 @@ class IntakeParameters(BaseModel):
     Younger_Siblings: Optional[str] = None
     Older_Siblings: Optional[str] = None
     Blood_Group: Optional[str] = None
-
+    
 class questions(BaseModel):
     questions: list[Question] = []
     take:str = None

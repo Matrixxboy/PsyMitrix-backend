@@ -1017,16 +1017,16 @@ def generate_personality_pdf(filename, data, person_name, generated_by):
 # ---------------------------
 # CLI / run
 # ---------------------------
-# if __name__ == "__main__":
-#     input_path = "question_report_data.json"
-#     if not os.path.exists(input_path):
-#         print(f"[ERROR] Input JSON file not found at {input_path}. Create it or change the path.")
-#     else:
-#         with open(input_path, "r", encoding="utf-8") as f:
-#             data = json.load(f)
-#         outname = f"{username}_Personality_Report_SafeOptionA.pdf"
-#         try:
-#             generate_personality_pdf(outname, data, person_name=username, generated_by=username)
-#             print(f"[OK] Generated: {outname}")
-#         except Exception as e:
-#             print("[ERROR] Failed to generate PDF:", str(e))
+if __name__ == "__main__":
+    input_path = "question_report_data.json"
+    if not os.path.exists(input_path):
+        print(f"[ERROR] Input JSON file not found at {input_path}. Create it or change the path.")
+    else:
+        with open(input_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        outname = f"{username}_Personality_Report_SafeOptionA.pdf"
+        try:
+            generate_personality_pdf(outname, data, person_name=username, generated_by=username)
+            print(f"[OK] Generated: {outname}")
+        except Exception as e:
+            print("[ERROR] Failed to generate PDF:", str(e))

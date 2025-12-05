@@ -58,9 +58,13 @@ Inputs:
 - Name: {Name}
 - Gender: {Gender}
 - DOB: {DOB}
+- Relationship Status: {Relationship_Status}
+- Children: {Children}
+- Occupation: {Occupation}
 - Blood Group: {Blood_Group}
 - Older Siblings: {Older_Siblings}
 - Younger Siblings: {Younger_Siblings}
+- Question and answers chunks : {questionList}
 
 Sections (in order):
 1. Openness

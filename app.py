@@ -1,20 +1,21 @@
 import io
 import os
 import json
-from toon import encode
+# from toon import encode
 from pydub import AudioSegment
 import speech_recognition as sr
 from fastapi import FastAPI , Request, FastAPI, File, UploadFile, HTTPException , Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse
-from Models.Models import IntakeParameters ,userQustions ,questions
-from AI.aiModel import  generate_questions, generate_report , generate_report_from_questions
+from Models.Models import IntakeParameters ,questions
+from AI.aiModel import  generate_questions, generate_report #, generate_report_from_questions
 AudioSegment.ffprobe   = "E:\\ffmpeg\\bin\\ffprobe.exe"
 AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
 from utils.http_constants import HTTP_STATUS, HTTP_CODE
 from utils.response_helper import make_response
 from generate_pdf import generate_personality_pdf
+
 
 # from fastapi.responses import JSONResponse
 # from Helper.helperFunctions import audio_to_text_online
@@ -59,9 +60,9 @@ def read_root():
     )
 
 @app.post("/questions/")
-def read_question(params: IntakeParameters , questioList : questions):
+def read_question(params: IntakeParameters , questionList : questions):
     try:
-        generated_questions_str = generate_questions(params, questioList).strip()
+        generated_questions_str = generate_questions(params, questionList).strip()
 
         if generated_questions_str.startswith("```json"):
             generated_questions_str = generated_questions_str.replace("```json", "").replace("```", "").strip()
@@ -102,11 +103,11 @@ def read_question(params: IntakeParameters , questioList : questions):
         )
 
 @app.post("/report/")
-def create_report(user: IntakeParameters):
+def create_report(params: IntakeParameters, questionList: questions):
     try:
-        report_data = generate_report(user)
+        report_data = generate_report(params, questionList).strip()
 
-        # If the model returned an error structure, bubble it up
+        # If the model returned an error dict -> return error
         if isinstance(report_data, dict) and "error" in report_data:
             return make_response(
                 HTTP_STATUS["INTERNAL_SERVER_ERROR"],
@@ -114,95 +115,40 @@ def create_report(user: IntakeParameters):
                 report_data["error"]
             )
 
-        # Ensure we return JSON-serializable data.
-        # If the model returned a dict/list already, use it as-is;
-        # if it returned a JSON string, try to parse it; otherwise wrap it.
+        # ✓ Normalize output from AI model
         if isinstance(report_data, (dict, list)):
             report_cleaned = report_data
         else:
             try:
                 report_cleaned = json.loads(report_data)
             except Exception:
+                # If not valid JSON → fallback wrapper
                 report_cleaned = {"report": str(report_data)}
 
-        return make_response(
-            HTTP_STATUS["OK"],
-            HTTP_CODE["OK"],
-            "Report generated successfully",
-            data=report_cleaned
+        # ✓ Generate PDF File
+        outname = f"{params.name.replace(' ', '_')}_Personality_Report.pdf"
+        reportFile = generate_personality_pdf(
+            filename=outname,
+            data=report_cleaned,
+            person_name=params.name,
+            generated_by="Endorphin AI"
         )
+
+        # Safety log
+        print(f"[OK] Generated PDF → {reportFile}")
+
+        # ✓ Return the generated PDF
+        return FileResponse(
+            path=reportFile,
+            media_type="application/pdf",
+            filename=outname
+        )
+
     except Exception as e:
         return make_response(
             HTTP_STATUS["INTERNAL_SERVER_ERROR"],
             HTTP_CODE["ERROR"],
             str(e)
-        )
-
-@app.post("/questions_report")
-async def question_report(params: userQustions):
-    try:
-        if params is None:
-            return make_response(
-                status_code=HTTP_STATUS["BAD_REQUEST"],
-                code=HTTP_CODE["BAD_REQUEST"],
-                message="No questions are embedded",
-                data={}
-            )
-
-        questions = f"{encode(params.questions)}"
-        report_data_string = ""
-
-        if params.take and params.take == "0":
-            report_data_string, _, _, _ = generate_report_from_questions(questions=questions)
-        else:
-            return make_response(
-                status_code=HTTP_STATUS["BAD_REQUEST"],
-                code=HTTP_CODE["BAD_REQUEST"],
-                message="Cant Generate report now",
-                data={}
-            )
-
-        # STEP 2: Clean and parse the JSON data from the AI model
-        if report_data_string.startswith("```json"):
-            report_data_string = (
-                report_data_string
-                .replace("```json", "")
-                .replace("```", "")
-                .strip()
-            )
-
-        try:
-            report_data_dict = json.loads(report_data_string)
-        except json.JSONDecodeError:
-            return make_response(
-                HTTP_STATUS["INTERNAL_SERVER_ERROR"],
-                HTTP_CODE["ERROR"],
-                "Malformed JSON data received from AI model, cannot generate PDF."
-            )
-
-        # STEP 3: Generate the PDF
-        pdf_filename = f"{params.name.replace(' ', '_')}_Personality_Report.pdf"
-        generate_personality_pdf(
-            filename=pdf_filename,
-            data=report_data_dict,
-            person_name=params.name,
-            generated_by=params.generated_by
-        )
-
-        # STEP 4: Return the generated file
-        return FileResponse(
-            path=pdf_filename,
-            filename=pdf_filename,
-            media_type="application/pdf"
-        )
-
-    except Exception as e:
-        print(f"ERROR in /questions_report: {e}")  # Added for debugging
-        return make_response(
-            status_code=HTTP_STATUS["INTERNAL_SERVER_ERROR"],
-            code=HTTP_CODE["INTERNAL_SERVER_ERROR"],
-            message=f"An unexpected error occurred: {str(e)}",
-            data={}
         )
 
 @app.post("/transcribe")

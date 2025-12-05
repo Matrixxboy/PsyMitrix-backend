@@ -1,57 +1,116 @@
 {
-  "sections": {
-    "report": {
-      "Openness": "The individual demonstrates a strong curiosity and comfort with new experiences. Their willingness to explore unfamiliar situations, paired with an appreciation for diverse perspectives, signals a balanced readiness for change and growth. There is a noticeable interest in learning from novel circumstances, which often leads to a broadened worldview.",
-      "Individualization": "There is a marked awareness of the unique qualities of people around them. They tend to appreciate differences rather than seeking conformity, showing an ability to recognize and respect individual strengths and preferences. This approach is evident in both personal and professional interactions, facilitating strong, respectful relationships.",
-      "Introversion-Extraversion": "Behavioral cues indicate a preference for environments that balance both sociability and periods of solitude. While this individual values meaningful social connections and participates actively in group settings, they also make time for reflection and independent work, suggesting versatility in adapting to various social contexts.",
-      "Self-Esteem": "Self-perception appears stable and positive. The individual tends to assess their abilities realistically and maintains a healthy sense of self-worth. This confidence supports their willingness to engage in challenging tasks and persist through setbacks. Constructive feedback is typically received without substantial impact on their self-image.",
-      "Enneagram & DISC Summary": "Behavioral analysis suggests a tendency to approach situations with logical analysis and decisive action, combined with adaptability. Interpersonal style is direct yet considerate, enabling positive influence in group settings. There is also an undercurrent of conscientiousness, seen in reliable follow-through and clear communication.",
-      "FIRO-B Summary": "Socially, the individual demonstrates a comfortable level of expressed and wanted inclusion, maintaining productive relationships without feeling overly dependent. They show a healthy balance between seeking out connection and respecting personal boundaries, promoting functional teamwork and interpersonal trust.",
-      "Career Fit": "Strengths in communication, adaptability, and balancing group and individual work point toward success in roles requiring flexible thinking and interpersonal skill. Fields such as project management, consultancy, education, or customer relations may especially suit their behavioral profile. They are likely to thrive in environments valuing initiative and collaborative problem-solving.",
-      "Neuro Map": "Behavioral patterns align with high cognitive flexibility, emotional resilience, and an ability to process information both analytically and empathetically. These attributes support adaptable problem-solving, consistent emotional regulation, and constructive engagement with diverse tasks and people."
-    },
-    "charts": {
-      "radarChart": {
-        "data": [
-          { "field": "Openness", "value": 8 },
-          { "field": "Adaptability", "value": 7 },
-          { "field": "Sociability", "value": 6 },
-          { "field": "Self-Reliance", "value": 8 },
-          { "field": "Conscientiousness", "value": 7 }
-        ],
-        "explanation": "The radar chart highlights high openness and self-reliance as dominant features, supported by strong adaptability and conscientiousness. Sociability is present at a healthy, moderate level, indicating comfort in social settings without overdependence on external validation."
+  "http_status": 200,
+  "http_code": "OK",
+  "message": "Report generated successfully",
+  "data": {
+    "sections": {
+      "report": {
+        "Openness": "Utsav Lankapati appears to be intellectually curious and interested in exploring both abstract concepts and technical knowledge, likely thriving in academic and innovation-driven environments. He demonstrates a willingness to consider new ideas and perspectives, embracing change and challenge as opportunities for growth. Utsav also shows a practical side, balancing imaginative thinking with realistic approaches to problem-solving.",
+        "Individualization": "Utsav values authentic connections and often recognizes the unique qualities in both himself and others. He demonstrates awareness of personal strengths and areas for improvement, displaying respect for individual differences among peers. His thoughtful interactions indicate an ability to adapt his communication style based on the individuality of those around him, reinforcing a supportive and inclusive atmosphere.",
+        "Introversion-Extraversion": "Utsav leans towards introspection, preferring environments where he can focus deeply on tasks and reflect on ideas independently. Social interactions are meaningful to him, but he tends to seek quality over quantity in relationships, often recharging through solitary activities or with a close-knit circle. He displays comfort in group settings when necessary but prioritizes his personal space and downtime.",
+        "Self-Esteem": "Utsav exhibits a healthy, balanced sense of self-worth. He tends to acknowledge his achievements and persist through difficulties with resilience. While he maintains humility, he is confident in his capabilities and seeks feedback constructively, using criticism as a tool for self-improvement rather than self-doubt.",
+        "Enneagram & DISC Summary": "Utsav's behavioral profile suggests he is diligent, analytical, and detail-oriented. He combines conscientiousness with adaptability, displaying perseverance and discipline in his academic and personal pursuits. In group situations, he values logical reasoning and direct communication, while still maintaining empathy and consideration for others' perspectives.",
+        "FIRO-B Summary": "Utsav displays a moderate need for social interaction—he is approachable and cooperative, but also values independence and autonomy. He is comfortable both taking initiative and supporting collaborative efforts, balancing the desire for inclusion with the need to maintain clear boundaries. His preference is for well-defined roles and transparent communication within teams.",
+        "Career Fit": "Given his technical expertise, curiosity, and analytical mindset, Utsav is well-suited to fields involving computer engineering, data analysis, research, and systems development. His blend of independent work habits and collaborative skills enables him to excel in both individual and team-driven project environments.",
+        "Neuro Map": "Utsav's cognitive style displays strong organizational skills, abstract reasoning, and an inclination for sustained focus. He processes information methodically, often breaking complex problems into smaller, manageable components. This systematic approach allows for effective handling of multifaceted projects and continuous learning."
       },
-      "barChart": {
-        "data": [
-          { "field": "Learning Agility", "value": 85 },
-          { "field": "Relationship Management", "value": 80 },
-          { "field": "Initiative", "value": 75 },
-          { "field": "Resilience", "value": 80 },
-          { "field": "Empathy", "value": 78 }
-        ],
-        "explanation": "The bar chart shows a consistently high range across learning agility, relationship management, resilience, and empathy, with initiative slightly lower but still robust. This distribution represents a well-rounded behavioral profile, supporting both task and people-oriented goals."
-      },
-      "comparisonTable": {
-        "data": [
-          { "field": "Preference for Structure", "value": 7 },
-          { "field": "Tolerance for Ambiguity", "value": 8 },
-          { "field": "Group Orientation", "value": 6 },
-          { "field": "Autonomy Orientation", "value": 8 }
-        ],
-        "explanation": "Comparison table data illustrate the individual's strong tolerance for ambiguity and inclination toward autonomy, balanced with a healthy preference for structure and moderate group orientation. This dynamic enables the individual to navigate change while maintaining clear goals."
-      },
-      "donutChart": {
-        "data": [
-          { "field": "Analytical Engagement", "value": 30 },
-          { "field": "Interpersonal Focus", "value": 25 },
-          { "field": "Innovation Drive", "value": 25 },
-          { "field": "Routine Maintenance", "value": 20 }
-        ],
-        "explanation": "Donut chart segments capture how time and attention are distributed among analytical engagement, interpersonal focus, innovation, and routine. Analytical and innovation efforts constitute the largest shares, reflecting proactive problem-solving and creative thinking."
-      },
-      "gaugeChart": {
-        "value": 82,
-        "explanation": "The gauge chart provides an overall behavioral balance score of 82 out of 100, denoting above-average consistency, adaptability, and resilience in various personal and professional settings. This reflects a stable foundation for successful engagement in diverse environments."
+      "charts": {
+        "radarChart": {
+          "data": [
+            {
+              "field": "Curiosity",
+              "value": 85
+            },
+            {
+              "field": "Adaptability",
+              "value": 78
+            },
+            {
+              "field": "Social Engagement",
+              "value": 55
+            },
+            {
+              "field": "Resilience",
+              "value": 82
+            },
+            {
+              "field": "Analytical Thinking",
+              "value": 90
+            },
+            {
+              "field": "Empathy",
+              "value": 73
+            }
+          ],
+          "explanation": "The radar chart illustrates Utsav's personality strengths: high analytical thinking and curiosity reflect his ability to grasp and analyze complex information. Adaptability and resilience are also prominent, suggesting a readiness to face challenges. Moderate empathy supports his interpersonal effectiveness, while his social engagement is more reserved, supporting the profile of a reflective individual who values depth in relationships."
+        },
+        "barChart": {
+          "data": [
+            {
+              "field": "Technical Skills",
+              "value": 88
+            },
+            {
+              "field": "Teamwork",
+              "value": 70
+            },
+            {
+              "field": "Problem Solving",
+              "value": 92
+            },
+            {
+              "field": "Creativity",
+              "value": 76
+            },
+            {
+              "field": "Leadership",
+              "value": 60
+            }
+          ],
+          "explanation": "This bar chart reveals Utsav's exceptional strength in problem-solving and technical skills, aligning with his academic and occupational focus. His scores in teamwork and creativity indicate effective collaboration with a problem-oriented mindset. Leadership is adequate but less prioritized, consistent with a preference for contributing expertise rather than assuming directive roles."
+        },
+        "comparisonTable": {
+          "data": [
+            {
+              "field": "Independence",
+              "value": 80
+            },
+            {
+              "field": "Collaboration",
+              "value": 68
+            },
+            {
+              "field": "Abstract Reasoning",
+              "value": 87
+            },
+            {
+              "field": "Detail Orientation",
+              "value": 82
+            }
+          ],
+          "explanation": "The comparison table provides a clear view of Utsav's ability to balance independent work with collaborative tasks. Strong scores in abstract reasoning and attention to detail reinforce his capacity for complex problem-solving, while his preference for independence outweighs, but does not exclude, collaborative participation."
+        },
+        "donutChart": {
+          "data": [
+            {
+              "field": "Reflective Activities",
+              "value": 45
+            },
+            {
+              "field": "Social Engagements",
+              "value": 25
+            },
+            {
+              "field": "Technical Projects",
+              "value": 30
+            }
+          ],
+          "explanation": "The donut chart demonstrates how Utsav allocates his time and energy: he invests most in reflective and independent activities, followed closely by engagement with technical projects. Social interactions are a smaller, yet meaningful, portion of his routine, emphasizing his preference for introspection and skill development."
+        },
+        "gaugeChart": {
+          "value": 77,
+          "explanation": "The gauge chart suggests Utsav's overall adjustment and well-being are strong, with a score indicative of high functioning, a balanced lifestyle, and sound coping strategies. This value reflects his ability to manage challenges while maintaining personal growth and healthy social relationships."
+        }
       }
     }
   }

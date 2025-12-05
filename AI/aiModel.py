@@ -30,7 +30,7 @@ def chunk_text(text, chunk_size=1000, overlap=200):
     return chunks
 
 
-def generate_questions(params: IntakeParameters , questioList : questions) -> str:
+def generate_questions(params: IntakeParameters , questionList : questions) -> str:
     data = {
         "Name": params.Name or "N/A",
         "Gender": params.Gender or "N/A",
@@ -45,8 +45,8 @@ def generate_questions(params: IntakeParameters , questioList : questions) -> st
 
     # Format previous questions and answers
     formatted_questions = []
-    if questioList.questions:
-        for idx, q in enumerate(questioList.questions, 1):
+    if questionList.questions:
+        for idx, q in enumerate(questionList.questions, 1):
             formatted_questions.append(f"Q{idx}: {q.question}\nA{idx}: {q.answer}")
     
     questions_str = "\n".join(formatted_questions)
@@ -85,7 +85,7 @@ def generate_questions(params: IntakeParameters , questioList : questions) -> st
         raise HTTPException(status_code=500, detail=str(e))
 
 
-def generate_report(params: IntakeParameters) -> str:
+def generate_report(params: IntakeParameters , questionList : questions) -> str:
     data = {
         "Name": params.Name or "N/A",
         "Gender": params.Gender or "N/A",
@@ -97,7 +97,16 @@ def generate_report(params: IntakeParameters) -> str:
         "Older_Siblings": params.Older_Siblings or "N/A",
         "Blood_Group": params.Blood_Group or "N/A",
     }
-
+    # Format previous questions and answers
+    formatted_questions = []
+    if questionList.questions:
+        for idx, q in enumerate(questionList.questions, 1):
+            formatted_questions.append(f"Q{idx}: {q.question}\nA{idx}: {q.answer}")
+    
+    questions_str = "\n".join(formatted_questions)
+    data["questionList"] = questions_str
+    print("\n\nQuestion List for Report Generation:")
+    print(questions_str)
     # Escape all literal curly braces before formatting
     escaped_prompt = report_prompt.replace("{", "{{").replace("}", "}}")
 
@@ -107,7 +116,8 @@ def generate_report(params: IntakeParameters) -> str:
 
     safe_data = defaultdict(lambda: "N/A", data)
     dynamic_prompt = escaped_prompt.format_map(safe_data)
-
+    print("Dynamic Prompt for Report Generation:")
+    print(dynamic_prompt)
     try:
         client = OpenAI(api_key=OPEN_AI_API_KEY)
 
