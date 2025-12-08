@@ -14,7 +14,7 @@ AudioSegment.ffprobe   = "E:\\ffmpeg\\bin\\ffprobe.exe"
 AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
 from utils.http_constants import HTTP_STATUS, HTTP_CODE
 from utils.response_helper import make_response
-from generate_pdf import generate_personality_pdf
+from generate_pdf import generate_personality_pdf_safe
 
 
 # from fastapi.responses import JSONResponse
@@ -106,7 +106,6 @@ def read_question(params: IntakeParameters , questionList : questions):
 def create_report(params: IntakeParameters, questionList: questions):
     try:
         report_data = generate_report(params, questionList).strip()
-
         # If the model returned an error dict -> return error
         if isinstance(report_data, dict) and "error" in report_data:
             return make_response(
@@ -126,22 +125,26 @@ def create_report(params: IntakeParameters, questionList: questions):
                 report_cleaned = {"report": str(report_data)}
 
         # ✓ Generate PDF File
-        outname = f"{params.name.replace(' ', '_')}_Personality_Report.pdf"
-        reportFile = generate_personality_pdf(
+        outname = f"{params.Name.replace(' ', '_')}_Personality_Report.pdf"
+        reportFile = generate_personality_pdf_safe(
             filename=outname,
             data=report_cleaned,
-            person_name=params.name,
+            person_name=params.Name,
             generated_by="Endorphin AI"
         )
 
         # Safety log
         print(f"[OK] Generated PDF → {reportFile}")
-
+        response_data = {
+            "report_path": reportFile,
+            "report_name": outname
+            }
         # ✓ Return the generated PDF
-        return FileResponse(
-            path=reportFile,
-            media_type="application/pdf",
-            filename=outname
+        return make_response(
+            status_code=HTTP_STATUS["OK"],
+            code=HTTP_CODE["OK"],
+            message="Report generated successfully",
+            data=response_data
         )
 
     except Exception as e:

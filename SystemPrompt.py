@@ -65,6 +65,7 @@ Inputs:
 - Older Siblings: {Older_Siblings}
 - Younger Siblings: {Younger_Siblings}
 - Question and answers chunks : {questionList}
+- make chart score out of 100
 
 Sections (in order):
 1. Openness

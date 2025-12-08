@@ -60,11 +60,6 @@ CHART_COLORS = [
     "#14B8A6",
 ]
 
-username = "Utsav Lankapati"
-REPORT_TITLE = f"{username} Profile Report"
-COMPANY_NAME = "Endorphin"
-company_info_mail = "info.endorphin@gamil.com"
-company_site = "www.endorphin.in"
 
 PAGE_WIDTH, PAGE_HEIGHT = A4
 
@@ -417,7 +412,7 @@ def create_gauge_chart(score, title="Risk Profile"):
 # ---------------------------
 # PDF utilities: header/footer and small table helpers
 # ---------------------------
-def header_footer(canvas, doc):
+def header_footer(canvas, REPORT_TITLE , company_site ,COMPANY_NAME ):
     canvas.saveState()
     canvas.setFillColor(colors.HexColor(COLORS["sidebar"]))
     canvas.rect(0, 0, 1.5 * cm, PAGE_HEIGHT, fill=1, stroke=0)
@@ -629,9 +624,16 @@ def add_static_pages(story, styles):
 # ---------------------------
 # Main generator (fault-tolerant)
 # ---------------------------
+
 def generate_personality_pdf(filename, data, person_name, generated_by):
     # Prepare logo (use file if present, else placeholder buffer)
+    username = person_name if person_name else ""
+    REPORT_TITLE = f"{username} Profile Report"
+    COMPANY_NAME = "Endorphin"
+    company_info_mail = "info.endorphin@gmail.com"
+    company_site = "www.endorphin.in"
     logo_path = "./endorphin.jpeg"
+
     if os.path.exists(logo_path):
         logo_buffer = logo_path
     else:
@@ -1010,23 +1012,97 @@ def generate_personality_pdf(filename, data, person_name, generated_by):
     for p in next_steps_list:
         story.append(Paragraph("• " + p, styles["CustomBullet"]))
 
-    # Build PDF with header/footer
-    doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)
+    # Build PDF (safe)
+    try:
+        doc.build(story,
+                  onFirstPage=lambda canvas, doc: header_footer(canvas, REPORT_TITLE, company_site, COMPANY_NAME),
+                  onLaterPages=lambda canvas, doc: header_footer(canvas, REPORT_TITLE, company_site, COMPANY_NAME))
+    except Exception as e:
+        print(f"[ERROR] Failed during PDF build: {e}")
+        # Still return the filename so the wrapper doesn't break
+
+    return filename
+
 
 
 # ---------------------------
 # CLI / run
 # ---------------------------
-if __name__ == "__main__":
-    input_path = "question_report_data.json"
-    if not os.path.exists(input_path):
-        print(f"[ERROR] Input JSON file not found at {input_path}. Create it or change the path.")
-    else:
-        with open(input_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        outname = f"{username}_Personality_Report_SafeOptionA.pdf"
-        try:
-            generate_personality_pdf(outname, data, person_name=username, generated_by=username)
-            print(f"[OK] Generated: {outname}")
-        except Exception as e:
-            print("[ERROR] Failed to generate PDF:", str(e))
+# if __name__ == "__main__":
+#     print("[INFO] This module is intended to be imported and used within another application.")
+#     print("[INFO] Please refer to the documentation for integration details.")
+#     input_path = "question_report_data.json"
+#     if not os.path.exists(input_path):
+#         print(f"[ERROR] Input JSON file not found at {input_path}. Create it or change the path.")
+#     else:
+#         with open(input_path, "r", encoding="utf-8") as f:
+#             data = json.load(f)
+#         outname = f"{username}_Personality_Report_SafeOptionA.pdf"
+#         try:
+#             generate_personality_pdf(outname, data, person_name=username, generated_by=username)
+#             print(f"[OK] Generated: {outname}")
+#         except Exception as e:
+#             print("[ERROR] Failed to generate PDF:", str(e))
+
+import os
+import threading
+import time
+import requests
+from datetime import datetime
+
+GENERATED_DIR = "generated_reports"
+
+
+def schedule_delete(path, delay=300):
+    """Delete the file after delay seconds in a background thread."""
+    def task():
+        time.sleep(delay)
+        if os.path.exists(path):
+            try:
+                os.remove(path)
+                print(f"[AUTO-DELETE] Removed: {path}")
+            except Exception as e:
+                print(f"[DELETE ERROR] {e}")
+    threading.Thread(target=task, daemon=True).start()
+
+
+def generate_personality_pdf_safe(filename, data, person_name, generated_by):
+    # Ensure folder exists
+    os.makedirs(GENERATED_DIR, exist_ok=True)
+
+    # Local full path
+    full_path = os.path.join(GENERATED_DIR,"/", filename)
+
+    # Generate PDF → MUST return file path
+    pdf_path = generate_personality_pdf(
+        filename=full_path,
+        data=data,
+        person_name=person_name,
+        generated_by=generated_by
+    )
+
+    if pdf_path is None:
+        raise ValueError("generate_personality_pdf() returned None. Must return file path.")
+
+    # Upload endpoint
+    upload_url = "https://zqdfm4lz-3015.inc1.devtunnels.ms/counsellor-india/upload-report"
+
+    try:
+        with open(pdf_path, "rb") as file:
+            response = requests.post(upload_url, files={"report": file})
+
+        response.raise_for_status()
+
+        # EXPECTED: server returns PUBLIC URL like:
+        # https://.../public/reports/xyz.pdf
+        uploaded_url = response.json().get("path")
+        if uploaded_url is None:
+            raise ValueError("Upload response missing 'path' field.")
+
+    except requests.RequestException as e:
+        uploaded_url = None
+
+    # Auto delete local file
+    schedule_delete(pdf_path, delay=300)
+
+    return uploaded_url
