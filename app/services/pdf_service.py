@@ -632,7 +632,7 @@ def generate_personality_pdf(filename, data, person_name, generated_by):
     COMPANY_NAME = "Endorphin"
     company_info_mail = "info.endorphin@gmail.com"
     company_site = "www.endorphin.in"
-    logo_path = "./endorphin.jpeg"
+    logo_path = "public/endorphin.jpeg"
 
     if os.path.exists(logo_path):
         logo_buffer = logo_path
@@ -1031,12 +1031,11 @@ def generate_personality_pdf(filename, data, person_name, generated_by):
 # if __name__ == "__main__":
 #     print("[INFO] This module is intended to be imported and used within another application.")
 #     print("[INFO] Please refer to the documentation for integration details.")
-#     input_path = "question_report_data.json"
-#     if not os.path.exists(input_path):
-#         print(f"[ERROR] Input JSON file not found at {input_path}. Create it or change the path.")
+#     username = "Utsav Lankapati"
+#     if not os.path.exists("./question_report_data.json"):
+#         print(f"[ERROR] Input JSON file not found at '../../question_report_data.json' . Create it or change the path.")
 #     else:
-#         with open(input_path, "r", encoding="utf-8") as f:
-#             data = json.load(f)
+#         data = json.load(open("./question_report_data.json"))
 #         outname = f"{username}_Personality_Report_SafeOptionA.pdf"
 #         try:
 #             generate_personality_pdf(outname, data, person_name=username, generated_by=username)
@@ -1071,7 +1070,7 @@ def generate_personality_pdf_safe(filename, data, person_name, generated_by):
     os.makedirs(GENERATED_DIR, exist_ok=True)
 
     # Local full path
-    full_path = os.path.join(GENERATED_DIR,"/", filename)
+    full_path = os.path.join(GENERATED_DIR, filename)
 
     # Generate PDF → MUST return file path
     pdf_path = generate_personality_pdf(
@@ -1081,11 +1080,14 @@ def generate_personality_pdf_safe(filename, data, person_name, generated_by):
         generated_by=generated_by
     )
 
-    if pdf_path is None:
-        raise ValueError("generate_personality_pdf() returned None. Must return file path.")
+    if pdf_path is None or not os.path.exists(pdf_path):
+        raise ValueError(f"PDF generation failed. File not found at {pdf_path}")
 
     # Upload endpoint
     upload_url = "https://zqdfm4lz-3015.inc1.devtunnels.ms/counsellor-india/upload-report"
+
+    #for live server
+    # upload_url = "https://developmentapi.biz-insights.com/counsellor-india/upload-report"
 
     try:
         with open(pdf_path, "rb") as file:

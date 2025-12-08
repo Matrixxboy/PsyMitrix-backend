@@ -1,17 +1,14 @@
 import os
 import json
-from openai import OpenAI   # fixed import
-from SystemPrompt import question_prompt ,report_prompt , questio_report_prompt
-from dotenv import load_dotenv
-from Models.Models import IntakeParameters , questions
-load_dotenv()
+from openai import OpenAI
+from app.core.prompts import question_prompt, report_prompt, questio_report_prompt
+from app.core.config import settings
+from app.schemas.models import IntakeParameters, questions
 from collections import defaultdict
 from fastapi import HTTPException
-from utils.response_helper import remove_backslashes
-from toon import encode
+from app.utils.response_helper import remove_backslashes
 
-
-OPEN_AI_API_KEY = os.getenv("OPEN_AI_API")
+OPEN_AI_API_KEY = settings.OPEN_AI_API
 if not OPEN_AI_API_KEY:
     raise ValueError("❌ OPEN_AI_API environment variable not found.")
 
