@@ -10,10 +10,10 @@ from app.utils.response_helper import make_response
 
 # Configure AudioSegment
 # Note: These paths should ideally be in environment variables or configuration
-AudioSegment.ffprobe   = "E:\\ffmpeg\\bin\\ffprobe.exe"
-AudioSegment.converter = "E:\\ffmpeg\\bin\\ffmpeg.exe"
+AudioSegment.ffprobe   = "ffprobe"
+AudioSegment.converter = "ffmpeg"
 
-app = FastAPI(title="PsyMitrix Backend", version="1.0.0")
+app = FastAPI(title="MBAI Python Backend", version="1.0.0")
 
 # Middleware
 app.add_middleware(
