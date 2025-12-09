@@ -102,8 +102,6 @@ def generate_report(params: IntakeParameters , questionList : questions) -> str:
     
     questions_str = "\n".join(formatted_questions)
     data["questionList"] = questions_str
-    print("\n\nQuestion List for Report Generation:")
-    print(questions_str)
     # Escape all literal curly braces before formatting
     escaped_prompt = report_prompt.replace("{", "{{").replace("}", "}}")
 
@@ -113,8 +111,6 @@ def generate_report(params: IntakeParameters , questionList : questions) -> str:
 
     safe_data = defaultdict(lambda: "N/A", data)
     dynamic_prompt = escaped_prompt.format_map(safe_data)
-    print("Dynamic Prompt for Report Generation:")
-    print(dynamic_prompt)
     try:
         client = OpenAI(api_key=OPEN_AI_API_KEY)
 

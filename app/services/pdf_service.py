@@ -12,6 +12,8 @@ import json
 
 import numpy as np
 from PIL import Image, ImageDraw
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
@@ -1019,7 +1021,7 @@ def generate_personality_pdf(filename, data, person_name, generated_by):
                   onLaterPages=lambda canvas, doc: header_footer(canvas, REPORT_TITLE, company_site, COMPANY_NAME))
     except Exception as e:
         print(f"[ERROR] Failed during PDF build: {e}")
-        # Still return the filename so the wrapper doesn't break
+        raise e
 
     return filename
 
@@ -1048,6 +1050,8 @@ import threading
 import time
 import requests
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 GENERATED_DIR = "generated_reports"
 
@@ -1083,11 +1087,9 @@ def generate_personality_pdf_safe(filename, data, person_name, generated_by):
     if pdf_path is None or not os.path.exists(pdf_path):
         raise ValueError(f"PDF generation failed. File not found at {pdf_path}")
 
-    # Upload endpoint
-    upload_url = "https://zqdfm4lz-3015.inc1.devtunnels.ms/counsellor-india/upload-report"
-
-    #for live server
-    # upload_url = "https://developmentapi.biz-insights.com/counsellor-india/upload-report"
+    upload_url = os.getenv("PDF_STORAGE_PATH")
+    if not upload_url:
+        raise ValueError("PDF_STORAGE_PATH environment variable is not set")
 
     try:
         with open(pdf_path, "rb") as file:
@@ -1096,7 +1098,6 @@ def generate_personality_pdf_safe(filename, data, person_name, generated_by):
         response.raise_for_status()
 
         # EXPECTED: server returns PUBLIC URL like:
-        # https://.../public/reports/xyz.pdf
         uploaded_url = response.json().get("path")
         if uploaded_url is None:
             raise ValueError("Upload response missing 'path' field.")

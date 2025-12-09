@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
-from pydub import AudioSegment
+# from pydub import AudioSegment
 
 from app.api.v1.router import api_router
 from app.utils.http_constants import HTTP_STATUS, HTTP_CODE
@@ -10,8 +10,7 @@ from app.utils.response_helper import make_response
 
 # Configure AudioSegment
 # Note: These paths should ideally be in environment variables or configuration
-AudioSegment.ffprobe   = "ffprobe"
-AudioSegment.converter = "ffmpeg"
+# AudioSegment.converter = "/var/www/python-counsellor-india/ffmpeg-bin/ffmpeg"
 
 app = FastAPI(title="MBAI Python Backend", version="1.0.0")
 
