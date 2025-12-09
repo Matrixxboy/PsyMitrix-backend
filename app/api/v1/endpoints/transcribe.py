@@ -10,7 +10,10 @@ def get_file(file: UploadFile = File(...)):
     return file
 
 @router.post("/transcribe")
-async def transcribe_audio(file: UploadFile = Depends(get_file)):
+async def transcribe_audio(
+    language: str = "en-US",
+    file: UploadFile = Depends(get_file)
+):
     try:
         # --- Validate file type ---
         SUPPORTED_FORMATS = {"mp3", "m4a", "wav", "flac","webm"}
@@ -33,7 +36,8 @@ async def transcribe_audio(file: UploadFile = Depends(get_file)):
             )
         
         # --- Call Service ---
-        full_text = await transcribe_audio_content(contents, ext)
+        # language param is accepted but ignored by the service which uses auto-detection
+        full_text = await transcribe_audio_content(contents, ext, language)
 
         # --- Return successful response ---
         return make_response(

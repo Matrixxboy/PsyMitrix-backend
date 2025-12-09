@@ -1,39 +1,54 @@
-import io
-import speech_recognition as sr
-from pydub import AudioSegment
+import os
+import tempfile
+import asyncio
+import whisper
 
-async def transcribe_audio_content(contents: bytes, ext: str) -> str:
+# Global variable to hold the loaded model
+MODEL = None
+
+def get_model():
+    global MODEL
+    if MODEL is None:
+        print("⏳ Loading Whisper model (small)...")
+        MODEL = whisper.load_model("small")
+        print("✅ Whisper model loaded.")
+    return MODEL
+
+def transcribe_sync(contents: bytes, ext: str, language: str = None) -> str:
     """
-    Transcribes audio content to text using Google Speech Recognition.
+    Synchronous function to handle file I/O and blocking model inference.
     """
-    # --- Load and convert to WAV in memory ---
-    audio_segment = AudioSegment.from_file(io.BytesIO(contents), format=ext)
-    wav_buffer = io.BytesIO()
-    audio_segment.export(wav_buffer, format="wav")
-    wav_buffer.seek(0)
+    model = get_model()
+    
+    # Create a temporary file to store the audio bytes
+    # suffix is important for ffmpeg to detect format
+    suffix = f".{ext}" if ext else ".mp3"
+    
+    with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp_file:
+        tmp_file.write(contents)
+        tmp_path = tmp_file.name
+    
+    try:
+        # Run inference with translation task
+        # task="translate" will translate input audio (any language) to English text
+        # If language is provided, force it. Otherwise, auto-detect.
+        options = {"task": "translate"}
+        if language:
+            options["language"] = language
 
-    # --- Speech recognition in chunks ---
-    recognizer = sr.Recognizer()
-    full_text = ""
+        result = model.transcribe(tmp_path, **options)
+        return result["text"].strip()
+    except Exception as e:
+        raise Exception(f"Whisper transcription failed: {str(e)}")
+    finally:
+        # Clean up temp file
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
 
-    with sr.AudioFile(wav_buffer) as source:
-        while True:
-            try:
-                audio_data = recognizer.record(source, duration=30)
-                if not audio_data.frame_data:
-                    break
-                text = recognizer.recognize_google(audio_data)
-                full_text += " " + text
-            except sr.UnknownValueError:
-                # Speech was unintelligible
-                continue
-            except sr.RequestError as e:
-                raise Exception(f"Could not request results; {e}")
-            except Exception as e:
-                 # If loop breaks or other error, we might want to capture partial text or raise
-                 # For now, simplistic handling as per original code structure intent
-                 if full_text: 
-                     break # Partial success?
-                 raise e
+async def transcribe_audio_content(contents: bytes, ext: str, language: str = None) -> str:
+    """
+    Transcribes audio content and translates it to English using local OpenAI Whisper model.
+    Runs the blocking transcription in a separate thread.
+    """
+    return await asyncio.to_thread(transcribe_sync, contents, ext, language)
 
-    return full_text.strip()
