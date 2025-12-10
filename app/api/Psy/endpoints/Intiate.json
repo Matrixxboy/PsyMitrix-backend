@@ -1,0 +1,16 @@
+{
+  "http_status": 200,
+  "http_code": "OK",
+  "message": "Assessment initiated successfully",
+  "data": {
+    "status": "success",
+    "init_code": "886fbd24-6e92-4a2d-9c43-d579a684690b",
+    "assessmentLinks": [
+      {
+        "email": "salmankhan3145@gmail.com",
+        "assessmentUrl": "https://app.psypack.com/assessment/15RbBHV4ioXrAoKXyZ3b",
+        "assessmentId": "15RbBHV4ioXrAoKXyZ3b"
+      }
+    ]
+  }
+}

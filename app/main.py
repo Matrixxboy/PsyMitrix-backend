@@ -5,6 +5,7 @@ from fastapi.exceptions import RequestValidationError
 # from pydub import AudioSegment
 
 from app.api.v1.router import api_router
+from app.api.Psy.router import api_router as psy_api_router
 from app.utils.http_constants import HTTP_STATUS, HTTP_CODE
 from app.utils.response_helper import make_response
 
@@ -43,6 +44,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 # Include Routers
 app.include_router(api_router) # All routes are under / or specific prefixes in the router
+app.include_router(prefix="/psy",router=psy_api_router) # All routes are under / or specific prefixes in the router
 
 @app.get("/health")
 def health_check():

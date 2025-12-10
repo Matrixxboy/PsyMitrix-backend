@@ -1,0 +1,2892 @@
+{
+  "http_status": 200,
+  "http_code": "OK",
+  "message": "Assessments fetched successfully",
+  "data": {
+    "status": "success",
+    "assessments": [
+      {
+        "id": "ovP7dPIvUQyF9SRfgisf",
+        "active": true,
+        "title": "Coronavirus Anxiety Scale",
+        "shortTitle": "CAS",
+        "definition": "The coronavirus anxiety scale (CAS) is a self-report mental health screener of dysfunctional anxiety associated with the coronavirus crisis. Because a significant number of people experience clinically significant fear and anxiety during an infectious disease outbreak, the CAS was developed to help clinicians and researchers efficiently identify cases of individuals functionally impaired by coronavirus-related anxiety.",
+        "shortDefinition": "The coronavirus anxiety scale (CAS) is a self-report mental health screener of dysfunctional anxiety associated with the coronavirus crisis.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FovP7dPIvUQyF9SRfgisf%2Flogo?alt=media&token=b4afee51-7c6e-4732-b8f6-96a513284bfd",
+        "domains": [
+          "Anxiety"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/cas-coronavirus-anxiety"
+      },
+      {
+        "id": "oX2aSz2oKcgB8oifc5U9",
+        "active": true,
+        "title": "NIDA Quick Screen",
+        "shortTitle": "NIDA-QS",
+        "definition": "The NIDA Quick Screen (NIDA-QS) is designed to assist clinicians serving adult patients in screening for drug use. It was adapted from a single-question screen for drug use in primary care by Smith et al. 2010 and the National Institute on Alcohol Abuse and Alcoholism's Helping Patients Who Drink Too Much: A Clinician's Guide Updated 2005 Edition.",
+        "shortDefinition": "The NIDA Quick Screen (NIDA-QS)  is designed to assist clinicians serving adult patients in screening for drug use.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FoX2aSz2oKcgB8oifc5U9%2Flogo?alt=media&token=95cd56d8-32b3-457b-8023-e32108aea657",
+        "domains": [
+          "Substance Use"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 1 minute",
+        "aboutLink": "https://psypack.com/assessments/nida-quick-screen"
+      },
+      {
+        "id": "nLMf3RY8NomDbBKFFpnW",
+        "active": true,
+        "title": "Patient Health Questionnaire 9",
+        "shortTitle": "PHQ-9",
+        "definition": "The Patient Health Questionnaire 9 (PHQ-9) is the depression scale from Patient Health Questionnaire (PHQ). It is used for assessing and monitoring depression severity.\n\nRecognizing signs of mental health disorders is not always easy. The Patient Health Questionnaire (PHQ) is a diagnostic tool for mental health disorders used by health care professionals that is quick and easy for patients to complete. In the mid-1990s, Robert L. Spitzer, MD, Janet B.W. Williams, DSW, and Kurt Kroenke, MD, and colleagues at Columbia University developed the Primary Care Evaluation of Mental Disorders (PRIME-MD), a diagnostic tool containing modules on 12 different mental health disorders. They worked in collaboration with researchers at the Regenstrief Institute at Indiana University and with the support of an educational grant from Pfizer Inc. During the development of PRIME-MD, Drs. Spitzer, Williams and Kroenke, created the PHQ and GAD-7 screeners. The PHQ, a self-administered version of the PRIME-MD, contains the mood (PHQ-9), anxiety, alcohol, eating, and somatoform modules as covered in the original PRIME-MD. The PHQ-9, a tool specific to depression, simply scores each of the 9 DSM-IV criteria based on the mood module from the original PRIME-MD.",
+        "shortDefinition": "The Patient Health Questionnaire 9 (PHQ-9) is the nine item depression scale from Patient Health Questionnaire (PHQ). It is used for assessing and monitoring depression severity.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FnLMf3RY8NomDbBKFFpnW%2Flogo?alt=media&token=062952c9-2221-4c10-a851-a1aab52e07fc",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "13 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/phq-9-depression"
+      },
+      {
+        "id": "lNyhgZlp58eXciQ2z5Rh",
+        "active": true,
+        "title": "Satisfaction With Life Scale",
+        "shortTitle": "SWLS",
+        "definition": "The SWLS is a short 5-item instrument designed to measure global cognitive judgments of satisfaction with one's life.\n\nThe Satisfaction With Life Scale (SWLS) was developed to assess satisfaction with the respondent’s life as a whole. The scale does not assess satisfaction with life domains such as health or finances but allows subjects to integrate and weight these domains in whatever way they choose.",
+        "shortDefinition": "The SWLS is a short 5-item instrument designed to measure global cognitive judgments of satisfaction with one's life.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FlNyhgZlp58eXciQ2z5Rh%2Flogo?alt=media&token=d8f52818-e2c5-48f0-ad20-a5961d87f48c",
+        "domains": [
+          "Subjective well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "13 years and above",
+        "timeEstimate": "About 1 minute",
+        "aboutLink": "https://psypack.com/assessments/swls-satisfaction-with-life-scale"
+      },
+      {
+        "id": "jQCyXfYw17WdBIKmBWZg",
+        "active": true,
+        "title": "Generalized Anxiety Disorder 7",
+        "shortTitle": "GAD-7",
+        "definition": "The Generalized Anxiety Disorder 7 (GAD-7) is a brief scale for anxiety. It scores 7 common anxiety symptoms. Though originally developed to diagnose generalized anxiety disorder, the GAD-7 also proved to have good sensitivity and specificity as a screener for panic, social anxiety, and post- traumatic stress disorder.\n\nRecognizing signs of mental health disorders is not always easy. The Patient Health Questionnaire (PHQ) is a diagnostic tool for mental health disorders used by health care professionals that is quick and easy for patients to complete. In the mid-1990s, Robert L. Spitzer, MD, Janet B.W. Williams, DSW, and Kurt Kroenke, MD, and colleagues at Columbia University developed the Primary Care Evaluation of Mental Disorders (PRIME-MD), a diagnostic tool containing modules on 12 different mental health disorders. They worked in collaboration with researchers at the Regenstrief Institute at Indiana University and with the support of an educational grant from Pfizer Inc. During the development of PRIME-MD, Drs. Spitzer, Williams and Kroenke, created the PHQ and GAD-7 screeners.",
+        "shortDefinition": "The Generalized Anxiety Disorder 7 (GAD-7) is a brief scale for anxiety. It scores 7 common anxiety symptoms. Though originally developed to diagnose generalized anxiety disorder, the GAD-7 also proved to have good sensitivity and specificity as a screener for panic, social anxiety, and post- traumatic stress disorder.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FjQCyXfYw17WdBIKmBWZg%2Flogo?alt=media&token=7e8b2ed9-ce79-4b5b-8f2c-8e50760a44ee",
+        "domains": [
+          "Anxiety"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "14 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/gad-7-anxiety"
+      },
+      {
+        "id": "YPbkduBnaH30Dw0yIP26",
+        "active": true,
+        "title": "Pandemic Grief Scale",
+        "shortTitle": "PGS",
+        "definition": "The Pandemic Grief Scale (PGS) is a self-report mental health screener of dysfunctional grief due to a COVID-19 loss. Because losing someone to COVID-19 can be particularly challenging, the PGS was developed to help clinicians and researchers efficiently identify cases of individuals impaired by this form of loss.",
+        "shortDefinition": "The Pandemic Grief Scale (PGS) is a self-report mental health screener of dysfunctional grief due to a COVID-19 loss.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FYPbkduBnaH30Dw0yIP26%2FPGS.png?alt=media&token=0622964a-f765-491d-b297-6ffe9276b0b9",
+        "domains": [
+          "Grief"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/pandemic-grief-scale"
+      },
+      {
+        "id": "rHnz5zEYhOJhgWVYr9JL",
+        "active": true,
+        "title": "Post-Traumatic Stress Disorder Checklist for DSM-5",
+        "shortTitle": "PCL-5",
+        "definition": "The Post-Traumatic Stress Disorder (PTSD) Checklist for DSM-5 (PCL-5) is a 20-item self-report measure that assesses the presence and severity of PTSD symptoms.\n\nThe PCL was first developed during the 1990s by Frank Weathers and colleagues at the National Center for PTSD (Weathers et al. 1993) and recently revised. The current version (PCL-5; Blevins et al. 2015; Weathers et al. 2013b) is a 20-item questionnaire with items corresponding to the 20 PTSD symptoms (Criteria B-E) in the DSM-5 (American Psychiatric Association 2013).",
+        "shortDefinition": "The Post-Traumatic Stress Disorder (PTSD) Checklist for DSM-5 (PCL-5) is a 20-item self-report measure that assesses the presence and severity of PTSD symptoms.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FrHnz5zEYhOJhgWVYr9JL%2FPCL-5.png?alt=media&token=3cf84c77-ea7c-4b44-bf05-ccd0c127254f",
+        "domains": [
+          "Post-Traumatic Stress Disorder (PTSD)",
+          "Post-Traumatic Stress"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/pcl-5-checklist-ptsd"
+      },
+      {
+        "id": "NFyRxkCL357RK0lEYFhl",
+        "active": true,
+        "title": "Kessler Psychological Distress Scale 10",
+        "shortTitle": "K10",
+        "definition": "The Kessler Psychological Distress Scale 10 (K10) is a 10-question screening scale of psychological distress. This is intended to yield a global measure of distress based on questions about anxiety and depressive symptoms that a person has experienced in the most recent 4 week period.\n\nThe scale was designed to be sensitive around the threshold for the clinically significant range of the distribution of nonspecific distress in an effort to maximize the ability to discriminate cases of serious mental illness (SMI) from non-cases.",
+        "shortDefinition": "The Kessler Psychological Distress Scale 10 (K10) is a 10-question screening scale of psychological distress.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FNFyRxkCL357RK0lEYFhl%2FK10.png?alt=media&token=4cf656b4-9736-4707-9a1e-18d1a1c5bc9e",
+        "domains": [
+          "Psychological Distress"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "11 years and above",
+        "timeEstimate": "2 to 3 minutes",
+        "aboutLink": "https://psypack.com/assessments/kessler-10-psychological-distress"
+      },
+      {
+        "id": "dDkJ5YO7usfh6Gr4AZMl",
+        "active": true,
+        "title": "Balloon Analogue Risk Task",
+        "shortTitle": "BART",
+        "definition": "The BART is a computerized, laboratory-based measure that involves actual risky behavior for which, similar to real-world situations, riskiness is rewarded up until a point at which further riskiness results in poorer outcomes.\n\nLejuez et al. (2002) developed the BART to overcome difficulties inherent in self-report measures of clinical risk taking.",
+        "shortDefinition": "The BART is a computerized, laboratory-based measure that involves actual risky behavior for which, similar to real-world situations, riskiness is rewarded up until a point at which further riskiness results in poorer outcomes.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FdDkJ5YO7usfh6Gr4AZMl%2FBART.png?alt=media&token=8ebd5c72-c7f8-4d13-84f8-77127002488b",
+        "domains": [
+          "Risk taking"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Cognitive"
+        ],
+        "assessment_modes": [
+          "Digital task"
+        ],
+        "eligibility": "9 years and above",
+        "timeEstimate": "30 to 45 minutes",
+        "aboutLink": "https://psypack.com/assessments/balloon-analogue-risk-task"
+      },
+      {
+        "id": "C0NJvI0PtSNosy0CvTnR",
+        "active": true,
+        "title": "Patient Health Questionnaire 15",
+        "shortTitle": "PHQ-15",
+        "definition": "The Patient Health Questionnaire 15 (PHQ-15) is the somatic symptom scale from Patient Health Questionnaire (PHQ). It was derived from the original PHQ studies and is increasingly used to assess somatic symptom severity and the potential presence of somatization and somatoform disorders.\n\nRecognizing signs of mental health disorders is not always easy. The Patient Health Questionnaire (PHQ) is a diagnostic tool for mental health disorders used by health care professionals that is quick and easy for patients to complete. In the mid-1990s, Robert L. Spitzer, MD, Janet B.W. Williams, DSW, and Kurt Kroenke, MD, and colleagues at Columbia University developed the Primary Care Evaluation of Mental Disorders (PRIME-MD), a diagnostic tool containing modules on 12 different mental health disorders. They worked in collaboration with researchers at the Regenstrief Institute at Indiana University and with the support of an educational grant from Pfizer Inc.",
+        "shortDefinition": "The Patient Health Questionnaire 15 (PHQ-15) is the somatic symptom scale from Patient Health Questionnaire (PHQ). It was derived from the original PHQ studies and is increasingly used to assess somatic symptom severity and the potential presence of somatization and somatoform disorders.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FC0NJvI0PtSNosy0CvTnR%2FPHQ-15.png?alt=media&token=20bc0682-b656-4631-bd52-2a1c1529860e",
+        "domains": [
+          "Somatization",
+          "Somatoform disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/phq-15-patient-health-questionnaire"
+      },
+      {
+        "id": "6LCq5fpeTFUKrWuKZn46",
+        "active": true,
+        "title": "Obsession with COVID-19 Scale",
+        "shortTitle": "OCS",
+        "definition": "The Obsession with COVID-19 Scale (OCS) is a self-report mental health screener of persistent and disturbed thinking about COVID-19. Because the COVID-19 crisis affects nearly every aspect of a person’s life, the OCS was developed to help clinicians and researchers efficiently identify cases of individuals functionally impaired by their COVID-19 related thinking patterns.",
+        "shortDefinition": "The Obsession with COVID-19 Scale (OCS) is a self-report mental health screener of persistent and disturbed thinking about COVID-19.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F6LCq5fpeTFUKrWuKZn46%2FOCS.png?alt=media&token=2d7b96b8-c7c2-4e44-82b8-8d1b5a57b59f",
+        "domains": [
+          "Thinking"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/ocs-obsession-with-covid-19-scale"
+      },
+      {
+        "id": "PzMsfTi3uewqwwh9AzMn",
+        "active": true,
+        "title": "Geriatric Depression Scale",
+        "shortTitle": "GDS",
+        "definition": "The Geriatric Depression Scale (GDS) is a self-rating depression screening scale for elderly populations.\n\nThe GDS is specifically designed to screen and measure depression in older adults. It contains 30 forced-choice “yes” or “no” questions, a format that is helpful for individuals with cognitive dysfunction. Questions relate to how an individual has felt in a specified time frame. It takes five to seven minutes to complete the questionnaire.",
+        "shortDefinition": "The Geriatric Depression Scale (GDS) is a self-rating depression screening scale for elderly populations.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FPzMsfTi3uewqwwh9AzMn%2FGDS.png?alt=media&token=6c3aa5d7-1439-4771-9df2-6ef9fd32949d",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Over 55 years",
+        "timeEstimate": "5-7 minutes",
+        "aboutLink": "https://psypack.com/assessments/gds-geriatric-depression-scale"
+      },
+      {
+        "id": "g0lwcvlAkauHSOUtiafB",
+        "active": true,
+        "title": "International Personality Item Pool Representation of the NEO PI-R® 120",
+        "shortTitle": "IPIP-NEO-120",
+        "definition": "IPIP-NEO-120 is a publically available representation of five domains and 30 facets of the Five Factor Model (Neuroticism, Extraversion, Openness, Agreeableness, and Conscientiousness), drawing 120 items from the International Personality Item Pool.",
+        "shortDefinition": "IPIP-NEO-120 is a publically available representation of five domains and 30 facets of the Five Factor Model (Neuroticism, Extraversion, Openness, Agreeableness, and Conscientiousness), drawing 120 items from the International Personality Item Pool.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fg0lwcvlAkauHSOUtiafB%2FIPIP-NEO-120.png?alt=media&token=e5e2236d-18f4-4338-b899-056d5cb343d6",
+        "domains": [
+          "Personality"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "10 years and above",
+        "timeEstimate": "10-20 minutes",
+        "aboutLink": "https://psypack.com/assessments/ipip-neo-personality"
+      },
+      {
+        "id": "7ATZxWopivX7Nfg49U8E",
+        "active": true,
+        "title": "36-Item Short Form Survey",
+        "shortTitle": "SF-36",
+        "definition": "The 36-Item Short Form Survey (SF-36) is a set of generic, coherent, and easily administered quality-of-life measures.It taps eight health concepts: physical functioning, bodily pain, role limitations due to physical health problems, role limitations due to personal or emotional problems, emotional well-being, social functioning, energy/fatigue, and general health perceptions. It also includes a single item that provides an indication of perceived change in health.",
+        "shortDefinition": "The 36-Item Short Form Survey (SF-36) is a set of generic, coherent, and easily administered quality-of-life measures.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F7ATZxWopivX7Nfg49U8E%2FSF-36.png?alt=media&token=51c1afb1-93c2-4a82-b5ce-64f1424fe327",
+        "domains": [
+          "Quality of life"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "14 years and above",
+        "timeEstimate": "Less than 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/sf-36-short-form-survey"
+      },
+      {
+        "id": "JT0fQ3zIsZnomPDqJgYn",
+        "active": true,
+        "title": "Corsi Block-Tapping Task",
+        "shortTitle": "CBTT",
+        "definition": "The Corsi Block-Tapping Task is widely used for the assessment of visuospatial short-term memory, both in clinical practice and in experimental research settings. Basically, it is a span task and, as such, a visuospatial analogue to the digit span as an index of verbal short-term memory (Lezak, 1995). Originally developed by Corsi (1972), this test entails simple measurements that can be administered quickly and easily, even with patients who are difficult to test.",
+        "shortDefinition": "The Corsi Block-Tapping Task is a span task and, as such, a visuospatial analogue to the digit span as an index of verbal short-term memory.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FJT0fQ3zIsZnomPDqJgYn%2FCBTT.png?alt=media&token=7fe35f63-57c1-446c-a649-a324086c1106",
+        "domains": [
+          "Memory",
+          "Visuospatial short-term memory"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/cbtt-corsi-block-test"
+      },
+      {
+        "id": "NJOZ25FeurlQaBYxGBhu",
+        "active": true,
+        "title": "Short Dark Tetrad",
+        "shortTitle": "SD4",
+        "definition": "The Short Dark Tetrad (SD4) is a 28-item instrument which captures subclinical versions of narcissism, Machiavellianism, psychopathy, and sadism.\n\nBased on the emerging consensus that the constellation of dark personalities should include the sadistic personality, the SD4 was built by modifying and extending the Short Dark Triad (SD3) measure to include sadism.",
+        "shortDefinition": "The Short Dark Tetrad (SD4) is a 28-item instrument which captures subclinical versions of narcissism, Machiavellianism, psychopathy, and sadism.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FNJOZ25FeurlQaBYxGBhu%2FSD4.png?alt=media&token=d2e3e8b5-92d8-4f28-89f4-aebfc998bd0a",
+        "domains": [
+          "Personality"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/short-dark-tetrad"
+      },
+      {
+        "id": "8vffsmrYqPQ3MbT2UXgU",
+        "active": true,
+        "title": "Simple Screening Instrument for Substance Abuse",
+        "shortTitle": "SSI-SA",
+        "definition": "The Simple Screening Instrument for Substance Abuse (SSI-SA) is a 16-item scale designed to encompass a broad spectrum of signs and symptoms for substance use disorders, and particularly to screen patients in mental health settings for co-occurring substance abuse disorders. These conditions are characterized by substance use that leads to negative physical, social, and/or emotional consequences and loss of control over one's pattern and amount of consumption of the substance(s) of abuse.\n\nThe SSI-SA was developed by the consensus panel of Treatment Improvement Protocol (TIP) 11, Simple Screening Instruments for Outreach for Alcohol and Other Drug Abuse and Infectious Diseases (Center for Substance Abuse Treatment 1994c).",
+        "shortDefinition": "The Simple Screening Instrument for Substance Abuse (SSI-SA) is a 16-item scale designed to encompass a broad spectrum of signs and symptoms for substance use disorders, and particularly to screen patients in mental health settings for co-occurring substance abuse disorders.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F8vffsmrYqPQ3MbT2UXgU%2FSSI-SA.png?alt=media&token=76f58b66-f019-4bd7-a73b-5718d134d1d7",
+        "domains": [
+          "Substance Use"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "15 years and above",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/simple-screening-instrument-for-substance-abuse"
+      },
+      {
+        "id": "1I3HJGQsopbjXN13cEEF",
+        "active": true,
+        "title": "Readiness to Change Questionnaire",
+        "shortTitle": "RCQ",
+        "definition": "The Readiness to Change Questionnaire (RCQ) is a 12-item instrument for measuring the \"stage of change\" reached by an excessive drinker of alcohol. It is based on the stages of change model developed by Prochaska and DiClementel which describes the stages through which a person moves in an attempt to resolve an addictive problem. From \"Precontemplation\" through \"Contemplation\" and \"Action\" to \"Maintenance\", the person is assumed to pass from one stage to the next, with the Relapser re-entering the cycle at either the Precontemplation or Contemplation stages. It may take many cycles around the stages of change before an addictive problem is finally solved.",
+        "shortDefinition": "The Readiness to Change Questionnaire (RCQ) is a 12-item instrument for measuring the \"stage of change\" reached by an excessive drinker of alcohol.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F1I3HJGQsopbjXN13cEEF%2FRCQ.png?alt=media&token=7efbec29-8e30-4d03-be03-e7becb8fd32f",
+        "domains": [
+          "Alcohol Use"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "17 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/readiness-to-change-questionnaire"
+      },
+      {
+        "id": "GsbCEKMXVkWcQPkDF0Uk",
+        "active": true,
+        "title": "Impact of Event Scale-Revised",
+        "shortTitle": "IES-R",
+        "definition": "The Impact of Event Scale-Revised (IES-R) is a self-report measure of current subjective distress in response to a specific traumatic event. The 22-item scale is comprised of 3 subscales representative of the major symptom clusters of post-traumatic stress: intrusion, avoidance, and hyperarousal.\n\nThe IES-R is a revised version of the Impact of Event Scale and was developed as the original version did not include a hyperarousal subscale. IES-R responses were also modified so the client was requested to report on the degree of distress rather than the frequency of the symptoms.",
+        "shortDefinition": "The Impact of Event Scale-Revised (IES-R) is a self-report measure of current subjective distress in response to a specific traumatic event.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FGsbCEKMXVkWcQPkDF0Uk%2FIES-R.png?alt=media&token=7ae9e7f6-c6a3-4f0f-88b2-9e792c4c86da",
+        "domains": [
+          "Post-Traumatic Stress"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "12 years and above",
+        "timeEstimate": "Approximately 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/ies-r-impact-of-event-scale-ptsd"
+      },
+      {
+        "id": "Qq8ssukcaHPLNnkie24T",
+        "active": true,
+        "title": "Coronavirus Reassurance-Seeking Behaviors Scale",
+        "shortTitle": "CRBS",
+        "definition": "The Coronavirus Reassurance-Seeking Behaviors Scale (CRBS) is a self-report measure of reassurance-seeking behaviors associated with concerns over coronavirus infection. Although it is generally considered helpful to be mindful of signs of COVID-19, excessive reassurance seeking may lead to negative consequences, such as increased anxiety, for some people. Therefore, the CRBS was developed to help clinicians and researchers measure the frequency that a person engages in coronavirus-related, reassurance-seeking behavior.",
+        "shortDefinition": "The Coronavirus Reassurance-Seeking Behaviors Scale (CRBS) is a self-report measure of reassurance-seeking behaviors associated with concerns over coronavirus infection.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FQq8ssukcaHPLNnkie24T%2FCRBS.png?alt=media&token=ec7828de-e484-49ab-acb8-31c86d963651",
+        "domains": [
+          "Anxiety",
+          "Coronaphobia"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/coronavirus-reassurance-seeking-behaviors-scale"
+      },
+      {
+        "id": "DQdceeI0Px6i1fukEXcv",
+        "active": true,
+        "title": "Pandemic Grief Risk Factors",
+        "shortTitle": "PGRF",
+        "definition": "The Pandemic Grief Risk Factors (PGRF) is a self-report inventory or screening tool of distinctive risk factors associated with grief in the context of a COVID-19 loss. Because losing someone to COVID-19 has its own set of unique challenges, the PGRF was developed to help clinicians and researchers identify these factors. Individually and collectively, these risk factors are strongly associated with dysfunctional grief symptoms and functional impairments.",
+        "shortDefinition": "The Pandemic Grief Risk Factors (PGRF) is a self-report inventory or screening tool of distinctive risk factors associated with grief in the context of a COVID-19 loss.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FDQdceeI0Px6i1fukEXcv%2FPGRF.png?alt=media&token=4cc1558a-01be-4527-b204-bc042a31ad32",
+        "domains": [
+          "Grief"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/pandemic-grief-risk-factors"
+      },
+      {
+        "id": "5IZZ6C9IqsrJ8CcAFSWB",
+        "active": true,
+        "title": "Center for Epidemiological Studies Depression - Revised",
+        "shortTitle": "CESD-R",
+        "definition": "The Center for Epidemiologic Studies Depression Scale- Revised (CESD-R) is a 20 items screening test for depression and depressive disorder.\n\nThe CESD-R measures symptoms of depression in nine different groups as defined by the American Psychiatric Association' Diagnostic and Statistical Manual (DSM-V) for a major depressive episode. These symptom groups are sadness (dysphoria), loss of interest (anhedonia), appetite, sleep, thinking/concentration, guilt (worthlessness), tired (fatigue), movement (agitation) and suicidal ideation.",
+        "shortDefinition": "The Center for Epidemiological Studies Depression - Revised (CESD-R) is a 20 items screening test for depression and depressive disorder.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F5IZZ6C9IqsrJ8CcAFSWB%2FCESD-R.png?alt=media&token=87fe88ad-8026-4161-9180-4ff9c765e26b",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/cesd-r-depression"
+      },
+      {
+        "id": "kfkf50YKlPNJxfVlZBuk",
+        "active": true,
+        "title": "Edinburgh Postnatal Depression Scale",
+        "shortTitle": "EPDS",
+        "definition": "The Edinburgh Postnatal Depression Scale (EPDS) is a 10-item self-report scale to screen for Postnatal Depression.\n\nThe EPDS has been developed to assist primary care health professionals to detect mothers suffering from postnatal depression; a distressing disorder more prolonged than the 'blues' (which occur in the first week after delivery) but less severe than puerperal psychosis.\n\nThe EPDS was developed at health centres in Livingston and Edinburgh. It consists of ten short statements. The mother selects which of the four possible responses is closest to how she has been feeling during the past week. Most mothers complete the scale without difficulty in less than 5 minutes.",
+        "shortDefinition": "The Edinburgh Postnatal Depression Scale (EPDS) is a 10-item self-report scale to screen for Postnatal Depression.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fkfkf50YKlPNJxfVlZBuk%2FEPDS.png?alt=media&token=bf3d2d30-b103-4b4a-99f2-575aae9a59b3",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/epds-postpartum-depression"
+      },
+      {
+        "id": "26HtU8aieaip7fqqOQck",
+        "active": true,
+        "title": "Obsessive-Compulsive Inventory-Revised",
+        "shortTitle": "OCI-R",
+        "definition": "The Obsessive-Compulsive Inventory-Revised (OCI-R) is a self-report measure for assessing symptoms of obsessive-compulsive disorder (OCD). It consists of 18 items composing 6 subscales: washing, checking, ordering, obsessing, hoarding and neutralizing. It is a highly useful diagnostic screening instrument in research and clinical settings.\n\nThe revised OCI (OCI-R) improves on the parent version in 3 ways: It eliminates the redundant frequency scale, simplifies the scoring of the subscales, and reduces overlap across subscales.",
+        "shortDefinition": "The Obsessive-Compulsive Inventory-Revised (OCI-R) is a self-report measure for assessing symptoms of obsessive-compulsive disorder (OCD). It consists of 18 items composing 6 subscales: washing, checking, ordering, obsessing, hoarding and neutralizing. It is a highly useful diagnostic screening instrument in research and clinical settings.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F26HtU8aieaip7fqqOQck%2FOCI-R.png?alt=media&token=4d69cb03-61f4-4de8-b46d-e8a403594135",
+        "domains": [
+          "Obsessive-Compulsive Disorder (OCD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "12 years and above",
+        "timeEstimate": "5-10 minutes",
+        "aboutLink": "https://psypack.com/assessments/oci-r-obsessive-compulsive-inventory-ocd"
+      },
+      {
+        "id": "u0Q0dEyc3SvplGaX34GJ",
+        "active": true,
+        "title": "Eating Attitude Test-26©",
+        "shortTitle": "EAT-26©",
+        "definition": "The Eating Attitudes Test (EAT-26) is a standardized self-report measure of symptoms and concerns characteristic of eating disorders. It is probably the most widely used test used to assess “eating disorder risk” based on attitudes, feelings, and behaviors related to eating and eating disorder symptoms.\n\nThe EAT-26 is a refinement of the original EAT-40 that was first published in 1979 and used in one of the first studies to examine socio-cultural factors in the development and maintenance of eating disorders.",
+        "shortDefinition": "The Eating Attitudes Test (EAT-26) is a standardized self-report measure of symptoms and concerns characteristic of eating disorders. It is probably the most widely used test used to assess “eating disorder risk” based on attitudes, feelings, and behaviors related to eating and eating disorder symptoms.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fu0Q0dEyc3SvplGaX34GJ%2FEAT-26.png?alt=media&token=e0db8f34-5bde-4459-9d43-b3ce685d5a41",
+        "domains": [
+          "Eating Disorder"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "9 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/eat-26-eating-attitude-test"
+      },
+      {
+        "id": "PW18JqxAdHofa5YxZul6",
+        "active": true,
+        "title": "Depression, Anxiety and Stress Scale",
+        "shortTitle": "DASS",
+        "definition": "The Depression, Anxiety and Stress Scale (DASS) is a set of three self-report scales designed to measure the negative emotional states of depression, anxiety and stress.\n\nThe DASS was constructed not merely as another set of scales to measure conventionally defined emotional states, but to further the process of defining, understanding, and measuring the ubiquitous and clinically significant emotional states usually described as depression, anxiety and stress. The DASS should thus meet the requirements of both researchers and scientist-professional clinicians.",
+        "shortDefinition": "The Depression, Anxiety and Stress Scale (DASS) is a set of three self-report scales designed to measure the negative emotional states of depression, anxiety and stress.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FPW18JqxAdHofa5YxZul6%2FDASS42.png?alt=media&token=d9af2309-96d2-4421-8dea-5f51e6c9c190",
+        "domains": [
+          "Anxiety",
+          "Depression",
+          "Stress"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "12 years and above",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/dass-42-depression-anxiety-stress-scale"
+      },
+      {
+        "id": "4bsPoRMDrvTSoH185gnH",
+        "active": true,
+        "title": "Depression, Anxiety and Stress Scale - 21 Items",
+        "shortTitle": "DASS21",
+        "definition": "The Depression, Anxiety and Stress Scale - 21 Items (DASS21) is short version of the Depression, Anxiety and Stress Scale (DASS). The DASS is a set of three self-report scales designed to measure the negative emotional states of depression, anxiety and stress.\n\nThe DASS was constructed not merely as another set of scales to measure conventionally defined emotional states, but to further the process of defining, understanding, and measuring the ubiquitous and clinically significant emotional states usually described as depression, anxiety and stress. The DASS should thus meet the requirements of both researchers and scientist-professional clinicians.",
+        "shortDefinition": "The Depression, Anxiety and Stress Scale - 21 Items (DASS21) is short version of the Depression, Anxiety and Stress Scale (DASS). The DASS is a set of three self-report scales designed to measure the negative emotional states of depression, anxiety and stress.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F4bsPoRMDrvTSoH185gnH%2FDASS21.png?alt=media&token=c90e9ec2-c459-4c3b-a542-ae648ec346c3",
+        "domains": [
+          "Depression",
+          "Anxiety",
+          "Stress"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "12 years and above",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/dass-21-depression-anxiety-stress-scale"
+      },
+      {
+        "id": "IN90yD1NqFRetwVyt0ff",
+        "active": true,
+        "title": "Michigan Alcoholism Screening Test",
+        "shortTitle": "MAST",
+        "definition": "The Michigan Alcoholism Screening Test (MAST) was devised to provide a consistent, quantifiable, structured interview instrument for the detection of alcoholism that could be rapidly administered by nonprofessional as well as professional personnel.\n\nThe MAST consists of 25 questions, many of which have also been used by other investigators in surveys of alcoholism. Some of the questions are sufficiently neutral that persons reluctant to see themselves as problem drinkers may reveal their alcoholic affliction. Questions related to amounts of alcohol consumed were not used because of the vague responses they evoke. Where the MAST is used for screening purposes, clinical confirmation may occasionally be required.",
+        "shortDefinition": "The Michigan Alcoholism Screening Test (MAST) was devised to provide a consistent, quantifiable, structured interview instrument for the detection of alcoholism that could be rapidly administered by nonprofessional as well as professional personnel.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FIN90yD1NqFRetwVyt0ff%2FMAST.png?alt=media&token=e38e4435-9d75-44f9-b716-78ae0cc19c82",
+        "domains": [
+          "Alcohol Use"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "19 years and above",
+        "timeEstimate": "About 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/mast-michigan-alcoholism-screening-test"
+      },
+      {
+        "id": "taMi9ZYHB4IBbzjiujmK",
+        "active": true,
+        "title": "Rosenberg Self-Esteem Scale",
+        "shortTitle": "RSES",
+        "definition": "The Rosenberg Self-Esteem Scale (RSES) was developed by Morris Rosenberg in 1965. It is a 10-item self-report measure of global self-esteem.\n\nSelf-esteem is a positive or negative attitude towards the self. High self­-esteem means that the individual respects himself, considers himself worthy; he does not necessarily consider himself better than others, but he definitely does not consider himself worse; he does not feel that he is the ultimate in perfection but, on the contrary, recognizes his limitations and expects to grow and improve. Low self-­esteem, on the other hand, implies self rejection, self dissatisfaction, self contempt. The individual lacks respect for the self he observes. The self picture is disagreeable, and he wishes it were otherwise.",
+        "shortDefinition": "The Rosenberg Self-Esteem Scale (RSES) was developed by Morris Rosenberg in 1965. It is a 10-item self-report measure of global self-esteem.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FtaMi9ZYHB4IBbzjiujmK%2FRSES.png?alt=media&token=6d555168-847b-4f93-9406-e63ff0c39883",
+        "domains": [
+          "Self-Esteem"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "13 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/rses-rosenberg-self-esteem-scale"
+      },
+      {
+        "id": "SPegUB8t0wQnYhUs9fza",
+        "active": true,
+        "title": "Social Interaction Anxiety Scale",
+        "shortTitle": "SIAS",
+        "definition": "The Social Interaction Anxiety Scale (SIAS) is a twenty-item measure which assesses fears of general social interaction, corresponding to the DSM-III-R descriptions of Social Phobia - Generalised type.\n\nThe Social Phobia Scale (SPS) and the Social Interaction Anxiety Scale (SIAS) were developed as a companion set of measures by Mattick and Clarke in 1998. The scales correlated well with established measures of social anxiety, but were found to have low or non-significant (partial) correlations with established measures of depression, state and trait anxiety, locus of control, and social desirability. The scales were found to change with treatment and to remain stable in the face of no-treatment. It appears that these scales are valid, useful, and easily scored measures for clinical and research applications.",
+        "shortDefinition": "The Social Interaction Anxiety Scale (SIAS) is a twenty-item measure which assesses fears of general social interaction, corresponding to the DSM-III-R descriptions of Social Phobia - Generalised type.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FSPegUB8t0wQnYhUs9fza%2FSIAS.png?alt=media&token=d7e3c8fe-4646-422b-ad82-7464c4b7f4a0",
+        "domains": [
+          "Social Phobia"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "13 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/social-interaction-anxiety-scale"
+      },
+      {
+        "id": "Fxtyjlrct5yVeUWHOFAp",
+        "active": true,
+        "title": "Positive and Negative Relationship Quality scale",
+        "shortTitle": "PN-RQ",
+        "definition": "The Positive and Negative Relationship Quality scale (PN-RQ) is a measure of positive and negative relationship quality.\n\nThe PN-RQ is a bidimensional construct in which the positive qualities of a relationship are treated as distinct from its negative qualities. The PN-RQ scales have the potential to advance both basic and applied research. They not only provide information that beyond that obtained from unidimensional relationship quality scales that dominate marital and close relationship research but they also provide highly precise measures. Finally, their demonstrated ability to detect change, even over relatively short periods, makes them well suited for use in intervention research.",
+        "shortDefinition": "The Positive and Negative Relationship Quality scale (PN-RQ) is a measure of positive and negative relationship quality.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FFxtyjlrct5yVeUWHOFAp%2FPN-RQ.png?alt=media&token=28d92791-d1af-4ed3-abc1-491d60cee958",
+        "domains": [
+          "Relationship"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/pn-rq-positive-and-negative-relationship-quality-scale"
+      },
+      {
+        "id": "6NvJJnbQUTCF5PVrgkn6",
+        "active": true,
+        "title": "General Procrastination Scale",
+        "shortTitle": "GPS",
+        "definition": "The General Procrastination Scale is a 20-item measure of general procrastination.\n\nProcrastination is defined as \"the tendency to postpone that which is necessary to reach some goal.\"",
+        "shortDefinition": "The General Procrastination Scale is a 20-item measure of general procrastination.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F6NvJJnbQUTCF5PVrgkn6%2FGPS.png?alt=media&token=f66bddde-1ea7-4253-82d3-23e5e7448d33",
+        "domains": [
+          "Procrastination"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Nonstudent",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/general-procrastination-scale"
+      },
+      {
+        "id": "xXilc2Xy7nBTVAVBlgbt",
+        "active": true,
+        "title": "General Procrastination Scale (For student populations)",
+        "shortTitle": "GPS (Student)",
+        "definition": "The General Procrastination Scale (For student populations) is a 20-item measure of general procrastination.\n\nProcrastination is defined as \"the tendency to postpone that which is necessary to reach some goal.\"",
+        "shortDefinition": "The General Procrastination Scale (For student populations) is a 20-item measure of general procrastination.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FxXilc2Xy7nBTVAVBlgbt%2FGPS%20(Student).png?alt=media&token=fdfcaca8-9e79-4e46-b8f1-b584315203da",
+        "domains": [
+          "Procrastination"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Student",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/general-procrastination-scale-student"
+      },
+      {
+        "id": "Nv3xyDhqnJqhuESbuEsW",
+        "active": true,
+        "title": "Personality Belief Questionnaire - Short Form",
+        "shortTitle": "PBQ-SF",
+        "definition": "The Personality Belief Questionnaire-Short Form (PBQ-SF) is a 65-item self-report instrument for assessment of dysfunctional beliefs based on Beck’s cognitive formulations of personality disorders. \n\nBeck and Beck (1991) developed the Personality Belief Questionnaire (PBQ) to measure the beliefs associated with ten DSM personality disorders. The PBQ is a 126-item self report measure of beliefs purported by cognitive theory to be relevant to the following DSM-IV personality disorders: Avoidant, dependent, obsessive-compulsive, histrionic, passive–aggressive, narcissistic, paranoid, schizoid, antisocial and borderline. The items of the PBQ were based on the clinical observation of Beck et al (1990).\n\nThe PBQ is a promising instrument for identifying beliefs pertinent to a range of personality disorders.",
+        "shortDefinition": "The Personality Belief Questionnaire-Short Form (PBQ-SF) is a 65-item self-report instrument for assessment of dysfunctional beliefs based on Beck’s cognitive formulations of personality disorders.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FNv3xyDhqnJqhuESbuEsW%2FPBQ-SF.png?alt=media&token=d673fd41-4896-4e72-a6fd-79a1ba7c4241",
+        "domains": [
+          "Personality"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/pbq-sf-personality-belief-questionnaire"
+      },
+      {
+        "id": "ZZ3nVufy33Iqu5iYhn0t",
+        "active": true,
+        "title": "Personality Belief Questionnaire",
+        "shortTitle": "PBQ",
+        "definition": "The Personality Beliefs Questionnaire (PBQ) is a 126-item self-report measure of beliefs associated with personality disorders.\n\nBeck and Beck (1991) developed the Personality Belief Questionnaire (PBQ) to measure the beliefs associated with ten DSM personality disorders. The PBQ is a 126-item self report measure of beliefs purported by cognitive theory to be relevant to the following DSM-IV personality disorders: Avoidant, dependent, obsessive-compulsive, histrionic, passive–aggressive, narcissistic, paranoid, schizoid, antisocial and borderline. The items of the PBQ were based on the clinical observation of Beck et al (1990).\n\nThe PBQ is a promising instrument for identifying beliefs pertinent to a range of personality disorders.",
+        "shortDefinition": "The Personality Beliefs Questionnaire (PBQ) is a 126-item self-report measure of beliefs associated with personality disorders.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FZZ3nVufy33Iqu5iYhn0t%2FPBQ.png?alt=media&token=ee999ab7-86a4-4966-a893-ebb7703ca278",
+        "domains": [
+          "Personality"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 20 minutes",
+        "aboutLink": "https://psypack.com/assessments/personality-beliefs-questionnaire-beck"
+      },
+      {
+        "id": "U9UPa0cBVSx7tXmCJ1Ll",
+        "active": true,
+        "title": "Brief COPE",
+        "shortTitle": "Brief COPE",
+        "definition": "The Brief COPE is a multidimensional coping inventory to assess the different ways in which people respond to stress. It is a brief measure of coping reactions, based on the COPE inventory.\n\nThe Brief COPE includes only 28 items, which measure 14 conceptually differentiable coping reactions. Some of these reactions are known to be generally adaptive; others are known to be problematic. The Brief COPE thus provides researchers a way to assess potentially important coping responses quickly.",
+        "shortDefinition": "The Brief COPE is a multidimensional coping inventory to assess the different ways in which people respond to stress. It is a brief measure of coping reactions, based on the COPE inventory.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FU9UPa0cBVSx7tXmCJ1Ll%2FBrief%20COPE.png?alt=media&token=dee130fe-911c-433f-8994-7bc240d15e33",
+        "domains": [
+          "Coping"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "16 years and above",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/brief-cope"
+      },
+      {
+        "id": "Ir0Jo0iKW1DJoYuz8sZQ",
+        "active": true,
+        "title": "O*NET® Interest Profiler™ Short Form",
+        "shortTitle": "O*NET IP™ Short Form",
+        "definition": "The O*NET Interest Profiler is a vocational interest inventory designed for use in educational planning, career exploration, and career guidance.\n\nThe Interest Profiler was introduced in 1999 as one of the U.S. Department of Labor’s (DOL) O*NET Career Exploration Tools. John Holland’s (1997) RIASEC theoretical model (Realistic-Investigative-Artistic-Social-Enterprising-Conventional) is the basis of the Interest Profiler scales.",
+        "shortDefinition": "The O*NET Interest Profiler is a vocational interest inventory designed for use in educational planning, career exploration, and career guidance.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FIr0Jo0iKW1DJoYuz8sZQ%2FO_NET%20IP%E2%84%A2%20Short%20Form.png?alt=media&token=0cfa65c9-06d2-45a0-aa9e-7759db17d920",
+        "domains": [
+          "Interests"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "14 years and above",
+        "timeEstimate": "10 to 30 minutes",
+        "aboutLink": "https://psypack.com/assessments/onet-interest-profiler"
+      },
+      {
+        "id": "jSVjfDhADPcqseJ5rLTd",
+        "active": true,
+        "title": "Hamilton Anxiety Scale",
+        "shortTitle": "HAM-A",
+        "definition": "The Hamilton Anxiety Scale (HAM-A) is rating scale for the symptoms of anxiety neurosis. It has been prepared as an aid to the quantification of symptoms.\n\nThe HAM-A is intended for use with patients already diagnosed as suffering from neurotic anxiety states, not for assessing anxiety in patients suffering from other disorders. Anxiety in greater or lesser degree is found in agitated depression and obsessional states particularly, and also in such states as organic dementia, hysteria and schizophrenia, but it must be clearly emphasized that the scale is not intended to cope with these conditions.",
+        "shortDefinition": "The Hamilton Anxiety Scale (HAM-A) is rating scale for the symptoms of anxiety neurosis. It has been prepared as an aid to the quantification of symptoms.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FjSVjfDhADPcqseJ5rLTd%2FHAM-A.png?alt=media&token=880eefd6-e540-42d8-a021-aca9da7231b1",
+        "domains": [
+          "Anxiety"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults, adolescents and children",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/hamilton-anxiety-scale-ham-a"
+      },
+      {
+        "id": "HM5FTt4Xcd88l1CQAjHE",
+        "active": true,
+        "title": "Alcohol Use Disorders Identification Test",
+        "shortTitle": "AUDIT",
+        "definition": "The Alcohol Use Disorders Identification Test (AUDIT) is a screening test to identify persons with hazardous and harmful patterns of alcohol consumption.\n\nThe AUDIT was developed by the World Health Organization (WHO) as a simple method of screening for excessive drinking and to assist in brief assessment. It can help identify excessive drinking as the cause of the presenting illness. It provides a framework for intervention to help risky drinkers reduce or cease alcohol consumption and thereby avoid the harmful consequences of their drinking. The AUDIT also helps to identify alcohol dependence and some specific consequences of harmful drinking. It is particularly designed for health care practitioners and a range of health settings, but with suitable instructions it can be self-administered or used by non-health professionals.",
+        "shortDefinition": "The Alcohol Use Disorders Identification Test (AUDIT) is a screening test to identify persons with hazardous and harmful patterns of alcohol consumption.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FHM5FTt4Xcd88l1CQAjHE%2FAUDIT.png?alt=media&token=6cfeccde-86f5-413a-83bf-ec2a0c7f1ab0",
+        "domains": [
+          "Alcohol Use"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "14 years and above",
+        "timeEstimate": "2 to 4 minutes",
+        "aboutLink": "https://psypack.com/assessments/audit-alcohol-use-disorders-identification-test"
+      },
+      {
+        "id": "QayCHPG4RsNye4foIXe5",
+        "active": true,
+        "title": "Cannabis Use Disorders Identification Test-Revised",
+        "shortTitle": "CUDIT-R",
+        "definition": "The Cannabis Use Identification Test-Revised (CUDIT-R) is a brief cannabis misuse-screening tool, which is widely used to identify cannabis use problems.\n\nWhen a cannabis misuse screening tool, the CUDIT, was originally published it was noted that although it performed well there was concern about individual items. A revised CUDIT-R was developed containing 8 items, two each from the domains of consumption, cannabis problems (abuse), dependence, and psychological features. Although the psychometric adequacy of the original CUDIT was confirmed, the CUDIT-R was shorter and had equivalent or superior psychometric properties. High sensitivity (91%) and specificity (90%) were achieved.",
+        "shortDefinition": "The Cannabis Use Identification Test-Revised (CUDIT-R) is a brief cannabis misuse-screening tool, which is widely used to identify cannabis use problems.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FQayCHPG4RsNye4foIXe5%2FCUDIT-R.png?alt=media&token=1effc863-3187-42e9-a176-20b076156fe0",
+        "domains": [
+          "Substance Use",
+          "Cannabis Use"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adolescents, Adults",
+        "timeEstimate": "2 to 4 minutes",
+        "aboutLink": "https://psypack.com/assessments/cudit-r-cannabis-use-disorders-identification-test"
+      },
+      {
+        "id": "jD6n7kZFqUDE0uV9AnVD",
+        "active": true,
+        "title": "Columbia-Suicide Severity Rating Scale",
+        "shortTitle": "C-SSRS",
+        "definition": "The Columbia Protocol, also known as the Columbia-Suicide Severity Rating Scale (C-SSRS), supports suicide risk assessment through a series of simple, plain-language questions that anyone can ask. The answers help users identify whether someone is at risk for suicide, assess the severity and immediacy of that risk, and gauge the level of support that the person needs.",
+        "shortDefinition": "The Columbia Protocol, also known as the Columbia-Suicide Severity Rating Scale (C-SSRS), supports suicide risk assessment through a series of simple, plain-language questions that anyone can ask.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FjD6n7kZFqUDE0uV9AnVD%2FC-SSRS.png?alt=media&token=abe5087f-c1fa-4fdf-b744-01e31592e437",
+        "domains": [
+          "Suicide Risk"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Children and Adults",
+        "timeEstimate": "About 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/c-ssrs-columbia-suicide-severity-rating-scale"
+      },
+      {
+        "id": "NlYDiBF2fQyq5iYrib6W",
+        "active": true,
+        "title": "Hamilton Depression Rating Scale",
+        "shortTitle": "HDRS",
+        "definition": "The Hamilton Depression Rating Scale (HDRS) is the most widely used clinician-administered depression assessment scale.\n\nThe scale contains 17 variables. Some are defined in terms of a series of categories of increasing intensity, while others are defined by a number of equal-valued terms.",
+        "shortDefinition": "The Hamilton Depression Rating Scale (HDRS) is the most widely used clinician-administered depression assessment scale.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FNlYDiBF2fQyq5iYrib6W%2FHDRS.png?alt=media&token=cc7c76d7-08cc-4bf0-b5fe-d29836c7d778",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "20 to 30 minutes",
+        "aboutLink": "https://psypack.com/assessments/hamilton-depression-rating-scale-ham-d"
+      },
+      {
+        "id": "vqQ0Hix6duSTpk8IYsJj",
+        "active": true,
+        "title": "Young Mania Rating Scale",
+        "shortTitle": "YMRS",
+        "definition": "The Young Mania Rating Scale (YMRS) is an eleven item clinician-administered rating scale to measure the severity of mania by the criteria for psychiatric rating scales discussed by Hamilton (1974).The YMRS follows the style of the Hamilton Rating Scale for depression (Hamilton, 1960) and is intended to be administered, by a trained clinician during a fifteen- to thirty-minute interview. A severity rating is assigned to each of the eleven items, based on the patient's subjective report of his or her condition over the previous forty-eight hours and the clinician's behavioural observations during the interview, with the emphasis on the latter.",
+        "shortDefinition": "The Young Mania Rating Scale (YMRS) is an eleven item clinician-administered rating scale to measure the severity of mania by the criteria for psychiatric rating scales discussed by Hamilton (1974).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FvqQ0Hix6duSTpk8IYsJj%2FYMRS.png?alt=media&token=d003b29f-f86c-4f98-aaea-2a12db82da9a",
+        "domains": [
+          "Mania"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "15 to 30 minutes",
+        "aboutLink": "https://psypack.com/assessments/ymrs-young-mania-rating-scale"
+      },
+      {
+        "id": "jiNbh2XunZwPG4p86rS0",
+        "active": true,
+        "title": "Montgomery-Åsberg Depression Rating Scale",
+        "shortTitle": "MADRS",
+        "definition": "The 10-item Montgomery-Åsberg Depression Rating Scale (MADRS) measures severity of depression in individuals 18 years and older. Each item is rated on a 7-point scale.\n\nThe scale is an adaptation of the Hamilton Depression Rating Scale and has a greater sensitivity to change over time. The scale can be completed in 20 to 30 minutes.",
+        "shortDefinition": "The 10-item Montgomery-Åsberg Depression Rating Scale (MADRS) measures severity of depression in individuals 18 years and older. Each item is rated on a 7-point scale. The scale is an adaptation of the Hamilton Depression Rating Scale and has a greater sensitivity to change over time. The scale can be completed in 20 to 30 minutes.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FjiNbh2XunZwPG4p86rS0%2FMADRS.png?alt=media&token=e6304de9-ff39-4f57-bc11-a060a21e421d",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "20 to 30 minutes",
+        "aboutLink": "https://psypack.com/assessments/madrs-montgomery-asberg-depression-rating-scale"
+      },
+      {
+        "id": "5yaSyg1MHkDHyGKS9ogJ",
+        "active": true,
+        "title": "Brief Resilience Scale",
+        "shortTitle": "BRS",
+        "definition": "The Brief Resilience Scale (BRS) was created to assess the ability to bounce back or recover from stress.\n\nWhile resilience has been defined as resistance to illness, adaptation, and thriving, the ability to bounce back or recover from stress is closest to its original meaning. Previous resilience measures assess resources that may promote resilience rather than recovery, resistance, adaptation, or thriving. The BRS is a reliable means of assessing resilience as the ability to bounce back or recover from stress and may provide unique and important information about people coping with health-related stressors.",
+        "shortDefinition": "The Brief Resilience Scale (BRS) was created to assess the ability to bounce back or recover from stress.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F5yaSyg1MHkDHyGKS9ogJ%2FBRS.png?alt=media&token=c463f186-1986-4351-bd12-385baeb458e5",
+        "domains": [
+          "Resilience"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Students, Adults",
+        "timeEstimate": "About 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/brs-brief-resilience-scale"
+      },
+      {
+        "id": "G97eeL4febbqj5pKOzyQ",
+        "active": true,
+        "title": "Parenting Styles & Dimensions Questionnaire - Short Version",
+        "shortTitle": "PSDQ-Short Version",
+        "definition": "The Parenting Styles & Dimensions Questionnaire - Short Version (PSDQ-Short Version) is a 32-item parenting questionnaire designed to assess global typologies (authoritative, authoritarian, permissive) consistent with Baumrind’s main conceptualizations for parents of preschool and school-age children.\n\nThe PSDQ-Short Version is a modified version of the original 62-item PSDQ which was developed for use with parents of children from 4 to 12-year-old in various cultures.",
+        "shortDefinition": "The Parenting Styles & Dimensions Questionnaire - Short Version (PSDQ-Short Version) is a 32-item parenting questionnaire designed to assess global typologies (authoritative, authoritarian, permissive) consistent with Baumrind’s main conceptualizations for parents of preschool and school-age children.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FG97eeL4febbqj5pKOzyQ%2FPSDQ-Short%20Version.png?alt=media&token=882ec2d2-f9ed-41e7-9923-a7d99f5a5d70",
+        "domains": [
+          "Parenting"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Preschool and school-age children",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/parenting-styles-and-dimensions-questionnaire-psdq-short"
+      },
+      {
+        "id": "iTihUIy0FmFVplC33AXC",
+        "active": true,
+        "title": "Executive Skills Questionnaire - Revised",
+        "shortTitle": "ESQ-R",
+        "definition": "The Executive Skills Questionnaire - Revised (ESQ-R) is a self-report assessment instruments that students complete to help them (and their teachers or coaches) understand their executive skill strengths and challenges.\n\nIt is a modified version of the ESQ developed by Dawson and Guare and described in a number of their books on executive skills (e.g., Executive Skills in Children and Adolescents, Smart but Scattered, Smart but Scattered Teens).",
+        "shortDefinition": "The Executive Skills Questionnaire - Revised (ESQ-R) is a self-report assessment instruments that students complete to help them (and their teachers or coaches) understand their executive skill strengths and challenges.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FiTihUIy0FmFVplC33AXC%2FESQ-R.png?alt=media&token=c8d59562-bf1e-4999-897a-2d7c251abb1d",
+        "domains": [
+          "Skills",
+          "Executive Skills"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Students",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/executive-skills-questionnaire-esq-r"
+      },
+      {
+        "id": "Ef8ttlWu13vkNAiXLUyD",
+        "active": true,
+        "title": "Vanderbilt Attention Deficit/Hyperactivity Disorder Teacher Rating Scale",
+        "shortTitle": "VADTRS",
+        "definition": "Vanderbilt Attention Deficit/Hyperactivity Disorder Teacher Rating Scale (VADTRS) is a teacher rating scale to help diagnose ADHD in children between the ages of 6- and 12-years.\n\nThe VADTRS consists of the complete list of DSM-IV AD/HD symptoms, a screen for other disruptive behavior disorders, anxiety and depression, and ratings of academic and classroom behavior performance.",
+        "shortDefinition": "Vanderbilt Attention Deficit/Hyperactivity Disorder Teacher Rating Scale (VADTRS) is a teacher rating scale to help diagnose ADHD in children between the ages of 6- and 12-years.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FEf8ttlWu13vkNAiXLUyD%2FVADTRS.png?alt=media&token=4be14961-4feb-48f4-a494-f0f3eef925a1",
+        "domains": [
+          "Attention-Deficit/Hyperactivity Disorder (ADHD)"
+        ],
+        "administrations": [
+          "Teacher-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 12 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/vanderbilt-adhd-teacher-rating-scale"
+      },
+      {
+        "id": "s6M697ZzlaRDDEf2TLND",
+        "active": true,
+        "title": "Vanderbilt Attention Deficit/Hyperactivity Disorder Parent Rating Scale",
+        "shortTitle": "VADPRS",
+        "definition": "Vanderbilt Attention Deficit/Hyperactivity Disorder Parent Rating Scale (VADPRS) is a parent rating scale to help diagnose ADHD in children between the ages of 6- and 12-years.\n\nThe VADPRS consists of the complete list of DSM-IV AD/HD symptoms, a screen for other disruptive behavior disorders, anxiety and depression, and ratings of performance.",
+        "shortDefinition": "Vanderbilt Attention Deficit/Hyperactivity Disorder Parent Rating Scale (VADPRS) is a parent rating scale to help diagnose ADHD in children between the ages of 6- and 12-years.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fs6M697ZzlaRDDEf2TLND%2FVADPRS.png?alt=media&token=a5cac0ea-49f9-45ae-8ea5-93431422dd9e",
+        "domains": [
+          "Attention-Deficit/Hyperactivity Disorder (ADHD)"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 12 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/vanderbilt-adhd-parent-rating-scale"
+      },
+      {
+        "id": "Id41UBad0tuz6X5mXibt",
+        "active": true,
+        "title": "Agnew Relationship Measure - 5 (Client Version)",
+        "shortTitle": "ARM-5 (Client Version)",
+        "definition": "The Agnew Relationship Measure - 5 (ARM-5) is a 5-item self-report measure designed to assess the client- therapist alliance.\n\nThe ARM-5 is a short form version of the original 28-item ARM. It includes five items from three of the ARM’s five scales, Bond, Partnership, and Confidence.",
+        "shortDefinition": "The Agnew Relationship Measure - 5 (ARM-5) is a 5-item self-report measure designed to assess the client- therapist alliance.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FId41UBad0tuz6X5mXibt%2FARM-5%20Client%20Version.png?alt=media&token=b1cec7ed-0237-4b50-b8d9-4e3248e2afc2",
+        "domains": [
+          "Client-Therapist Alliance"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/agnew-relationship-measure-arm-5-client"
+      },
+      {
+        "id": "R4AumF4SbLS6fVcwM7Ai",
+        "active": true,
+        "title": "Mood Disorder Questionnaire",
+        "shortTitle": "MDQ",
+        "definition": "The Mood Disorder Questionnaire (MDQ) is a brief self-report screening instrument for bipolar spectrum disorders, which include bipolar I, bipolar II, and bipolar disorder not otherwise specified.\n\nThe MDQ screens for a lifetime history of a manic or hypomanic syndrome by including 13 yes/no items derived from both the DSM-IV criteria and clinical experience.",
+        "shortDefinition": "The Mood Disorder Questionnaire (MDQ) is a brief self-report screening instrument for bipolar spectrum disorders, which include bipolar I, bipolar II, and bipolar disorder not otherwise specified.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FR4AumF4SbLS6fVcwM7Ai%2FMDQ.png?alt=media&token=0565f3e5-c8cd-4581-9d8c-c4f9fd8cf3fb",
+        "domains": [
+          "Bipolar Disorder"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/mood-disorder-questionnaire-mdq"
+      },
+      {
+        "id": "bFGlDKgtpPmRp6NeHR0B",
+        "active": true,
+        "title": "Self Rating Questionnaire",
+        "shortTitle": "SRQ",
+        "definition": "The Self Rating Questionnaire (SRQ) was developed to provide a self-assessment on 13 core competencies or Personal Entrepreneurial Competencies (PECs). The instrument comprises 70 behavioral statements. The person completing the instrument uses a five-point rating scale to rate how well each statement describes him or her. There are 5 items based on each of the 13 competencies and an additional 5 items composing a social desirability scale.",
+        "shortDefinition": "The Self Rating Questionnaire (SRQ) was developed to provide a self-assessment on 13 core competencies or Personal Entrepreneurial Competencies (PECs).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FbFGlDKgtpPmRp6NeHR0B%2FSRQ.png?alt=media&token=9ac66d45-c4b9-4ca5-9951-7e2466407735",
+        "domains": [
+          "Competencies",
+          "Entrepreneurship"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 30 minutes",
+        "aboutLink": "https://psypack.com/assessments/self-rating-questionnaire-entrepreneurial-competencies"
+      },
+      {
+        "id": "N49tOqb2Z1vfvsOitUfb",
+        "active": true,
+        "title": "Autism Spectrum Screening Questionnaire (Parent-Rated)",
+        "shortTitle": "ASSQ (Parent-Rated)",
+        "definition": "The high-functioning Autism Spectrum Screening Questionnaire (ASSQ) is a 27-item check-list for completion by lay informants when assessing symptoms characteristic of Asperger syndrome and other high-functioning autism spectrum disorders in children and adolescents with normal intelligence or mild mental retardation.\n\nASSQ is a useful brief screening device for the identification of autism spectrum disorders in clinical settings.",
+        "shortDefinition": "The high-functioning Autism Spectrum Screening Questionnaire (ASSQ) is a 27-item check-list for completion by lay informants when assessing symptoms characteristic of Asperger syndrome and other high-functioning autism spectrum disorders in children and adolescents with normal intelligence or mild mental retardation.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FN49tOqb2Z1vfvsOitUfb%2FASSQ%20(Parent-Rated).png?alt=media&token=40e9c2a5-bb83-47f5-ad65-0bf08095e3a3",
+        "domains": [
+          "Autism Spectrum Disorders",
+          "Asperger Syndrome"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 17 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/autism-spectrum-screening-questionnaire-assq-parent-rated"
+      },
+      {
+        "id": "TKrWSc2ooPDkDp7Fo2yr",
+        "active": true,
+        "title": "Autism Spectrum Screening Questionnaire (Teacher-Rated)",
+        "shortTitle": "ASSQ (Teacher-Rated)",
+        "definition": "The high-functioning Autism Spectrum Screening Questionnaire (ASSQ) is a 27-item check-list for completion by lay informants when assessing symptoms characteristic of Asperger syndrome and other high-functioning autism spectrum disorders in children and adolescents with normal intelligence or mild mental retardation.\n\nASSQ is a useful brief screening device for the identification of autism spectrum disorders in clinical settings.",
+        "shortDefinition": "The high-functioning Autism Spectrum Screening Questionnaire (ASSQ) is a 27-item check-list for completion by lay informants when assessing symptoms characteristic of Asperger syndrome and other high-functioning autism spectrum disorders in children and adolescents with normal intelligence or mild mental retardation.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FTKrWSc2ooPDkDp7Fo2yr%2FASSQ%20(Teacher-Rated).png?alt=media&token=6d73dd14-2cda-4693-8fd8-d989f01a1ced",
+        "domains": [
+          "Asperger Syndrome",
+          "Autism Spectrum Disorders"
+        ],
+        "administrations": [
+          "Teacher-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 17 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/autism-spectrum-screening-questionnaire-assq-teacher-rated"
+      },
+      {
+        "id": "kWjEcNzGAm5UGUE1NuLD",
+        "active": true,
+        "title": "Burnout Questionnaire",
+        "shortTitle": "Burnout Questionnaire",
+        "definition": "The Burnout Questionnaire is a standardized tool to assess burnout. \n\nIt consist 28 response column/questions which are divided into three further sub categories. It is scored according to 5 point scale. The total scoring ranges from minimum 28 score to maximum 140 score.",
+        "shortDefinition": "The Burnout Questionnaire is a standardized tool to assess burnout.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FkWjEcNzGAm5UGUE1NuLD%2FBurnout%20Questionnaire.png?alt=media&token=61202f0e-a0ec-4e70-b863-67d8ed477924",
+        "domains": [
+          "Stress",
+          "Burnout"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/burnout-questionnaire"
+      },
+      {
+        "id": "w82VSFm9qGgLScA78vQP",
+        "active": true,
+        "title": "Autism-Spectrum Quotient (AQ)",
+        "shortTitle": "AQ",
+        "definition": "The Autism-Spectrum Quotient (AQ) is self-assessment screening instrument for measuring the degree to which an adult with normal intelligence has the traits associated with the autistic spectrum.\n\nThe AQ is a valuable instrument for rapidly quantifying where any given individual is situated on the continuum from autism to normality.",
+        "shortDefinition": "The Autism-Spectrum Quotient (AQ) is a self-assessment screening instrument for measuring the degree to which an adult with normal intelligence has the traits associated with the autistic spectrum.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fw82VSFm9qGgLScA78vQP%2FAQ.png?alt=media&token=a276572f-7946-4626-a131-ed2ab899199d",
+        "domains": [
+          "Asperger Syndrome",
+          "Autism Spectrum Disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "16 years and above",
+        "timeEstimate": "About 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/autism-spectrum-quotient-aq"
+      },
+      {
+        "id": "khXiKtPXbye34De0069f",
+        "active": true,
+        "title": "Adverse Childhood Experiences Questionnaire",
+        "shortTitle": "ACE-Q",
+        "definition": "The Adverse Childhood Experiences Questionnaire (ACE-Q) is a 10-item measure used to measure childhood trauma.\n\nThe questionnaire assesses 10 types of childhood trauma measured in the ACE Study. Five are personal: physical abuse, verbal abuse, sexual abuse, physical neglect, and emotional neglect. Five are related to other family members: a parent who’s an alcoholic, a mother who’s a victim of domestic violence, a family member in jail, a family member diagnosed with a mental illness, and the disappearance of a parent through divorce, death or abandonment.",
+        "shortDefinition": "The Adverse Childhood Experiences Questionnaire (ACE-Q) is a 10-item measure used to measure childhood trauma.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FkhXiKtPXbye34De0069f%2FACE-Q.png?alt=media&token=c43f26ea-9160-49d3-a297-ce0c3105c8a7",
+        "domains": [
+          "Childhood Trauma",
+          "Trauma"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/ace-q-adverse-childhood-experiences-questionnaire"
+      },
+      {
+        "id": "Emb16WUdc2N3BzKxoklY",
+        "active": true,
+        "title": "CYW Adverse Childhood Experiences Questionnaire for Children",
+        "shortTitle": "CYW ACE-Q Child",
+        "definition": "The CYW Adverse Childhood Experiences Questionnaire for Children (CYW ACE-Q Child) is a clinical screening tool that calculates cumulative exposure to Adverse Childhood Experiences (ACEs). It is a 17 item instrument completed by the parent/caregiver for children age 0 to 12.\n\nRespondents are asked to report how many experience types (or categories) apply to their child, not which experiences apply (i.e. it is de-identified). The CYW ACE-Q Child is intended for use in pediatric and family practice settings to identify patients at increased risk for chronic health problems, learning difficulties, mental and behavioral health problems and developmental issues due to changes in brain architecture and developing organ systems brought on by exposure to extreme and prolonged stress.",
+        "shortDefinition": "The CYW Adverse Childhood Experiences Questionnaire for Children (CYW ACE-Q Child) is a clinical screening tool that calculates cumulative exposure to Adverse Childhood Experiences (ACEs). It is a 17 item instrument completed by the parent/caregiver for children age 0 to 12.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FEmb16WUdc2N3BzKxoklY%2FCYW%20ACE-Q%20Child.png?alt=media&token=33e0f1d7-2f5f-413d-b8f6-9af87722c2d5",
+        "domains": [
+          "Childhood Trauma",
+          "Trauma"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "0-12 years",
+        "timeEstimate": "2 to 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/ace-q-child-adverse-childhood-experiences-questionnaire"
+      },
+      {
+        "id": "FzRLbgS9UZUw1tmZovrh",
+        "active": true,
+        "title": "CYW Adverse Childhood Experiences Questionnaire for Adolescents : Self Report ",
+        "shortTitle": "CYW ACE-Q Teen SR",
+        "definition": "The CYW Adverse Childhood Experiences Questionnaire for Adolescents : Self Report (CYW ACE-Q Teen SR) is a clinical screening tool that calculates cumulative exposure to Adverse Childhood Experiences (ACEs). It is a 17 item instrument completed by youth age 13 to 19.\n\nRespondents are asked to report how many experience types (or categories) apply to their child, not which experiences apply (i.e. it is de-identified). The CYW ACE-Q Teen SR is intended for use in pediatric and family practice settings to identify patients at increased risk for chronic health problems, learning difficulties, mental and behavioral health problems and developmental issues due to changes in brain architecture and developing organ systems brought on by exposure to extreme and prolonged stress.",
+        "shortDefinition": "The CYW Adverse Childhood Experiences Questionnaire for Adolescents : Self Report (CYW ACE-Q Teen SR) is a clinical screening tool that calculates cumulative exposure to Adverse Childhood Experiences (ACEs). It is a 17 item instrument completed by youth age 13 to 19.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FFzRLbgS9UZUw1tmZovrh%2FCYW%20ACE-Q%20Teen%20SR.png?alt=media&token=64789b21-1e06-4d93-959f-04beb92807ec",
+        "domains": [
+          "Childhood Trauma",
+          "Trauma"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "13-19 years",
+        "timeEstimate": "2 to 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/ace-q-teen-self-report-adverse-childhood-experiences-questionnaire"
+      },
+      {
+        "id": "QX80E5qOKaapqDPSMlMv",
+        "active": true,
+        "title": "CYW Adverse Childhood Experiences Questionnaire for Adolescents",
+        "shortTitle": "CYW ACE-Q Teen",
+        "definition": "The CYW Adverse Childhood Experiences Questionnaire for Adolescents (CYW ACE-Q Teen) is a clinical screening tool that calculates cumulative exposure to Adverse Childhood Experiences (ACEs). It is a 17 item instrument completed by the parent/caregiver for children age 13 to 19.\n\nRespondents are asked to report how many experience types (or categories) apply to their child, not which experiences apply (i.e. it is de-identified). The CYW ACE-Q Teen is intended for use in pediatric and family practice settings to identify patients at increased risk for chronic health problems, learning difficulties, mental and behavioral health problems and developmental issues due to changes in brain architecture and developing organ systems brought on by exposure to extreme and prolonged stress.",
+        "shortDefinition": "The CYW Adverse Childhood Experiences Questionnaire for Adolescents (CYW ACE-Q Teen) is a clinical screening tool that calculates cumulative exposure to Adverse Childhood Experiences (ACEs). It is a 17 item instrument completed by the parent/caregiver for children age 13 to 19.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FQX80E5qOKaapqDPSMlMv%2FCYW%20ACE-Q%20Teen.png?alt=media&token=9aace1fe-6ea9-4415-9940-6acb465dc31c",
+        "domains": [
+          "Childhood Trauma",
+          "Trauma"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "13-19 years",
+        "timeEstimate": "2 to 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/ace-q-teen-adverse-childhood-experiences-questionnaire"
+      },
+      {
+        "id": "bxpH24tLjjzfNcypK6dE",
+        "active": true,
+        "title": "Sleep Hygiene Index",
+        "shortTitle": "SHI",
+        "definition": "The Sleep Hygiene Index (SHI) is a 13-item self-administered index intended to assess the presence of behaviors thought to comprise sleep hygiene. \n\nParticipants are asked to indicate how frequently they engage in specific behaviors (always, frequently, sometimes, rarely, never). Items constructing the Sleep Hygiene Index are derived from the diagnostic criteria for inadequate sleep hygiene in the International Classification of Sleep Disorders (American Sleep Disorders Association, 1990). Item scores were summed providing a global assessment of sleep hygiene. Higher scores are indicative of more maladaptive sleep hygiene status.",
+        "shortDefinition": "The Sleep Hygiene Index (SHI) is a 13-item self-administered index intended to assess the presence of behaviors thought to comprise sleep hygiene.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FbxpH24tLjjzfNcypK6dE%2FSHI.png?alt=media&token=711c1e2b-2006-4268-a2a5-ec02c851b634",
+        "domains": [
+          "Sleep"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/sleep-hygiene-index"
+      },
+      {
+        "id": "IZNPeLIe6Pq8zowXrmLt",
+        "active": true,
+        "title": "Tromsø Social Intelligence Scale",
+        "shortTitle": "TSIS",
+        "definition": "The Tromsø Social Intelligence Scale (TSIS) is a multi-faceted measure of social intelligence.\n\nThe TSIS is a 21-item self report measure and assesses three related domains of social intelligence - Social information processing (SP), Social skills (SS), Social awareness (SA).",
+        "shortDefinition": "The Tromsø Social Intelligence Scale (TSIS) is a multi-faceted measure of social intelligence.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FIZNPeLIe6Pq8zowXrmLt%2FTSIS.png?alt=media&token=07a61eb9-d59f-4d09-b240-c78e6fa0c611",
+        "domains": [
+          "Intelligence",
+          "Social Intelligence"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/tromso-social-intelligence-scale"
+      },
+      {
+        "id": "8Ze2VXIf0ryVHGbZJnRc",
+        "active": true,
+        "title": "Ask Suicide-Screening Questions",
+        "shortTitle": "ASQ",
+        "definition": "The Ask Suicide-Screening Questions (ASQ) tool is a set of four brief suicide screening questions that takes 20 seconds to administer.\n\nIt is a brief validated tool for use among both youth and adults. It can help providers successfully identify individuals at risk for suicide.",
+        "shortDefinition": "The Ask Suicide-Screening Questions (ASQ) tool is a set of four brief suicide screening questions that takes 20 seconds to administer.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F8Ze2VXIf0ryVHGbZJnRc%2FASQ.png?alt=media&token=30d773a5-68fa-496b-bac6-ce182f5d0893",
+        "domains": [
+          "Suicide Risk"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Youth and Adults",
+        "timeEstimate": "Less than 1 minute",
+        "aboutLink": "https://psypack.com/assessments/ask-suicide-screening-questions"
+      },
+      {
+        "id": "6O6j5E4LgsOSWBWiEv1m",
+        "active": true,
+        "title": "Altman Self-Rating Mania Scale",
+        "shortTitle": "ASRM",
+        "definition": "The Altman Self-Rating Mania Scale (ASRM) is a brief self-rating mania scale, compatible with DSM-IV criteria, that can be used to measure the presence and severity of manic symptoms for research or clinical purposes.",
+        "shortDefinition": "The Altman Self-Rating Mania Scale (ASRM) is a brief self-rating mania scale, compatible with DSM-IV criteria, that can be used to measure the presence and severity of manic symptoms for research or clinical purposes.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F6O6j5E4LgsOSWBWiEv1m%2FASRM.png?alt=media&token=5301828e-9cba-4679-8318-a3701cf5295f",
+        "domains": [
+          "Mania",
+          "Bipolar Disorder"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/altman-mania-scale-asrm"
+      },
+      {
+        "id": "XqeD3Gi2xZPfpcGBleTI",
+        "active": true,
+        "title": "WHO (Five) Well-Being Index",
+        "shortTitle": "WHO-5",
+        "definition": "The 5-item World Health Organization Well-Being Index (WHO-5) is a short and generic global rating scale measuring subjective well-being.\n\nIt is among the most widely used questionnaires assessing subjective psychological well-being. Since its first publication in 1998, the WHO-5 has been translated into more than 30 languages and has been used in research studies all over the world.",
+        "shortDefinition": "The 5-item World Health Organization Well-Being Index (WHO-5) is a short and generic global rating scale measuring subjective well-being.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FXqeD3Gi2xZPfpcGBleTI%2FWHO-5.png?alt=media&token=2b9a9ad2-cfac-4757-bb31-9388a69a6ab8",
+        "domains": [
+          "Subjective well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "9 years and above",
+        "timeEstimate": "About 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/who-5-wellbeing-index"
+      },
+      {
+        "id": "cPKQYwzzg8RgTRHobTc2",
+        "active": true,
+        "title": "Neurobehavioral Symptom Inventory",
+        "shortTitle": "NSI",
+        "definition": "The NSI is a 22-item self-report measure of postconcussive symptoms.\n\nOn this measure, respondents rate the degree of symptom severity on a five-point scale that ranges from zero (none; symptom is rarely ever present/not a problem at all) to four (very severe; symptom is almost always present/impairs performance at work, school, or home/individual probably cannot function without help).",
+        "shortDefinition": "The NSI is a 22-item self-report measure of postconcussive symptoms.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FcPKQYwzzg8RgTRHobTc2%2FNSI.png?alt=media&token=aad921c7-02db-49be-9500-d2693878f1da",
+        "domains": [
+          "Trauma",
+          "TBI (Traumatic Brain Injury)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/neurobehavioral-symptom-inventory-tbi"
+      },
+      {
+        "id": "fSwWurrhznZOF9kt1MFi",
+        "active": true,
+        "title": "Dissociative Experiences Scale II",
+        "shortTitle": "DES II",
+        "definition": "The Dissociative Experiences Scale II (DES II) is a brief, self-report measure of the frequency of dissociative experiences.\n\nThe DES was developed to serve as a clinical tool to help identify patients with dissociative psychopathology and as a research tool to provide a means of quantifying dissociative experiences.",
+        "shortDefinition": "The Dissociative Experiences Scale II (DES II) is a brief, self-report measure of the frequency of dissociative experiences.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FfSwWurrhznZOF9kt1MFi%2FDES%20II.png?alt=media&token=0b37db5c-8689-4d97-a276-6f4ffd74d853",
+        "domains": [
+          "Dissociative Disorders",
+          "Personality Disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/dissociative-experiences-scale-ii-des-ii"
+      },
+      {
+        "id": "XzOmOnsspCIEA1k6JPBE",
+        "active": true,
+        "title": "Self-Compassion Scale",
+        "shortTitle": "SCS",
+        "definition": "The Self-Compassion Scale (SCS) is a 26-item self-report questionnaire measuring the six components of self-compassion: Self-Kindness, reduced Self-Judgment, Common Humanity, reduced Isolation, Mindfulness, and reduced Overidentification. Responses are given on a scale from 1 (almost never) to 5 (almost always).",
+        "shortDefinition": "The Self-Compassion Scale (SCS) is a 26-item self-report questionnaire measuring the six components of self-compassion: Self-Kindness, reduced Self-Judgment, Common Humanity, reduced Isolation, Mindfulness, and reduced Overidentification.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FXzOmOnsspCIEA1k6JPBE%2FSCS.png?alt=media&token=65cc8ce9-ac32-4f09-b2cc-395e53d54f59",
+        "domains": [
+          "Self-Compassion"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/neff-self-compassion-scale"
+      },
+      {
+        "id": "zEG5AZyse9MFBzNtUPlv",
+        "active": true,
+        "title": "Generic BFRB Scale-8",
+        "shortTitle": "GBS-8",
+        "definition": "The Generic BFRB Scale-8 (GBS-8) is a transdiagnostic scale to measure the severity of body-focused repetitive behaviours (BFRBs).\n\nThe GBS-8 is a brief, reliable and valid scale. Its total score may serve as a global primary outcome in trials on BFRBs, while its subscales can inform about specific aspects of BFRB.",
+        "shortDefinition": "The Generic BFRB Scale-8 (GBS-8) is a transdiagnostic scale to measure the severity of body-focused repetitive behaviours (BFRBs).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FzEG5AZyse9MFBzNtUPlv%2FGBS-8.png?alt=media&token=6895b2e3-0191-4995-8cf6-10246219355a",
+        "domains": [
+          "Body-focused repetitive behaviours (BFRBs)",
+          "Obsessive-Compulsive Disorder (OCD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/generic-bfrb-scale-8-gbs-8-body-focused-repetitive-behaviours"
+      },
+      {
+        "id": "LV53W6UahXg1bsJRm7ZA",
+        "active": true,
+        "title": "Steiner’s Automobile Anxiety Inventory",
+        "shortTitle": "Steiner’s AAI",
+        "definition": "Steiner’s Automobile Anxiety Inventory (AAI) is a 23 item questionnaire of which 18 can be scored to provide a quantitative measure of vehicular anxiety (amaxophobia) as common in survivors of motor vehicle accidents (MVAs).",
+        "shortDefinition": "Steiner’s Automobile Anxiety Inventory (AAI) is a 23 item questionnaire of which 18 can be scored to provide a quantitative measure of vehicular anxiety (amaxophobia) as common in survivors of motor vehicle accidents (MVAs).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FLV53W6UahXg1bsJRm7ZA%2FSteiner%E2%80%99s%20AAI.png?alt=media&token=87ce92d7-879e-413d-8ae7-4747215a6780&_gl=1*1woo3x7*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5NzQzMzY2Ny40NzguMS4xNjk3NDM5NDcwLjQ1LjAuMA..",
+        "domains": [
+          "Amaxophobia",
+          "Anxiety",
+          "Post-Traumatic Stress Disorder (PTSD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/automobile-anxiety-inventory-aai-amaxophobia"
+      },
+      {
+        "id": "ia9zVPLtLEwudAgZCpP4",
+        "active": true,
+        "title": "Difficulties in Emotion Regulation Scale",
+        "shortTitle": "DERS",
+        "definition": "The Difficulties in Emotion Regulation Scale (DERS) is a 36-item self-report measure of difficulties in emotion regulation.\n\nThe six separate (albeit related) dimensions of emotion regulation wherein difficulties may occur, include (a) lack of awareness of emotional responses, (b) lack of clarity of emotional responses, (c) nonacceptance of emotional responses, (d) limited access to emotion regulation strategies perceived as effective, (e) difficulties controlling impulses when experiencing negative emotions, and (f) difficulties engaging in goal-directed behaviors when experiencing negative emotions.",
+        "shortDefinition": "The Difficulties in Emotion Regulation Scale (DERS) is a 36-item self-report measure of difficulties in emotion regulation.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fia9zVPLtLEwudAgZCpP4%2FDERS.png?alt=media&token=88646a24-1afc-4ccb-bdfd-9c3ed24ffbe6",
+        "domains": [
+          "Emotion Regulation",
+          "Emotions"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/difficulties-in-emotion-regulation-scale-ders"
+      },
+      {
+        "id": "mswNiYZrsohmEHglmstq",
+        "active": true,
+        "title": "Humor Styles Questionnaire",
+        "shortTitle": "HSQ",
+        "definition": "The Humor Styles Questionnaire (HSQ) assesses four dimensions relating to individual differences in uses of humor. These are: relatively benign uses of humor to enhance the self (Self-enhancing) and to enhance one's relationships with others (Affiliative), use of humor to enhance the self at the expense of others (Aggressive), and use of humor to enhance relationships at the expense of self (Self-defeating).\n\nThe Humor Styles Questionnaire represents a new approach to measurement of individual differences in humor, in that it is the first self-report measure to specifically assess ways in which people use humor that are less desirable and potentially detrimental to psychological well-being (Aggressive and Self-defeating humor).",
+        "shortDefinition": "The Humor Styles Questionnaire (HSQ) assesses four dimensions relating to individual differences in uses of humor. These are: relatively benign uses of humor to enhance the self (Self-enhancing) and to enhance one's relationships with others (Affiliative), use of humor to enhance the self at the expense of others (Aggressive), and use of humor to enhance relationships at the expense of self (Self-defeating).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FmswNiYZrsohmEHglmstq%2FHSQ.png?alt=media&token=af01c7bd-479a-4a86-8147-bd08008a484b",
+        "domains": [
+          "Humor",
+          "Coping",
+          "Personality",
+          "Well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adolescence to old age",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/humor-styles-questionnaire-hsq"
+      },
+      {
+        "id": "MHD81TmmrHcDg2D7illc",
+        "active": true,
+        "title": "Positive and Negative Affect Schedule",
+        "shortTitle": "PANAS",
+        "definition": "The Positive and Negative Affect Schedule (PANAS) comprises of two 10-item brief scales to measure the two primary dimensions of mood— Positive and Negative Affect.",
+        "shortDefinition": "The Positive and Negative Affect Schedule (PANAS) comprises of two 10-item brief scales to measure the two primary dimensions of mood— Positive and Negative Affect.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FMHD81TmmrHcDg2D7illc%2FPANAS.png?alt=media&token=1f774664-696a-4d19-8278-7e6c32230bdf",
+        "domains": [
+          "Mood",
+          "Emotions"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/panas-scale"
+      },
+      {
+        "id": "IvEvuRbVYMFwXJKt8TNj",
+        "active": true,
+        "title": "Difficulties in Emotion Regulation Scale - 16-item version",
+        "shortTitle": "DERS-16",
+        "definition": "The Difficulties in Emotion Regulation Scale - 16-item version (DERS-16) offers a valid and brief method for the assessment of overall emotion regulation difficulties.\n\nThe DERS-16 is a brief 16-item version of the Difficulties in Emotion Regulation Scale (DERS).",
+        "shortDefinition": "The Difficulties in Emotion Regulation Scale - 16-item version (DERS-16) offers a valid and brief method for the assessment of overall emotion regulation difficulties.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FIvEvuRbVYMFwXJKt8TNj%2FDERS-16.png?alt=media&token=49a001f1-221a-4385-8758-1e68c905ae70",
+        "domains": [
+          "Emotion Regulation",
+          "Emotions"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/ders-16-difficulties-in-emotion-regulation-scale-16-item-version"
+      },
+      {
+        "id": "qjfPnEKBi2FANQb4aHTc",
+        "active": true,
+        "title": "Valuing Questionnaire",
+        "shortTitle": "VQ",
+        "definition": "The Valuing Questionnaire (VQ) is a 10-item scale measure of valued living. It measures two related constructs - \"\"Progress\"\" and \"\"Obstruction\"\". \"\"Progress\"\" reflects enactment of values, including clear awareness of what is personally important and perseverance. \"\"Obstruction\"\" reflects the disruption of valued living due to avoidance of unwanted experience and distraction from values by inattention to values or attention to other psychological experiences.\n\nThe Valuing Questionnaire was designed to assess the extent of personal values enactment during the past-week for use in clinical and research evaluations of ACT (Acceptance Commitment Therapy) interventions.",
+        "shortDefinition": "The Valuing Questionnaire (VQ) is a 10-item scale measure of valued living. It measures two related constructs - \"Progress\" and \"Obstruction\". \"Progress\" reflects enactment of values, including clear awareness of what is personally important and perseverance. \"Obstruction\" reflects the disruption of valued living due to avoidance of unwanted experience and distraction from values by inattention to values or attention to other psychological experiences.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FqjfPnEKBi2FANQb4aHTc%2FVQ.png?alt=media&token=4ae1e485-e549-4f21-9603-145b1891f8a1",
+        "domains": [
+          "Valued Living",
+          "Subjective well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/valuing-questionnaire"
+      },
+      {
+        "id": "acwJdRiNItdP2POzzixh",
+        "active": true,
+        "title": "Mental Health Screening Form-III",
+        "shortTitle": "MHSF-III",
+        "definition": "The Mental Health Screening Form-III (MHSF-III) was initially designed as a rough screening device for clients seeking admission to substance abuse treatment programs. The instrument was designed to be short, readily understandable, and easy to use.\n\nThe MHSF-III consists of 18 questions (question 6 has two parts). Each MHSF-III question is answered either “yes” or “no.”",
+        "shortDefinition": "The Mental Health Screening Form-III (MHSF-III) was initially designed as a rough screening device for clients seeking admission to substance abuse treatment programs. The instrument was designed to be short, readily understandable, and easy to use.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FacwJdRiNItdP2POzzixh%2FMHSF-III.png?alt=media&token=5ce9e675-a609-4592-8313-2a80e0794f08",
+        "domains": [
+          "Substance Use",
+          "Well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/mental-health-screening-form-iii-mhsf-iii"
+      },
+      {
+        "id": "lOfMG5yaOUwxVzSrTfsO",
+        "active": true,
+        "title": "Life Events Checklist for DSM-5",
+        "shortTitle": "LEC-5",
+        "definition": "The Life Events Checklist for DSM-5 (LEC-5) is a self-report measure designed to screen for potentially traumatic events in a respondent's lifetime. The LEC-5 assesses exposure to 16 events known to potentially result in PTSD or distress and includes one additional item assessing any other extraordinarily stressful event not captured in the first 16 items.",
+        "shortDefinition": "The Life Events Checklist for DSM-5 (LEC-5) is a self-report measure designed to screen for potentially traumatic events in a respondent's lifetime.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FlOfMG5yaOUwxVzSrTfsO%2FLEC-5.png?alt=media&token=abac060e-b5fe-4bb6-be73-96a2a9419b90",
+        "domains": [
+          "Post-Traumatic Stress Disorder (PTSD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/life-events-checklist-for-dsm-5-lec-5"
+      },
+      {
+        "id": "kAKvWgYBh33Z8EBr8au7",
+        "active": true,
+        "title": "Extreme Demand Avoidance 8-item measure",
+        "shortTitle": "EDA-8",
+        "definition": "Extreme Demand Avoidance 8-item measure (EDA-8) is a brief caregiver-report measure of EDA traits for caregivers of children aged 5 – 17 years.\n\nEDA-8 may be a useful tool to identify children on the autism spectrum who show an extreme response to demands, as a starting point for more in-depth assessment. The EDA-8 supersedes the original 26 items Extreme Demand Avoidance Questionnaire (EDA-Q).",
+        "shortDefinition": "Extreme Demand Avoidance 8-item measure (EDA-8) is a brief caregiver-report measure of EDA traits for caregivers of children aged 5 – 17 years.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FkAKvWgYBh33Z8EBr8au7%2FEDA-8.png?alt=media&token=73435d00-2761-40d9-9a6d-993d0d90ac60",
+        "domains": [
+          "Pathological Demand Avoidance (PDA)",
+          "Autism Spectrum Disorders"
+        ],
+        "administrations": [
+          "Caregiver-Rated"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "5 to 17 years",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/extreme-demand-avoidance-eda-8-pda"
+      },
+      {
+        "id": "TdO42ledqp5b8hbvP7rR",
+        "active": true,
+        "title": "Extreme Demand Avoidance Questionnaire—Adult version",
+        "shortTitle": "EDA-QA",
+        "definition": "EDA-QA is a useful tool to assess self-identified traits of relevance to the Pathological (“extreme”) demand avoidance (PDA) profile.\n\nThe EDA-QA is a 26-item self-report adaptation of the observer-rated EDA-Q revised for use with adult populations.",
+        "shortDefinition": "EDA-QA is a useful tool to assess self-identified traits of relevance to the Pathological (“extreme”) demand avoidance (PDA) profile.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FTdO42ledqp5b8hbvP7rR%2FEDA-QA.png?alt=media&token=1a7e5873-0fa8-4a3c-86e9-36fc1def944e",
+        "domains": [
+          "Pathological Demand Avoidance (PDA)",
+          "Autism Spectrum Disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "10-15 minutes",
+        "aboutLink": "https://psypack.com/assessments/extreme-demand-avoidance-questionnaire-for-adults-eda-qa-pda"
+      },
+      {
+        "id": "QBQOTTUG34CZrOidjYqx",
+        "active": true,
+        "title": "Pediatric Symptom Checklist-17",
+        "shortTitle": "PSC-17",
+        "definition": "The Pediatric Symptom Checklist-17 (PSC-17) is a 17-item screening questionnaire that is completed by parents and designed to help pediatricians in outpatient practice identify school-age children with difficulties in psychosocial functioning.\n\nThe PSC-17 is a briefer version of the 35-item Pediatric Symptom Checklist (PSC).",
+        "shortDefinition": "The Pediatric Symptom Checklist-17 (PSC-17) is a 17-item screening questionnaire that is completed by parents and designed to help pediatricians in outpatient practice identify school-age children with difficulties in psychosocial functioning. ",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FQBQOTTUG34CZrOidjYqx%2FPSC-17.png?alt=media&token=ad59c9ed-0da2-4c58-b71d-384cb0c2cfee&_gl=1*13za28z*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5NjAwMDMxMy40MzAuMS4xNjk2MDAwOTY3LjMuMC4w",
+        "domains": [
+          "Psychosocial Functioning"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "4 to 15 years",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/pediatric-symptom-checklist-17-psc-17"
+      },
+      {
+        "id": "oGxEzboUkuDqbPRYl6JB",
+        "active": true,
+        "title": "Youth Pediatric Symptom Checklist-17",
+        "shortTitle": "Y PSC-17",
+        "definition": "The Youth Pediatric Symptom Checklist-17 (Y PSC-17) is a psychosocial screen designed to facilitate the recognition of cognitive, emotional, and behavioral problems so that appropriate interventions can be initiated as early as possible.\n\nThe Y-PSC can be administered to adolescents ages 11 and up.",
+        "shortDefinition": "The Youth Pediatric Symptom Checklist-17 (Y PSC-17) is a psychosocial screen designed to facilitate the recognition of cognitive, emotional, and behavioral problems so that appropriate interventions can be initiated as early as possible.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FoGxEzboUkuDqbPRYl6JB%2FY%20PSC-17.png?alt=media&token=ab9f9257-d615-4f98-867f-25e9041d6c0f&_gl=1*18i5brk*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5NjAwMDMxMy40MzAuMS4xNjk2MDAxNTMxLjYuMC4w",
+        "domains": [
+          "Psychosocial Functioning"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adolescents ages 11 and up",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/youth-pediatric-symptom-checklist-17-y-psc-17"
+      },
+      {
+        "id": "CW22y7KCl1SPjqpp9Puf",
+        "active": true,
+        "title": "Short Mood and Feelings Questionnaire (Parent-Report Version)",
+        "shortTitle": "SMFQ-P",
+        "definition": "The Short Mood and Feelings Questionnaire (Parent-Report Version) (SMFQ-P) is a brief, easy-to-administer, parent-report measure of childhood and adolescent depression, designed for rapid evaluation of core depressive symptomatology or for use in epidemiological studies.\n\nThe SMFQ-P appears to be a promising tool for both the swift assessment of core depressive symptomatology and as a screening measure for depression in child psychiatric epidemiological studies.",
+        "shortDefinition": "The Short Mood and Feelings Questionnaire (Parent-Report Version) (SMFQ-P) is a brief, easy-to-administer, parent-report measure of childhood and adolescent depression, designed for rapid evaluation of core depressive symptomatology or for use in epidemiological studies.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FCW22y7KCl1SPjqpp9Puf%2FSMFQ-P.png?alt=media&token=491baf1f-be6c-4483-bba6-7e36fc078734&_gl=1*1nsdvpj*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5NjgzNTY3MC40NTMuMS4xNjk2ODM4MzAyLjM5LjAuMA..",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 17 years",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/short-mood-and-feelings-questionnaire-parent-report-version-smfq-p"
+      },
+      {
+        "id": "HNw3EbgMYtz17cJ7fS9R",
+        "active": true,
+        "title": "Short Mood and Feelings Questionnaire (Child Self-Report Version)",
+        "shortTitle": "SMFQ-C",
+        "definition": "The Short Mood and Feelings Questionnaire (Child Self-Report Version) (SMFQ-C) is a brief, easy-to-administer, self-report measure of childhood and adolescent depression, designed for rapid evaluation of core depressive symptomatology or for use in epidemiological studies.\n\nThe SMFQ-C appears to be a promising tool for both the swift assessment of core depressive symptomatology and as a screening measure for depression in child psychiatric epidemiological studies.",
+        "shortDefinition": "The Short Mood and Feelings Questionnaire (Child Self-Report Version) (SMFQ-C) is a brief, easy-to-administer, self-report measure of childhood and adolescent depression, designed for rapid evaluation of core depressive symptomatology or for use in epidemiological studies.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FHNw3EbgMYtz17cJ7fS9R%2FSMFQ-C.png?alt=media&token=06c24b8f-78ba-4e7e-abf8-3768dcf3295e&_gl=1*sjnd7n*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5NjgzNTY3MC40NTMuMS4xNjk2ODM5NDA0LjE5LjAuMA..",
+        "domains": [
+          "Depression"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 17 years",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/short-mood-and-feelings-questionnaire-child-self-report-version-smfq-c"
+      },
+      {
+        "id": "Ej36TVcOMpJkTcJ0xi9W",
+        "active": true,
+        "title": "Mindful Attention Awareness Scale",
+        "shortTitle": "MAAS",
+        "definition": "The trait Mindful Attention Awareness Scale (MAAS) is a 15-item scale designed to assess a core characteristic of mindfulness, namely, a receptive state of mind in which attention, informed by a sensitive awareness of what is occurring in the present, simply observes what is taking place. This is in contrast to the conceptually driven mode of processing, in which events and experiences are filtered through cognitive appraisals, evaluations, memories, beliefs, and other forms of cognitive manipulation.",
+        "shortDefinition": "The trait Mindful Attention Awareness Scale (MAAS) is a 15-item scale designed to assess a core characteristic of mindfulness, namely, a receptive state of mind in which attention, informed by a sensitive awareness of what is occurring in the present, simply observes what is taking place.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FEj36TVcOMpJkTcJ0xi9W%2FMAAS.png?alt=media&token=596d359f-b6e0-4000-989a-37dc71b02427&_gl=1*1i4jn8e*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5NzQzMDU3Ny40NzcuMS4xNjk3NDMwNzc2LjM4LjAuMA..",
+        "domains": [
+          "Mindfulness"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/mindful-attention-awareness-scale-maas"
+      },
+      {
+        "id": "VwWcwEOvX650rYOeIzLd",
+        "active": true,
+        "title": "Buss-Perry Aggression Questionnaire",
+        "shortTitle": "BPAQ",
+        "definition": "The Buss-Perry Aggression Questionnaire (BPAQ) is a 29-item self-report measure of aggression.\n\nIt assesses various components of aggression - Physical Aggression, Verbal Aggression, Anger, and Hostility.",
+        "shortDefinition": "The Buss-Perry Aggression Questionnaire (BPAQ) is a 29-item self-report measure of aggression.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FVwWcwEOvX650rYOeIzLd%2FBPAQ.png?alt=media&token=b3e8ff8d-bc72-4cda-9dac-58e9710369b8",
+        "domains": [
+          "Aggression",
+          "Anger"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/buss-perry-aggression-questionnaire-bpaq"
+      },
+      {
+        "id": "7XhuyiuByB2GvNjXAR6X",
+        "active": true,
+        "title": "City Birth Trauma Scale",
+        "shortTitle": "City BiTS",
+        "definition": "The City Birth Trauma Scale (City BiTS) is a promising measure of birth-related PTSD. It can be used clinically or in research to examine PTSD symptoms and clinical disorder in women who have experienced trauma in childbirth.\n\nIt has 29 questions that measure PTSD according to the diagnostic criteria of the DSM-5 published by the American Psychiatric Association (2013).",
+        "shortDefinition": "The City Birth Trauma Scale (City BiTS) is a promising measure of birth-related PTSD. It can be used clinically or in research to examine PTSD symptoms and clinical disorder in women who have experienced trauma in childbirth.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F7XhuyiuByB2GvNjXAR6X%2FCity%20BiTS.png?alt=media&token=89174692-a3c4-46a8-811f-5f14c8683e32&_gl=1*2iv95h*_ga*MTM0NzE0MTEwMC4xNjYwNzEwMTA4*_ga_CW55HF8NVT*MTY5ODY4NDU3MS41MzcuMS4xNjk4Njg0ODM5LjUxLjAuMA..",
+        "domains": [
+          "Postpartum PTSD",
+          "Post-Traumatic Stress Disorder (PTSD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/city-birth-trauma-scale"
+      },
+      {
+        "id": "JRsthv1SNJp3U4sjaeQL",
+        "active": true,
+        "title": "Brief Psychiatric Rating Scale Expanded Version",
+        "shortTitle": "BPRS-E",
+        "definition": "The 24-item Brief Psychiatric Rating Scale Expanded Version (BPRS-E) provides a highly efficient, rapid evaluation procedure form assessing symptom change in psychiatric patients. It yields a comprehensive description of major symptom characteristics.\n\nThe BPRS-E assesses a wide range of psychopathology including symptoms of depression, anxiety, psychosis, mania, and withdrawal. Ratings are based on patient report and observation of the patient during the interview.\n\nThe BPRS (Overall and Gorham 1962) originally contained 16 symptom categories and was later expanded to 18 items (Guy 1976). The items are rated on a 1- to 7- point scale of increasing severity. Included in these scales are the psychotic symptoms of greatest importance for assessing the clinical condition of schizophrenic patients, i.e., hallucinations, unusual thought content (including delusions), and conceptual disorganization (including incoherence). The BPRS was designed originally for use by clinical observers of inpatient psychiatric populations in psychopharmacological outcome studies.",
+        "shortDefinition": "The 24-item Brief Psychiatric Rating Scale Expanded Version (BPRS-E) provides a highly efficient, rapid evaluation procedure form assessing symptom change in psychiatric patients. It yields a comprehensive description of major symptom characteristics.\n\nThe BPRS-E assesses a wide range of psychopathology including symptoms of depression, anxiety, psychosis, mania, and withdrawal. Ratings are based on patient report and observation of the patient during the interview.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FJRsthv1SNJp3U4sjaeQL%2FBPRS-E.png?alt=media&token=cd901ac5-5bcb-4c83-bafd-f8863b2608d8",
+        "domains": [
+          "Schizophrenia",
+          "Psychotic Disorders"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "10 to 40 minutes",
+        "aboutLink": "https://psypack.com/assessments/brief-psychiatric-rating-scale-expanded-bprs-e"
+      },
+      {
+        "id": "LnUj8kBYDTPedffoU8cO",
+        "active": true,
+        "title": "HERO Wellness Scale",
+        "shortTitle": "HERO Scale",
+        "definition": "The HERO Wellness Scale is a brief, easily understood, valuable index of the construct of mental wellness. It assesses positive psychology traits such as happiness, enthusiasm, resilience, optimism, and overall mental wellness.\n\nIt consists of 5 simple and noninvasive questions that capture the subjective mental wellness of the respondents and demonstrated adequate reliability and validity. This instrument allows clinicians and researchers to meaningfully quantify changes in mental wellness traits and brings greater concordance between the aspirations of both clients and clinicians.",
+        "shortDefinition": "The HERO Wellness Scale is a brief self-report screening tool that allows both the clinician and respondent together to track wellness and to aim toward a full return to health. It is a brief, easily understood, valuable index of the construct of mental wellness. It assesses positive psychology traits such as happiness, enthusiasm, resilience, optimism, and overall mental wellness.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FLnUj8kBYDTPedffoU8cO%2FHERO%20Scale.png?alt=media&token=b8430da7-a59f-4b44-8447-b71ba3a3b55a",
+        "domains": [
+          "Mental wellness",
+          "Subjective well-being",
+          "Well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/hero-wellness-scale"
+      },
+      {
+        "id": "AEK6L1WrlyUojwxrhLzx",
+        "active": true,
+        "title": "World Health Organization Disability Assessment Schedule 2.0",
+        "shortTitle": "WHODAS 2.0",
+        "definition": "The adult self-administered version of the World Health Organization Disability Assessment Schedule 2.0 (WHODAS 2.0) is a 36-item measure that assesses disability in adults age 18 years and older. It assesses disability across six domains, including understanding and communicating, getting around, self-care, getting along with people, life activities (i.e., household, work, and/or school activities), and participation in society. Each item on the self-administered version of the WHODAS 2.0 asks the individual to rate how much difficulty he or she has had in specific areas of functioning during the past 30 days.",
+        "shortDefinition": "The adult self-administered version of the World Health Organization Disability Assessment Schedule 2.0 (WHODAS 2.0) is a 36-item measure that assesses disability in adults age 18 years and older.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FAEK6L1WrlyUojwxrhLzx%2FWHODAS%202.0.png?alt=media&token=d15a6ed2-85e5-4d31-8f64-a1bf9a243957",
+        "domains": [
+          "Disability",
+          "Functioning"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/whodas-2.0-36-item-self-administered-disability"
+      },
+      {
+        "id": "8KhzohdSbczgyKPJeNkS",
+        "active": true,
+        "title": "Problematic Internet Use Questionnaire",
+        "shortTitle": "PIUQ-18",
+        "definition": "The Problematic Internet Use Questionnaire (PIUQ) is a useful assessment tool for measuring problems in connection with Internet use. It contains three subscales: obsession, neglect, and control disorder.",
+        "shortDefinition": "The Problematic Internet Use Questionnaire (PIUQ) is a useful assessment tool for measuring problems in connection with Internet use.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F8KhzohdSbczgyKPJeNkS%2FPIUQ-18.png?alt=media&token=8d51e050-b39d-4303-b73e-1594a1329159",
+        "domains": [
+          "Internet addiction"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/problematic-internet-use-questionnaire-piuq-18"
+      },
+      {
+        "id": "lyTFbUNltD8QiybIrbj2",
+        "active": true,
+        "title": "Problematic Internet Use Questionnaire (Youth Version)",
+        "shortTitle": "PIUQ-18 Youth Version",
+        "definition": "The Problematic Internet Use Questionnaire (PIUQ) is a useful assessment tool for measuring problems in connection with Internet use. It contains three subscales: obsession, neglect, and control disorder.",
+        "shortDefinition": "The Problematic Internet Use Questionnaire (PIUQ) is a useful assessment tool for measuring problems in connection with Internet use.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FlyTFbUNltD8QiybIrbj2%2FPIUQ-18%20Youth%20Version.png?alt=media&token=f2467fd0-f908-4e1b-a227-30a24da102fb",
+        "domains": [
+          "Internet addiction"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adolescents",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/problematic-internet-use-questionnaire-piuq-18-youth-version"
+      },
+      {
+        "id": "gbAo5EEZ8idkYIgEA2Bq",
+        "active": true,
+        "title": "Panic Disorder Severity Scale – Self Report",
+        "shortTitle": "PDSS-SR",
+        "definition": "The Panic Disorder Severity Scale (PDSS) is a seven-item scale designed to assess overall severity of panic disorder symptoms. The PDSS-SR is the self-report version of the PDSS.\n\nAlthough there are multiple measures designed to assess various aspects of panic disorder such as anxiety sensitivity, agoraphobic avoidance, physical symptoms and frequency of panic attacks, the Panic Disorder Severity Scale is one of only a limited number of scales designed to assess these multiple aspects at once.",
+        "shortDefinition": "The Panic Disorder Severity Scale (PDSS) is a seven-item scale designed to assess overall severity of panic disorder symptoms. The PDSS-SR is the self-report version of the PDSS.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FgbAo5EEZ8idkYIgEA2Bq%2FPDSS-SR.png?alt=media&token=70260c1f-034e-486c-ad2f-329529812289",
+        "domains": [
+          "Panic Disorder"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "17 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/panic-disorder-severity-scale-pdss-self-report"
+      },
+      {
+        "id": "XBzUJ6AaLcEgey8YdiDz",
+        "active": true,
+        "title": "Morningness-Eveningness Questionnaire",
+        "shortTitle": "MEQ",
+        "definition": "The Morningness-Eveningness Questionnaire (MEQ) is a 19 items scale developed to assess morningness-eveningness – the degree to which respondents are active and alert at certain times of day. Scale items query preferences in sleep and waking times, and subjective “peak” times at which respondents feel their best. ",
+        "shortDefinition": "The Morningness-Eveningness Questionnaire (MEQ) is a 19 items scale developed to assess morningness-eveningness – the degree to which respondents are active and alert at certain times of day.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FXBzUJ6AaLcEgey8YdiDz%2FMEQ.png?alt=media&token=854ff25b-cb04-43b8-9e50-53b223650d58",
+        "domains": [
+          "Morningness-Eveningness",
+          "Sleep"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Youths 18 years and older",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/morningness-eveningness-questionnaire-auto-meq"
+      },
+      {
+        "id": "SL3exZv4pzFgK5oFYFPz",
+        "active": true,
+        "title": "Problematic Online Gaming Questionnaire Short-Form",
+        "shortTitle": "POGQ-SF",
+        "definition": "The Problematic Online Gaming Questionnaire Short-Form (POGQ-SF) is a 12-item measurement tool for the differentiated assessment of gaming related problems on six subscales – preoccupation, overuse, immersion, social isolation, interpersonal conflicts, and withdrawal.",
+        "shortDefinition": "The Problematic Online Gaming Questionnaire Short-Form (POGQ-SF) is a 12-item measurement tool for the differentiated assessment of gaming related problems on six subscales – preoccupation, overuse, immersion, social isolation, interpersonal conflicts, and withdrawal.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FSL3exZv4pzFgK5oFYFPz%2FPOGQ-SF.png?alt=media&token=36694e54-9d76-4caa-9fe3-f83a44c075bf",
+        "domains": [
+          "Internet Gaming Disorder",
+          "Gaming Disorder"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adolescents and Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/problematic-online-gaming-questionnaire-short-form-pogq-sf"
+      },
+      {
+        "id": "9ixHvSdjz1Z2gkX9gP8T",
+        "active": true,
+        "title": "Preliminary IPIP Scales Measuring Constructs Similar to Those in the Hogan Personality Inventory (HPI)",
+        "shortTitle": "IPIP-HPI",
+        "definition": "The IPIP-HPI is a publically available representation of constructs similar to those in the Hogan Personality Inventory (HPI), drawing 288 items from the International Personality Item Pool.",
+        "shortDefinition": "The IPIP-HPI is a publically available representation of constructs similar to those in the Hogan Personality Inventory (HPI), drawing 288 items from the International Personality Item Pool.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F9ixHvSdjz1Z2gkX9gP8T%2FIPIP-HPI.png?alt=media&token=d337d153-93b0-4762-bddd-3d7983317ec0",
+        "domains": [
+          "Personality"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 20 minutes",
+        "aboutLink": "https://psypack.com/assessments/ipip-hpi-hogan-personality-inventory"
+      },
+      {
+        "id": "hDkHAWZxX2FvWOofMwmb",
+        "active": true,
+        "title": "International Trauma Questionnaire",
+        "shortTitle": "ITQ",
+        "definition": "The International Trauma Questionnaire (ITQ) is a self-report diagnostic measure of post-traumatic stress disorder (PTSD) and complex PTSD (CPTSD), as defined in the 11th version of the International Classification of Diseases (ICD-11).\n\nThe ITQ is a brief, simply worded measure, focusing only on the core features of PTSD and CPTSD, and employs straightforward diagnostic rules. The ITQ was developed to be consistent with the organizing principles of the ICD-11, as set forth by the World Health Organization, which are to maximize clinical utility and ensure international applicability through a focus on the core symptoms of a given disorder.",
+        "shortDefinition": "The International Trauma Questionnaire (ITQ) is a self-report diagnostic measure of post-traumatic stress disorder (PTSD) and complex PTSD (CPTSD), as defined in the 11th version of the International Classification of Diseases (ICD-11).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FhDkHAWZxX2FvWOofMwmb%2FITQ.png?alt=media&token=145ad18c-0168-4d23-8cbd-523c3657f2ea",
+        "domains": [
+          "Post-Traumatic Stress Disorder (PTSD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Approximately 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/international-trauma-questionnaire-itq-ptsd"
+      },
+      {
+        "id": "4KKCa2HoeUwW0iBqh87d",
+        "active": true,
+        "title": "UPPS-P Impulsive Behavior Scale",
+        "shortTitle": "UPPS-P",
+        "definition": "The UPPS-P is a revised version of the UPPS Impulsive Behavior scale. This version, UPPS-P, assesses Positive Urgency in addition to the four pathways assessed in the original version of the scale-- Urgency (now Negative Urgency), (lack of) Premeditation, (lack of) Perseverance, and Sensation Seeking. ",
+        "shortDefinition": "The UPPS-P is a revised version of the UPPS Impulsive Behavior scale. This version, UPPS-P, assesses Positive Urgency in addition to the four pathways assessed in the original version of the scale-- Urgency (now Negative Urgency), (lack of) Premeditation, (lack of) Perseverance, and Sensation Seeking. ",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F4KKCa2HoeUwW0iBqh87d%2FUPPS-P.png?alt=media&token=1d8605f4-2094-4ead-958d-03b61fb61544",
+        "domains": [
+          "Impulsivity",
+          "Risk taking",
+          "Personality"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Young adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/upps-p-impulsive-behavior-scale"
+      },
+      {
+        "id": "BAcPB3cRZjeqocqTxX1j",
+        "active": true,
+        "title": "Adult ADHD Self-Report Scale-V1.1 6-Question Screener",
+        "shortTitle": "ASRS-V1.1 6QS",
+        "definition": "The 6-question Adult Self-Report Scale-Version1.1 (ASRS-V1.1 6QS) Screener is a subset of the 18-question Adult ADHD Self-Report Scale-Version1.1 (Adult ASRSV1.1) Symptom Checklist.\n\nThe Adult ADHD Self-Report Scale-V1.1 6-Question Screener is an instrument consisting of the eighteen DSM-IV-TR criteria. Six of the eighteen questions were found to be the most predictive of symptoms consistent with ADHD. These six questions are the basis for the ASRS-V1.1 6QS.",
+        "shortDefinition": "The 6-question Adult Self-Report Scale-Version1.1 (ASRS-V1.1 6QS) Screener is a subset of the 18-question Adult ADHD Self-Report Scale-Version1.1 (Adult ASRSV1.1) Symptom Checklist.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FBAcPB3cRZjeqocqTxX1j%2FASRS%20V1.1%206QS.png?alt=media&token=d85fb4db-a2e2-46c9-94a3-11f0da017879",
+        "domains": [
+          "Attention-Deficit/Hyperactivity Disorder (ADHD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/asrs-v1.1-screener-adhd"
+      },
+      {
+        "id": "u1awexInOgxJVqCnebR5",
+        "active": true,
+        "title": "Gatekeeper Behavior Scale",
+        "shortTitle": "GBS",
+        "definition": "The Gatekeeper Behavior Scale (GBS) is a tool to measure the effectiveness of gatekeeper training by assessing participants’ skills, attitudes, and intentions, which predicts engagement to help those in psychological distress and those at risk of suicide.\n\nThe GBS is tool for assessing a person’s gatekeeper behavior to question, discuss, motivate, and refer those in psychological distress to mental health support services.",
+        "shortDefinition": "The Gatekeeper Behavior Scale (GBS) is a tool to measure the effectiveness of gatekeeper training by assessing participants’ skills, attitudes, and intentions, which predicts engagement to help those in psychological distress and those at risk of suicide.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2Fu1awexInOgxJVqCnebR5%2FGBS.png?alt=media&token=53d47315-c634-419a-bb3a-c495977de224",
+        "domains": [
+          "Gatekeeper Training",
+          "Suicide Prevention"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults and Young adults",
+        "timeEstimate": "About 2 minutes",
+        "aboutLink": "https://psypack.com/assessments/gatekeeper-behavior-scale-suicide-prevention"
+      },
+      {
+        "id": "3iE7686nfj90iLFilU8J",
+        "active": true,
+        "title": "Ohio Youth Problem, Functioning, and Satisfaction Scales (Parent Rating – Short Form)",
+        "shortTitle": "Ohio Scales P-form",
+        "definition": "The Ohio Scales for Youth are brief measures of outcome for youth receiving mental health services. The scales include a 20 item Problem Severity scale and a 20 item Functioning scale rated from the youth. In addition, the parent rate scales of Satisfaction with treatment and Hopefulness.",
+        "shortDefinition": "The Ohio Scales for Youth are brief measures of outcome for youth receiving mental health services. The scales include a 20 item Problem Severity scale and a 20 item Functioning scale rated from the youth. In addition, the parent rate scales of Satisfaction with treatment and Hopefulness.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F3iE7686nfj90iLFilU8J%2FOhio%20Scales%20P-form.png?alt=media&token=272c3b9d-c288-4b61-a123-1755724e49c4",
+        "domains": [
+          "Problem Severity",
+          "Functioning",
+          "Hopefulness",
+          "Satisfaction with treatment"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "5 to 18 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/ohio-youth-problem-functioning-and-satisfaction-scales-p-form"
+      },
+      {
+        "id": "5uJHBX7XCGGNCq5pxEys",
+        "active": true,
+        "title": "Ohio Youth Problem, Functioning, and Satisfaction Scales (Youth Rating – Short Form)",
+        "shortTitle": "Ohio Scales Y-form",
+        "definition": "The Ohio Scales for Youth are brief measures of outcome for youth receiving mental health services. The scales include a 20 item Problem Severity scale and a 20 item Functioning scale rated from the youth. In addition, the youth rate scales of Satisfaction with treatment and Hopefulness.",
+        "shortDefinition": "The Ohio Scales for Youth are brief measures of outcome for youth receiving mental health services. The scales include a 20 item Problem Severity scale and a 20 item Functioning scale rated from the youth. In addition, the youth rate scales of Satisfaction with treatment and Hopefulness.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F5uJHBX7XCGGNCq5pxEys%2FOhio%20Scales%20Y-form.png?alt=media&token=03b78038-ba51-4a86-90cc-66a649fd9e0a",
+        "domains": [
+          "Problem Severity",
+          "Functioning",
+          "Hopefulness",
+          "Satisfaction with treatment"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "12 to 18 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/ohio-youth-problem-functioning-and-satisfaction-scales-y-form"
+      },
+      {
+        "id": "oaKNd8FqUjPZCn4oVJTq",
+        "active": true,
+        "title": "Ohio Youth Problem, Functioning, and Satisfaction Scales (Agency Worker Rating – Short Form)",
+        "shortTitle": "Ohio Scales W-form",
+        "definition": "The Ohio Scales for Youth are brief measures of outcome for youth receiving mental health services. The scales include a 20 item Problem Severity scale and a 20 item Functioning scale rated from the youth. In addition, the agency worker form also includes the Restrictiveness of Living Environment Scale (ROLES) created by Hawkins et al. (1992) and several indicators of outcome.",
+        "shortDefinition": "The Ohio Scales for Youth are brief measures of outcome for youth receiving mental health services. The scales include a 20 item Problem Severity scale and a 20 item Functioning scale rated from the youth. In addition, the agency worker form also includes the Restrictiveness of Living Environment Scale (ROLES) created by Hawkins et al. (1992) and several indicators of outcome.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FoaKNd8FqUjPZCn4oVJTq%2FOhio%20Scales%20W-form.png?alt=media&token=023908ca-de4d-4936-9b18-3b576b857a00",
+        "domains": [
+          "Problem Severity",
+          "Functioning",
+          "Restrictiveness of Living Environment"
+        ],
+        "administrations": [
+          "Agency Worker-Rated"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "5 to 18 years",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/ohio-youth-problem-functioning-and-satisfaction-scales-w-form"
+      },
+      {
+        "id": "0MsDD96JrCrke5CZkreG",
+        "active": true,
+        "title": "Ritvo Autism Asperger Diagnostic Scale-Revised",
+        "shortTitle": "RAADS-R",
+        "definition": "The Ritvo Autism Asperger Diagnostic Scale-Revised (RAADS-R) is a valid and reliable instrument to assist the diagnosis of adults with Autism Spectrum Disorders (ASD).\n\nThe RAADS was designed to address a major gap in screening services for adults with autism spectrum disorders. With the increased prevalence of the condition and the fact that adults are being referred or self-referred for services or diagnosis with increasing frequency, this instrument is a useful clinical tool to assist clinicians with the diagnosis of this growing population of higher functioning individuals in adulthood.",
+        "shortDefinition": "The Ritvo Autism Asperger Diagnostic Scale-Revised (RAADS-R) is a valid and reliable instrument to assist the diagnosis of adults with Autism Spectrum Disorders (ASD).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F0MsDD96JrCrke5CZkreG%2FRAADS-R.png?alt=media&token=95d14468-b123-48a6-98fb-52e93407bf51",
+        "domains": [
+          "Asperger Syndrome",
+          "Autism Spectrum Disorders"
+        ],
+        "administrations": [
+          "Clinician-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults (18 +) with average or above average intelligence",
+        "timeEstimate": "30-60 minutes",
+        "aboutLink": "https://psypack.com/assessments/raads-r-ritvo-autism-asperger-diagnostic-scale-revised"
+      },
+      {
+        "id": "ExnzU1dtJvRYKQae13x0",
+        "active": true,
+        "title": "Social Avoidance and Distress Scale",
+        "shortTitle": "SAD Scale",
+        "definition": "The Social Avoidance and Distress (SAD) scale is a scale to assess levels of Social Avoidance and Distress (SAD).\n\nThe SAD scale is divided into two subscales, social avoidance and social distress. Social avoidance is defined as avoiding being with, talking to, or escaping from others for any reason. Social distress is defined as the reported experience of a negative emotion, such as being upset, distressed, tense, or anxious, in social interactions, or the reported lack of negative emotion, such as being relaxed, calm, at ease, or comfortable.",
+        "shortDefinition": "The Social Avoidance and Distress (SAD) scale is a scale to assess levels of Social Avoidance and Distress (SAD).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FExnzU1dtJvRYKQae13x0%2FSAD%20Scale.png?alt=media&token=9170ab47-382c-4162-941a-dc727d1c92a2",
+        "domains": [
+          "Social Phobia",
+          "Social Anxiety"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Students, Adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/social-avoidance-and-distress-scale-sad"
+      },
+      {
+        "id": "dpLG8NaS5KoNzYPD6OL1",
+        "active": true,
+        "title": "Camouflaging Autistic Traits Questionnaire",
+        "shortTitle": "CAT-Q",
+        "definition": "The Camouflaging of Autistic Traits Questionnaire (CAT-Q) is a 25-item self-report questionnaire measuring strategies used to camouflage autistic traits and comprising three factors (Compensation, Masking and Assimilation) which are summed up to produce a total score from 25 to 175, with higher scores representing greater levels of camouflaging.",
+        "shortDefinition": "The Camouflaging of Autistic Traits Questionnaire (CAT-Q) is a 25-item self-report questionnaire measuring strategies used to camouflage autistic traits and comprising three factors (Compensation, Masking and Assimilation) which are summed up to produce a total score from 25 to 175, with higher scores representing greater levels of camouflaging.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FdpLG8NaS5KoNzYPD6OL1%2FCAT-Q.png?alt=media&token=66e75f26-8232-4ea2-aff6-bf3d3d01a190",
+        "domains": [
+          "Social Camouflaging Behaviours",
+          "Autism Spectrum Disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "16 years and above",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/camouflaging-autistic-traits-questionnaire-cat-q"
+      },
+      {
+        "id": "kbvsnhZA8v1RAeUJDATu",
+        "active": true,
+        "title": "Friel Co-dependency Assessment Inventory",
+        "shortTitle": "FCAI",
+        "definition": "The Friel Co-dependency Assessment Inventory (FCAI) is a clinically based self-report research tool designed to measure codependent concerns in adults.",
+        "shortDefinition": "The Friel Co-dependency Assessment Inventory (FCAI) is a clinically based self-report research tool designed to measure codependent concerns in adults.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FkbvsnhZA8v1RAeUJDATu%2FFCAI.png?alt=media&token=7ee7584c-f147-4220-8b7f-27db97bf1f96",
+        "domains": [
+          "Co-dependency"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Students, Adults",
+        "timeEstimate": "10 to 15 minutes",
+        "aboutLink": "https://psypack.com/assessments/friel-co-dependency-assessment-inventory"
+      },
+      {
+        "id": "PDFVjNw7pApHzuaAL1xu",
+        "active": true,
+        "title": "McLean Screening Instrument for Borderline Personality Disorder",
+        "shortTitle": "MSI-BPD",
+        "definition": "The McLean Screening Instrument for Borderline Personality Disorder (MSI-BPD) is a self-report screening measure for the presence of DSM-IV borderline personality disorder.",
+        "shortDefinition": "The McLean Screening Instrument for Borderline Personality Disorder (MSI-BPD) is a self-report screening measure for the presence of DSM-IV borderline personality disorder.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FPDFVjNw7pApHzuaAL1xu%2FMSI-BPD.png?alt=media&token=d025f67f-aa44-433a-8987-e8e48e75f5cb",
+        "domains": [
+          "Borderline Personality Disorder",
+          "Personality Disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Late Adolescents, Young Adults",
+        "timeEstimate": "Less than 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/mclean-screening-instrument-for-borderline-personality-disorder-msi-bpd"
+      },
+      {
+        "id": "BSxZfKywTjFXqPV8grJ1",
+        "active": true,
+        "title": "Clinical Outcomes in Routine Evaluation – Outcome Measure",
+        "shortTitle": "CORE-OM",
+        "definition": "The Clinical Outcomes in Routine Evaluation – Outcome Measure (CORE-OM) is a 34-item self-report measure designed to assess level of psychological distress and outcome of psychological therapies.\n\nThe 34 items comprise four domains (with each domain comprising specific clusters): specific problems (depression, anxiety, physical problems, trauma), functioning (general day-to-day functioning, close relationships, social functioning, close relationships, social relationships); subjective well-being (feelings about self and optimism about the future); and risk (risk to self, risk to others).",
+        "shortDefinition": "The Clinical Outcomes in Routine Evaluation – Outcome Measure (CORE-OM) is a 34-item self-report measure designed to assess level of psychological distress and outcome of psychological therapies.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FBSxZfKywTjFXqPV8grJ1%2FCORE-OM.png?alt=media&token=2568d531-8553-45c7-be63-2f68c9549c5f",
+        "domains": [
+          "Psychological Distress",
+          "Outcome of Psychological Therapies"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "18 years and above",
+        "timeEstimate": "About 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/core-om-clinical-outcomes-in-routine-evaluation"
+      },
+      {
+        "id": "X20T0WU6KJORTEmIefUQ",
+        "active": false,
+        "title": "Toronto Alexithymia Scale",
+        "shortTitle": "TAS-20",
+        "definition": "The Toronto Alexithymia Scale (TAS) was developed in 1985 as the first reliable and valid self-report measure of the alexithymia construct. It was modified in 1992 to develop a revised and improved twenty-item version, which is called the Twenty-Item Toronto Alexithymia Scale (TAS-20).\n\nThe test measures explicitly the three distinct factors of alexithymia: difficulty identifying emotions (7 items), difficulty describing emotions (5 items), and externally oriented thinking (9 items).",
+        "shortDefinition": "The Toronto Alexithymia Scale (TAS) was developed in 1985 as the first reliable and valid self-report measure of the alexithymia construct. It was modified in 1992 to develop a revised and improved twenty-item version, which is called the Twenty-Item Toronto Alexithymia Scale (TAS-20).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FX20T0WU6KJORTEmIefUQ%2FTAS-20.png?alt=media&token=006991e8-92d5-4c01-a4b9-3920efca4e98",
+        "domains": [
+          "Alexithymia",
+          "Emotion Regulation",
+          "Emotions",
+          "Personality",
+          "Personality Disorders"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "16 years and above",
+        "timeEstimate": "5-10 minutes",
+        "aboutLink": "https://psypack.com/assessments/toronto-alexithymia-scale-tas-20"
+      },
+      {
+        "id": "OAv39VI5qnjGSeSVrCav",
+        "active": true,
+        "title": "Depression, Anxiety and Stress Scale - Youth",
+        "shortTitle": "DASS-Y",
+        "definition": "The Depression, Anxiety and Stress Scale - Youth (DASS-Y) is a psychometrically sound brief dimensional measure of depression, anxiety and stress in children and adolescents aged 8–17.\n\nThe DASS-Y is a 21-item youth version of the Depression Anxiety Stress Scales (DASS; Lovibond and Lovibond, 1995b). The DASS is a set of psychometrically sound scales that is widely used to assess negative emotional states in adults.",
+        "shortDefinition": "The Depression, Anxiety and Stress Scale - Youth (DASS-Y) is a psychometrically sound brief dimensional measure of depression, anxiety and stress in children and adolescents aged 8–17.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FOAv39VI5qnjGSeSVrCav%2FDASS-Y.png?alt=media&token=d0cda2dc-f9fb-43d0-840f-8173ceea519b",
+        "domains": [
+          "Depression",
+          "Anxiety",
+          "Stress"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "8-17 years",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/dass-y-depression-anxiety-stress-scale-youth"
+      },
+      {
+        "id": "iQXAaq5qRDuvPnb9QqRa",
+        "active": true,
+        "title": "Experiences in Close Relationships-Revised",
+        "shortTitle": "ECR-R",
+        "definition": "The Experiences in Close Relationships-Revised (ECR-R) questionnaire is designed to assess individual differences with respect to attachment-related anxiety (i.e., the extent to which people are insecure vs. secure about the availability and responsiveness of romantic partners) and attachment-related avoidance (i.e., the extent to which people are uncomfortable being close to others vs. secure depending on others).\n\nThe ECR-R questionnaire is a revised version of Brennan, Clark, and Shaver's (1998) Experiences in Close Relationships (ECR) questionnaire.",
+        "shortDefinition": "The Experiences in Close Relationships-Revised (ECR-R) questionnaire is designed to assess individual differences with respect to attachment-related anxiety (i.e., the extent to which people are insecure vs. secure about the availability and responsiveness of romantic partners) and attachment-related avoidance (i.e., the extent to which people are uncomfortable being close to others vs. secure depending on others).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FiQXAaq5qRDuvPnb9QqRa%2FECR-R.png?alt=media&token=4ab85312-be5d-430f-bac4-fb348381af2a",
+        "domains": [
+          "Attachment",
+          "Avoidance",
+          "Anxiety",
+          "Problem Severity",
+          "Relationship"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/experiences-in-close-relationships-revised-ecr-r-scale"
+      },
+      {
+        "id": "WrgnNapILuQB0PbymQIm",
+        "active": true,
+        "title": "Inventory of Complicated Grief",
+        "shortTitle": "ICG",
+        "definition": "The Inventory of Complicated Grief (ICG) provides an easily administered assessment for symptoms of complicated grief.\n\nComplicated grief refers to certain symptoms of grief that have been shown to be distinct from bereavement-related depression and anxiety, and to predict long-term functional impairments.",
+        "shortDefinition": "The Inventory of Complicated Grief (ICG) provides an easily administered assessment for symptoms of complicated grief.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FWrgnNapILuQB0PbymQIm%2FICG.png?alt=media&token=674bcb2d-cfb1-4ae3-8751-b0206d50a594",
+        "domains": [
+          "Grief"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Elders",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/inventory-of-complicated-grief-icg"
+      },
+      {
+        "id": "iBCwTBE8uppUyYbZAwNJ",
+        "active": true,
+        "title": "Wender Utah Rating Scale – 25",
+        "shortTitle": "WURS-25",
+        "definition": "The Wender Utah Rating Scale (WURS) is a retrospective self-report of childhood attention-deficit/hyperactivity disorder (ADHD) symptoms used by physicians and other healthcare professionals to screen for possible adult ADHD, and by psychologists as one component of a comprehensive adult ADHD evaluation. \n\nThe Wender Utah Rating Scale (WURS) is a widely used screening tool for the diagnosis of attention-deficit/hyperactivity disorder (ADHD) in adults. Developed by Dr. Paul H. Wender, a pioneer in ADHD research, the WURS was initially designed to assess childhood symptoms retrospectively in adult patients. The original WURS consisted of 61 questions, but the WURS-25, a shorter 25-question version, is now commonly used due to its efficiency and comparable validity.",
+        "shortDefinition": "The Wender Utah Rating Scale (WURS) is a retrospective self-report of childhood attention-deficit/hyperactivity disorder (ADHD) symptoms used by physicians and other healthcare professionals to screen for possible adult ADHD, and by psychologists as one component of a comprehensive adult ADHD evaluation.\n\nThe Wender Utah Rating Scale (WURS) is a widely used screening tool for the diagnosis of attention-deficit/hyperactivity disorder (ADHD) in adults. Developed by Dr. Paul H. Wender, a pioneer in ADHD research, the WURS was initially designed to assess childhood symptoms retrospectively in adult patients. The original WURS consisted of 61 questions, but the WURS-25, a shorter 25-question version, is now commonly used due to its efficiency and comparable validity.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FiBCwTBE8uppUyYbZAwNJ%2FWURS-25.png?alt=media&token=0d8954e8-2331-45df-9d11-324d943074e1",
+        "domains": [
+          "Attention-Deficit/Hyperactivity Disorder (ADHD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "2-5 minutes",
+        "aboutLink": "https://psypack.com/assessments/wender-utah-rating-scale-25-wurs-25-adhd"
+      },
+      {
+        "id": "6aLzXfXbAFyboPMzBuHq",
+        "active": true,
+        "title": "Flourishing Scale",
+        "shortTitle": "FS",
+        "definition": "The Flourishing Scale (FS) is a brief 8-item summary measure of the respondent's self-perceived success in important areas such as relationships, self-esteem, purpose, and optimism. The scale provides a single psychological well-being score.",
+        "shortDefinition": "The Flourishing Scale (FS) is a brief 8-item summary measure of the respondent's self-perceived success in important areas such as relationships, self-esteem, purpose, and optimism. The scale provides a single psychological well-being score.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2F6aLzXfXbAFyboPMzBuHq%2FFS.png?alt=media&token=723b5ce7-fdb7-469e-b428-94f03a75025d",
+        "domains": [
+          "Subjective well-being"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Students, Adults",
+        "timeEstimate": "About 1-2 minutes",
+        "aboutLink": "https://psypack.com/assessments/flourishing-scale-fs-psychological-well-being"
+      },
+      {
+        "id": "Dk3ePQsrGd7DFW4T9oxA",
+        "active": true,
+        "title": "Swanson, Nolan, and Pelham Teacher and Parent Rating Scale - 26 item version",
+        "shortTitle": "SNAP-IV 26",
+        "definition": "The SNAP-IV 26-item scale is an abbreviated version of the Swanson, Nolan and Pelham (SNAP) Questionnaire (Swanson, 1992; Swanson et al., 1983). Items from the DSM-IV criteria for Attention Deficit Hyperactivity Disorder (ADHD) are included for the two subsets of symptoms: inattention (items 1-9) and hyperactivity/impulsivity (items 10-18). Also, items are included from the DSM-IV criteria for Oppositional Defiant Disorder (items 19-26) because ODD is often present in children with ADHD.",
+        "shortDefinition": "The SNAP-IV 26-item scale is an abbreviated version of the Swanson, Nolan and Pelham (SNAP) Questionnaire (Swanson, 1992; Swanson et al., 1983). Items from the DSM-IV criteria for Attention Deficit Hyperactivity Disorder (ADHD) are included for the two subsets of symptoms: inattention (items 1-9) and hyperactivity/impulsivity (items 10-18). Also, items are included from the DSM-IV criteria for Oppositional Defiant Disorder (items 19-26) because ODD is often present in children with ADHD.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FDk3ePQsrGd7DFW4T9oxA%2FSNAP-IV%2026.png?alt=media&token=9c559717-adca-48fb-84ab-b98b9595061c",
+        "domains": [
+          "Attention-Deficit/Hyperactivity Disorder (ADHD)",
+          "Oppositional Defiant Disorder (ODD)"
+        ],
+        "administrations": [
+          "Parent/Caregiver-administered",
+          "Teacher-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "6 to 18 years",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/snap-iv-26-adhd"
+      },
+      {
+        "id": "uFWiGUPaPTwzFCpJmrWZ",
+        "active": true,
+        "title": "Dimensional Obsessive-Compulsive Scale",
+        "shortTitle": "DOCS",
+        "definition": "The Dimensional Obsessive-Compulsive Scale (DOCS) is a 20-item self-report measure of the severity of obsessive-compulsive symptoms (usually associated with obsessive-compulsive disorder or OCD).\n\nThere are many different types of obsessions and compulsions, and the DOCS assesses the severity of the most common clusters or dimensions of these symptoms: (a) contamination obsessions and de-contamination rituals (e.g., hand washing), (b) obsessions about responsibility for harm and mistakes and checking rituals, (c) symmetry/ordering and completeness obsessions and compulsions, and (d) obsessions about taboo or repugnant topics such as sex, violence, and blasphemy. Items on the DOCS measure the following parameters of these four symptom types: frequency of obsessions and compulsions, associated avoidance behavior, associated distress, and functional interference.",
+        "shortDefinition": "The Dimensional Obsessive-Compulsive Scale (DOCS) is a 20-item self-report measure of the severity of obsessive-compulsive symptoms (usually associated with obsessive-compulsive disorder or OCD).",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FuFWiGUPaPTwzFCpJmrWZ%2FDOCS.png?alt=media&token=3fdba4c7-908b-43d5-8433-df8fa3d5b3b2",
+        "domains": [
+          "Obsessive-Compulsive Disorder (OCD)"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Clinical"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adults",
+        "timeEstimate": "About 5 minutes",
+        "aboutLink": "https://psypack.com/assessments/docs-dimensional-obsessive-compulsive-scale"
+      },
+      {
+        "id": "QvLOqkZh4hvzYWRkPsRV",
+        "active": true,
+        "title": "Social Emotional Health Survey-Secondary-2020",
+        "shortTitle": "SEHS-S-2020",
+        "definition": "The SEHS–Secondary is a self-report assessment identifying adolescents' strengths. It features a higher-order factor structure with 12 subscales linked to four second-order traits: belief in self (self-awareness, persistence, self-efficacy), belief in others (school support, family coherence, peer support), emotional competence (empathy, self-control, behavioral self-control), and engaged living (gratitude, zest, optimism). These traits align with a higher-order latent trait called covitality. The latest validated version is SEHS-S-2020.",
+        "shortDefinition": "The SEHS–Secondary is a self-report assessment identifying adolescents' strengths. It features a higher-order factor structure with 12 subscales linked to four second-order traits: belief in self (self-awareness, persistence, self-efficacy), belief in others (school support, family coherence, peer support), emotional competence (empathy, self-control, behavioral self-control), and engaged living (gratitude, zest, optimism). These traits align with a higher-order latent trait called covitality. The latest validated version is SEHS-S-2020.",
+        "logoUrl": "https://firebasestorage.googleapis.com/v0/b/psypack-deploy.appspot.com/o/assessments%2FQvLOqkZh4hvzYWRkPsRV%2FSEHS-S-2020.png?alt=media&token=9c8d5606-6bfa-4d29-932f-63e509f3d263",
+        "domains": [
+          "Covitality",
+          "Social and Emotional Skills",
+          "Strengths"
+        ],
+        "administrations": [
+          "Self-administered"
+        ],
+        "assessment_types": [
+          "Positive psychology"
+        ],
+        "assessment_modes": [
+          "Questionnaire"
+        ],
+        "eligibility": "Adolescents, Youth",
+        "timeEstimate": "5 to 10 minutes",
+        "aboutLink": "https://psypack.com/assessments/social-emotional-health-survey-secondary-sehs-s-2020-covitality"
+      }
+    ]
+  }
+}
