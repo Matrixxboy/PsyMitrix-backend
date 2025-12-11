@@ -1,0 +1,28 @@
+{
+  "http_status": 200,
+  "http_code": "OK",
+  "message": "Assessment status fetched successfully",
+  "data": {
+    "status": "success",
+    "assessmentStatus": "report_generated",
+    "reportId": "gvX5fzjv113fwFoVvhGr",
+    "submissionTime": 1765443994895,
+    "email": "pggittu16@gmail.com",
+    "keyMetrics": [
+      {
+        "domains": [
+          2
+        ],
+        "key": "GAD-7 Score",
+        "value": 7
+      },
+      {
+        "domains": [
+          2
+        ],
+        "key": "Anxiety Severity",
+        "value": "Mild"
+      }
+    ]
+  }
+}

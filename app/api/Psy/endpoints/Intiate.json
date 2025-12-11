@@ -4,12 +4,12 @@
   "message": "Assessment initiated successfully",
   "data": {
     "status": "success",
-    "init_code": "886fbd24-6e92-4a2d-9c43-d579a684690b",
+    "init_code": "556483be-746d-4f8a-9fc6-dd885bcc40f1",
     "assessmentLinks": [
       {
-        "email": "salmankhan3145@gmail.com",
-        "assessmentUrl": "https://app.psypack.com/assessment/15RbBHV4ioXrAoKXyZ3b",
-        "assessmentId": "15RbBHV4ioXrAoKXyZ3b"
+        "email": "pggittu16@gmail.com",
+        "assessmentUrl": "https://app.psypack.com/assessment/nagB0dBPnBVw4APRXxDc",
+        "assessmentId": "nagB0dBPnBVw4APRXxDc"
       }
     ]
   }

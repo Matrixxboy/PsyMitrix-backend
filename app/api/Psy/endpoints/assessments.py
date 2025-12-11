@@ -1,9 +1,13 @@
+import json
 import os
+import io
 import requests
-from fastapi import APIRouter
+from fastapi import APIRouter 
+from fastapi.responses import StreamingResponse
 from app.utils.http_constants import HTTP_STATUS, HTTP_CODE
 from app.utils.response_helper import make_response
 from app.Models.users import User
+from app.Models.pdfbody import PdfBody
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -12,7 +16,7 @@ router=APIRouter(prefix="/assessments")
 CLIENT_ID = os.getenv("PSY_ENDRO_CLIENT_ID")
 CLIENT_SECRET = os.getenv("PSY_ENDRO_CLIENT_SECRET_KEY")
 
-# Get available assessments list
+#1. Get available assessments list
 @router.get("/list")
 def get_assessments():
     try:
@@ -38,7 +42,7 @@ def get_assessments():
             data={}
         )
 
-# Initiate assessment
+#2. Initiate assessment
 @router.post("/initiate")
 def initiate_assessment(assessment_id: str,user: User):
     try:
@@ -78,7 +82,7 @@ def initiate_assessment(assessment_id: str,user: User):
 
 
 
-# status assessment
+#3. Get assessment status
 @router.get("/status/")
 def get_assessment_status(user_assessment_id: str):
     try:
@@ -104,4 +108,47 @@ def get_assessment_status(user_assessment_id: str):
         )
 
 
-#get report
+#4. Get report PDF  
+@router.post("/generate-report")
+def generate_report(report_id: str, body: PdfBody):
+    """
+    Fetch PsyPack PDF report and return as downloadable PDF.
+    """
+
+    try:
+        url = f"https://asia-south1-psypack-deploy.cloudfunctions.net/api/report/{report_id}/pdf"
+
+        headers = {
+            "clientid": CLIENT_ID,
+            "clientsecret": CLIENT_SECRET,
+            "Content-Type": "application/json"
+        }
+
+        payload = {
+            "sections": body.sections,
+            "templateId": body.templateId or 0,
+            "parameters": body.parameters or {}
+        }
+
+        # Send request to PsyPack
+        response = requests.post(url, headers=headers, json=payload)
+
+        # If PsyPack returns an error
+        if response.status_code != 200:
+            return {
+                "status": "error",
+                "message": response.text,
+                "http_code": response.status_code
+            }
+
+        # Convert PDF bytes to stream
+        pdf_stream = io.BytesIO(response.content)
+
+        return StreamingResponse(
+            pdf_stream,
+            media_type="application/pdf",
+            headers={"Content-Disposition": "attachment; filename=psypack_report.pdf"}
+        )
+
+    except Exception as e:
+        return {"error": str(e)}
